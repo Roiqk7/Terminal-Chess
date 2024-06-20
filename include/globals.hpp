@@ -6,6 +6,9 @@ Description:
 Notes: x
 */
 
+#ifndef GLOBALS_HPP
+#define GLOBALS_HPP
+
 #include <string>
 
 namespace Chess
@@ -43,3 +46,5 @@ namespace Chess
                 using FEN = std::string;
         }
 }
+
+#endif // !GLOBALS_HPP

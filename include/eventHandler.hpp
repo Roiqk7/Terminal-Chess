@@ -6,6 +6,9 @@ Description: This file contains functions and datatypes related to event handlin
 Notes: x
 */
 
+#ifndef EVENT_HANDLER_HPP
+#define EVENT_HANDLER_HPP
+
 #include <stack>
 #include "globals.hpp"
 
@@ -29,3 +32,5 @@ namespace Chess
                 using EventStack = std::stack<Event>;                           // Stack of events to keep track of the game history
         }
 }
+
+#endif // !EVENT_HANDLER_HPP
