@@ -6,6 +6,7 @@ Description: This file contains functions and datatypes related to event handlin
 Notes: x
 */
 
+#include <stack>
 #include "globals.hpp"
 
 namespace Chess
@@ -22,5 +23,7 @@ namespace Chess
                         Type type;
                         Globals::Player player;
                 };
+
+                using EventStack = std::stack<Event>;
         }
 }

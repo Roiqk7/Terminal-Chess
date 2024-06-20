@@ -14,6 +14,8 @@ namespace Chess
         {
                 namespace Constants
                 {
+                        // Chess board
+                        const size_t BOARD_ARRAY_SIZE = 64;
                         // ANSI color codes
                         const std::string RESET_COLOR = "\033[0m";
                         const std::string WHITE_PIECE_COLOR = "\033[97m"; // Bright white for pieces
