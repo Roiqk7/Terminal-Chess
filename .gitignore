@@ -34,5 +34,5 @@
 # Custom
 .vscode/
 build/
-data/
+#data/
 LICENSE
