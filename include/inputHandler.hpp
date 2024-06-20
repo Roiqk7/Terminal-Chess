@@ -10,8 +10,8 @@ Notes: x
 #define INPUT_HANDLER_HPP
 
 #include <string>
-#include "../include/eventHandler.hpp"
-#include "../include/globals.hpp"
+#include "eventHandler.hpp"
+#include "globals.hpp"
 
 namespace Chess
 {

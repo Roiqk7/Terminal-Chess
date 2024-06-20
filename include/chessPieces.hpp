@@ -9,6 +9,8 @@ Notes: x
 #ifndef CHESS_PIECES_HPP
 #define CHESS_PIECES_HPP
 
+#include "globals.hpp"
+
 namespace Chess
 {
         namespace Pieces

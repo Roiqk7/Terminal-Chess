@@ -12,10 +12,10 @@ Notes: x
 #include <array>
 #include <string>
 #include <vector>
-#include "../include/chessBoard.hpp"
-#include "../include/chessPieces.hpp"
-#include "../include/eventHandler.hpp"
-#include "../include/globals.hpp"
+#include "chessBoard.hpp"
+#include "chessPieces.hpp"
+#include "eventHandler.hpp"
+#include "globals.hpp"
 
 namespace Chess
 {
