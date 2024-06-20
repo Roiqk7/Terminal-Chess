@@ -33,11 +33,20 @@ namespace Chess
 
                 class Handler                                                   // Handles events
                 {
-                public: // Variables
-                        EventStack eventStack;                                  // Stack of events to keep track of the game history
+                public: // Methods
+                // Constructors
+                        Handler();                                              // Default constructor
+                // Event handling
+                        void submitEvent(const Event& event);                   // Submit an event
+                // Getters
+                        Event getCurrentEvent() const;                          // Get the current event
+                        Event getPreviousEvent() const;                         // Get the previous event
                 private: // Variables
-                        Event currentEvent;                                     // Current event ()
+                        EventStack eventStack;                                  // Stack of events (current one at the top)
                         Event previousEvent;                                    // Previous event
+                private: // Methods
+                // Event handling
+                        void handleEvent(const Event& event);                   // Handle an event
                 };
         }
 }
