@@ -34,7 +34,7 @@ namespace Chess
 
                 enum class Color                                                // Enum representing the color of a piece or player
                 {
-                        White, Black
+                        None = 0, White, Black
                 };
 
                 struct Coordinate

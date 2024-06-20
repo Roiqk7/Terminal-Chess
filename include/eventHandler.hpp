@@ -20,9 +20,9 @@ namespace Chess
                 {
                         enum class Type                                         // Enum class to represent the type of an event
                         {
-                                GameStart, GameEnd, Move, Capture, Check,
-                                        Checkmate, Stalemate, Draw, Promotion,
-                                        Castling, EnPassant
+                                None = 0,GameStart, GameEnd, Move, Capture,
+                                Check, Checkmate, Stalemate, Draw, Promotion,
+                                Castling, EnPassant
                         };
 
                         Type type;                                              // Type of the event
@@ -30,6 +30,15 @@ namespace Chess
                 };
 
                 using EventStack = std::stack<Event>;                           // Stack of events to keep track of the game history
+
+                class Handler                                                   // Handles events
+                {
+                public: // Variables
+                        EventStack eventStack;                                  // Stack of events to keep track of the game history
+                private: // Variables
+                        Event currentEvent;                                     // Current event ()
+                        Event previousEvent;                                    // Previous event
+                };
         }
 }
 
