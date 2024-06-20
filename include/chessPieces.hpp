@@ -13,13 +13,15 @@ namespace Chess
 {
         namespace Pieces
         {
-                enum class PieceType
+                enum class PieceType                                            // Enum class to represent the type of a piece with values from 0 to 6.
                 {
                         None = 0, Pawn, Knight, Bishop, Rook, Queen, King
                 };
 
-                class Piece
+                class Piece                                                     // Class representing a chess piece
                 {
+                public: // Variables
+                        PieceType pieceType;                                    // Type of the piece
 
                 };
         }

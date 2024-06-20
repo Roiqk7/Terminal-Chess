@@ -21,9 +21,10 @@ namespace Chess
 {
         namespace Board
         {
-                using BoardArray = std::array<Pieces::PieceType, Globals::Constants::BOARD_ARRAY_SIZE>;
+                using BoardArray = std::array<Pieces::PieceType,
+                        Globals::Constants::BOARD_ARRAY_SIZE>;                  // Array representing the chess board (64 elements)
 
-                class Board
+                class Board                                                     // Class representing the chess board
                 {
                 public: // Variables
                         BoardArray boardArray;                                  // Array representing the chess board (64 elements)

@@ -17,10 +17,13 @@ namespace Chess
 {
         namespace InputHandler
         {
-                EventHandler::Event handleUserInput();
-                std::string getUserInput(const std::string& prompt, Globals::GameState gameState);
-                bool validateUserInput(const std::string& input, Globals::GameState gameState);
-                EventHandler::Event getEventFromUserInput(const std::string& input);
+                EventHandler::Event handleUserInput();                          // Handles user input from start to finish
+                std::string getUserInput(const std::string& prompt,
+                        Globals::GameState gameState);                          // Get user input from the console
+                bool validateUserInput(const std::string& input,
+                        Globals::GameState gameState);                          // Validate user input
+                EventHandler::Event getEventFromUserInput(
+                        const std::string& input);                              // Translate user input into an event
         }
 }
 
