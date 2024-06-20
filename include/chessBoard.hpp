@@ -33,7 +33,6 @@ namespace Chess
                 // Constructors
                         Board();                                                // Default constructor
                         Board(const Globals::FEN& fen);                         // Constructor with FEN string
-                // Methods
                 // Game logic
                         void makeMove(const EventHandler::Event& event);        // Make a move on the board
                 // Setters
