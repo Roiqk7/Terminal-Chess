@@ -10,7 +10,7 @@ int main()
                 Event userInput = handleUserInput();
 
                 // handle event
-                handleEvent(userInput);
+                eventHandler.submit(userInput);
 
                 // update game state
                 updateGameState();
