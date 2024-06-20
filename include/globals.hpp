@@ -38,5 +38,7 @@ namespace Chess
                 {
                         Pawn, Knight, Bishop, Rook, Queen, King
                 };
+
+                using FEN = std::string;
         }
 }
