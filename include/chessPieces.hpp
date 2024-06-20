@@ -13,8 +13,6 @@ namespace Chess
 {
         namespace Pieces
         {
-                using PieceChar = char;
-
                 enum class PieceType
                 {
                         None = 0, Pawn, Knight, Bishop, Rook, Queen, King
