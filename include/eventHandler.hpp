@@ -1,7 +1,7 @@
 /*
 Date: 20/06/2024
 
-Description:
+Description: This file contains functions and datatypes related to event handling.
 
 Notes: x
 */
