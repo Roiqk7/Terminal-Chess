@@ -17,7 +17,9 @@ namespace Chess
                 {
                         enum class Type
                         {
-                                GameStart, GameEnd, Move, Capture, Check, Checkmate, Stalemate, Draw, Promotion, Castling, EnPassant
+                                GameStart, GameEnd, Move, Capture, Check,
+                                        Checkmate, Stalemate, Draw, Promotion,
+                                        Castling, EnPassant
                         };
 
                         Type type;
