@@ -10,6 +10,7 @@ Notes: x
 #define EVENT_HANDLER_HPP
 
 #include <stack>
+#include <string>
 #include "globals.hpp"
 
 namespace Chess
@@ -27,6 +28,7 @@ namespace Chess
 
                         Type type;                                              // Type of the event
                         Globals::Color player;                                  // Player who caused the event
+                        std::string userInput;                                  // User input that caused the event (various parts are comma separated)
                 };
 
                 using EventStack = std::stack<Event>;                           // Stack of events to keep track of the game history
