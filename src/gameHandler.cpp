@@ -17,8 +17,7 @@ namespace Chess
                 */
                 void mainGameLoop()
                 {
-                        startGame();
-                        endGame();
+                        // Placeholder
                 }
 
                 void startGame()
