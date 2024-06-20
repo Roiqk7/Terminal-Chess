@@ -13,7 +13,7 @@ namespace Chess
         namespace GameHandler
         {
                 /*
-                This function controls the ent
+                This function controls the entire game.
                 */
                 void mainGameLoop()
                 {
@@ -31,3 +31,4 @@ namespace Chess
                         // Placeholder
                 }
         }
+}
