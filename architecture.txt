@@ -1,0 +1,18 @@
+int main()
+{
+        // game loop
+        while (true)
+        {
+                // take user input
+                std::string userInput = takeInput();
+
+                // handle event
+                handleEvent(userInput);
+
+                // update game state
+                updateGameState();
+
+                // render game state
+                renderGameState();
+        }
+}
