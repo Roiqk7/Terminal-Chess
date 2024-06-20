@@ -22,14 +22,19 @@ namespace Chess
                         const std::string BLACK_TILE_COLOR = "\033[48;5;52m"; // Dark red background for black tiles;
                 }
 
-                enum class PieceType
+                enum class GameState
                 {
-                        Pawn, Knight, Bishop, Rook, Queen, King
+                        MainMenu, Game, GameOver
                 };
 
                 enum class Player
                 {
                         White, Black
+                };
+
+                enum class PieceType
+                {
+                        Pawn, Knight, Bishop, Rook, Queen, King
                 };
         }
 }

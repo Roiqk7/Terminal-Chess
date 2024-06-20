@@ -11,14 +11,16 @@ Notes: x
 
 #include <string>
 #include "../include/eventHandler.hpp"
+#include "../include/globals.hpp"
 
 namespace Chess
 {
         namespace InputHandler
         {
-                EventHandler::Event handleUserInput(); // NOTE:
-                std::string getUserInput(const std::string& prompt);
-
+                EventHandler::Event handleUserInput();
+                std::string getUserInput(const std::string& prompt, Globals::GameState gameState);
+                bool validateUserInput(const std::string& input, Globals::GameState gameState);
+                EventHandler::Event getEventFromUserInput(const std::string& input);
         }
 }
 
