@@ -11,6 +11,7 @@ Notes: x
 #include <string>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/tool.hpp"
 
