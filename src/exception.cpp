@@ -31,6 +31,23 @@ namespace Chess
                 {
                         return message.c_str();
                 }
+        // InvalidInputException
+                /*
+                Constructor for the invalid input exception.
+                */
+                InvalidInputException::InvalidInputException(const std::string& message)
+                        : RunTimeException(message)
+                {
+                        logException(message);
+                }
+
+                /*
+                Get the exception message.
+                */
+                const char* InvalidInputException::what() const noexcept
+                {
+                        return message.c_str();
+                }
         // Methods
 
                 /*

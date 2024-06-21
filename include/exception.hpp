@@ -28,6 +28,18 @@ namespace Chess
                 // Variables
                         std::string message;
                 };
+
+                class InvalidInputException : public RunTimeException
+                {
+                public:
+                // Constructors
+                        InvalidInputException(const std::string& message);
+                // Methods
+                        virtual const char* what() const noexcept override;
+                private:
+                // Variables
+                        std::string message;
+                };
         // Functions
                 void logException(const std::string& message);
         }
