@@ -23,6 +23,7 @@ target_sources(TerminalChess PRIVATE
         src/flowControl.cpp
         src/eventHandler.cpp
         src/gameHandler.cpp
+        src/globals.cpp
         src/gui.cpp
         src/inputHandler.cpp
         tool/tool.cpp
