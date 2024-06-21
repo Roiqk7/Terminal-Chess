@@ -43,7 +43,32 @@ namespace Chess
                         const std::string BLACK_PIECE_COLOR = "\033[30m";       // Black for pieces
                         const std::string WHITE_TILE_COLOR = "\033[48;5;230m";  // Light gray background for white tiles
                         const std::string BLACK_TILE_COLOR = "\033[48;5;52m";   // Dark red background for black tiles;
-                }
+                // File paths
+                // Assets
+                        const std::string ASSETS_PATH = "assets/";              // Path to the assets folder
+                        const std::string ERROR_BANNER_PATH = ASSETS_PATH
+                                + "errorBanner.txt";                            // Path to the error banner
+                        const std::string FAREWELL_PATH = ASSETS_PATH
+                                + "farewell.txt";                               // Path to the farewell text
+                        const std::string FOOTER_LEFT_PATH = ASSETS_PATH
+                                + "footerLeft.txt";                             // Path to the left footer
+                        const std::string FOOTER_RIGHT_PATH = ASSETS_PATH
+                                + "footerRight.txt";                            // Path to the right footer
+                        const std::string GAME_OVER_BANNER_PATH = ASSETS_PATH
+                                + "gameOverBanner.txt";                         // Path to the game over banner
+                        const std::string HEADER_LEFT_PATH = ASSETS_PATH
+                                + "headerLeft.txt";                             // Path to the left header
+                        const std::string HEADER_RIGHT_PATH = ASSETS_PATH
+                                + "headerRight.txt";                            // Path to the right header
+                        const std::string MAIN_MENU_PATH = ASSETS_PATH
+                                + "mainMenu.txt";                               // Path to the main menu
+                        const std::string MAIN_MENU_BANNER_PATH = ASSETS_PATH
+                                + "mainMenuBanner.txt";                         // Path to the main menu banner
+                        const std::string USER_INPUT_SEPARATOR_PATH = ASSETS_PATH
+                                + "userInputSeparator.txt";                     // Path to the user input separator
+                        const std::string WELCOME_BANNER_PATH = ASSETS_PATH
+                                + "welcomeBanner.txt";                          // Path to the welcome banner
+                        }
 
                 /*
                 Game states influence the the relationship between the game
