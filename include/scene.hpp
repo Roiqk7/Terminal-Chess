@@ -1,7 +1,7 @@
 /*
 Date: 21/06/2024
 
-Description: This file defines scene related functions.
+Description: This file defines scene related classes and functions.
 
 Notes: x
 */
