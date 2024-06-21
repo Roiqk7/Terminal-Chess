@@ -21,7 +21,9 @@ namespace Chess
         namespace GUI
         {
                 /*
-                Display the intro.
+                Display the intro. Actually, it also prepares the terminal for the
+                application by getting the terminal dimensions and clearing the
+                screen.
                 */
                 void displayIntro()
                 {
