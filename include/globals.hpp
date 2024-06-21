@@ -49,8 +49,8 @@ namespace Chess
 
         // GUI
                 // GUI Dimensions
-                size_t GUI_WIDTH = 64;                                          // Width of the GUI
-                size_t GUI_HEIGHT = 32;                                         // Height of the GUI
+                extern size_t GUI_WIDTH;                                        // Width of the GUI (defined in gui.cpp)
+                extern size_t GUI_HEIGHT;                                       // Height of the GUI (defined in gui.cpp)
         }
 }
 
