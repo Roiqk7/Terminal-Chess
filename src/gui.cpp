@@ -21,11 +21,23 @@ namespace Chess
                 */
                 void displayBanner(const std::string& filePath)
                 {
+                        // Clear the screen
+                        clearScreen();
+
                         // Get the banner from the file
                         std::string banner = Tool::readFileContents(filePath);
 
                         // Display the banner
                         std::cout << banner << std::endl;
+                }
+
+                /*
+                Clear the screen.
+                */
+                void clearScreen()
+                {
+                        // Clear the screen
+                        std::cout << "\033[2J\033[1;1H";
                 }
         }
 }

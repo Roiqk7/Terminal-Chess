@@ -36,6 +36,8 @@ namespace Chess
                 void displayErrorMessage(const std::string& errorMessage);      // Display an error message
         // Banners
                 void displayBanner(const std::string& filePath);                // Display a banner
+        // Utility
+                void clearScreen();                                             // Clear the screen
         }
 }
 
