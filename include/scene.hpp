@@ -14,6 +14,7 @@ namespace Chess
 {
         namespace Scene
         {
+        // Element
                 struct Element
                 {
                 public: // Variables
@@ -28,7 +29,7 @@ namespace Chess
                 public: // Operators
                         bool operator==(const Element& element) const;          // Equality operator
                 };
-
+        // Scene
                 class Scene
                 {
                 public: // Variables
