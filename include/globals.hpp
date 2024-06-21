@@ -45,7 +45,7 @@ namespace Chess
                         const std::string BLACK_TILE_COLOR = "\033[48;5;52m";   // Dark red background for black tiles;
                 // File paths
                 // Assets
-                        const std::string ASSETS_PATH = "assets/";              // Path to the assets folder
+                        const std::string ASSETS_PATH = "../assets/";           // Path to the assets folder
                         const std::string ERROR_BANNER_PATH = ASSETS_PATH
                                 + "errorBanner.txt";                            // Path to the error banner
                         const std::string FAREWELL_PATH = ASSETS_PATH
