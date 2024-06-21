@@ -12,7 +12,6 @@ Notes: x
 #include <array>
 #include <string>
 #include <vector>
-#include "chessBoard.hpp"
 #include "chessPieces.hpp"
 #include "eventHandler.hpp"
 #include "globals.hpp"
