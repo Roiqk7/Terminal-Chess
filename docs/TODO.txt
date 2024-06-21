@@ -1,2 +1,3 @@
 - Make GUI functions return size_t height so you can better manage it. Will require a bit of rewriting but its necessary.
+        ! implement the above using Scene class => should make it easier to manage the GUI elements.
 - Create a simple demo where you can safely move across the app and have the basic GUI elements working.

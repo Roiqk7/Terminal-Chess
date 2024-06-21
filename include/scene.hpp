@@ -30,6 +30,8 @@ namespace Chess
                         bool operator==(const Element& element) const;          // Equality operator
                 };
         // Scene
+        // ? What about input elements? You will may need to remake the entire GUI system to make it work better???
+        // ! Do not worry... it will likely take few hours and save some in the end...
                 class Scene
                 {
                 public: // Variables
