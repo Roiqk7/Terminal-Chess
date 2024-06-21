@@ -31,7 +31,8 @@ namespace Chess
                 void displayMessage(const std::string& message);                // Display a message
                 void displayErrorMessage(const std::string& errorMessage);      // Display an error message
         // Banners
-                void displayGraphics(const std::string& filePath);                // Display a banner
+                void displayGraphicsFromFile(const std::string& filePath);              // Display graphics from a file
+                //void display
         // Header and footer
                 void displayHeader();                                           // Display the header
                 std::vector<std::string> mergeHeaders();                        // Merge the left and right headers

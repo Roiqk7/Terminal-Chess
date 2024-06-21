@@ -37,7 +37,7 @@ namespace Chess
                         GUI::addHeaderSpace();
 
                         // Display welcome banner
-                        GUI::displayGraphics("../assets/welcomeBanner.txt");
+                        GUI::displayGraphicsFromFile("../assets/welcomeBanner.txt");
 
                         // Wait for a few seconds
                         Tool::wait(2);
@@ -58,20 +58,20 @@ namespace Chess
                         addHeaderSpace();
 
                         // Display the main menu banner
-                        displayGraphics("../assets/mainMenuBanner.txt");
+                        displayGraphicsFromFile("../assets/mainMenuBanner.txt");
 
                         // Add few new lines
                         addNewLine(2);
 
                         // Display the main menu options
-                        displayGraphics("../assets/mainMenu.txt");
+                        displayGraphicsFromFile("../assets/mainMenu.txt");
                 }
 
                 /*
                 Display the graphics by reading the file and displaying it on the
                 console. It centers the graphics and displays it line by line.
                 */
-                void displayGraphics(const std::string& filePath)
+                void displayGraphicsFromFile(const std::string& filePath)
                 {
                         // Get the graphics from the file
                         std::string graphics = Tool::readFileContents(filePath);
@@ -87,6 +87,18 @@ namespace Chess
                                 std::cout << std::string(leadingSpaces, ' ')
                                         << line << std::endl;
                         }
+                }
+
+                /*
+                Display the header.
+                */
+                void displayHeader()
+                {
+                        // Get the header
+                        std::vector<std::string> header = mergeHeaders();
+
+                        // Display the header
+                        displayGraphics()
                 }
 
                 /*
