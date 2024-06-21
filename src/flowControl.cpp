@@ -10,6 +10,10 @@ Notes: x
 #include "../include/gui.hpp"
 #include "../include/tool.hpp"
 
+#ifdef DEVELOPMENT
+#include "spdlog/spdlog.h"
+#endif
+
 namespace Chess
 {
         namespace FlowControl
@@ -39,6 +43,11 @@ namespace Chess
 
                         // Wait for a few seconds
                         Tool::wait(2);
+
+                        // Log application start
+                        #ifdef DEVELOPMENT
+                        spdlog::info("Application started");
+                        #endif
                 }
 
                 /*
