@@ -39,7 +39,7 @@ namespace Chess
                 void startApplication()
                 {
                         // Display welcome banner
-                        GUI::displayBanner("../assets/welcomeHeading.txt");
+                        GUI::displayBanner("../assets/welcomeBanner.txt");
 
                         // Wait for a few seconds
                         Tool::wait(2);
