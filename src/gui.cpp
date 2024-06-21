@@ -6,7 +6,7 @@ Description: This file implements functions which provide the GUI for the applic
 Notes: x
 */
 
-å#include <fstream>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <sys/ioctl.h>
@@ -33,14 +33,26 @@ namespace Chess
                         // Clear the screen
                         GUI::clearScreen();
 
-                        // Add header space
-                        GUI::addHeaderSpace();
+                        // Add header
+                        GUI::displayHeader();
 
                         // Display welcome banner
                         GUI::displayGraphics("../assets/welcomeBanner.txt");
 
+                        // DEBUG: Delete
+                        GUI::addNewLine(10);
+
+                        // Display the footer
+                        GUI::displayFooter();
+
+                        // DEBUG: Delete
+                        GUI::addNewLine(2);
+
+                        // User input divisor
+                        GUI::displayGraphics("../assets/userInputDivisor.txt");
+
                         // Wait for a few seconds
-                        Tool::wait(2);
+                        Tool::wait(30);
 
                         // Clear the screen
                         GUI::clearScreen();
@@ -54,8 +66,8 @@ namespace Chess
                         // Clear the screen
                         clearScreen();
 
-                        // Add header space
-                        addHeaderSpace();
+                        // Add header
+                        GUI::displayHeader();
 
                         // Display the main menu banner
                         displayGraphics("../assets/mainMenuBanner.txt");
@@ -187,9 +199,9 @@ namespace Chess
                                 // If the width is not enough to fit the left and right, throw an exception
                                 throw Exception::InvalidInputException("The width is not enough to fit the left and right part of the graphics.");
                         }
-                        else if (width % fillersNeeded != 0)
+                        else if (width % filler.size() != 0)
                         {
-                                // If the width is not divisible by the fillers needed, throw an exception
+                                // If the width is not divisible by the fillers width, throw an exception
                                 throw Exception::InvalidInputException("The width is not divisible by the fillers needed.");
                         }
 
