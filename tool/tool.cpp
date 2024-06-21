@@ -32,7 +32,6 @@ namespace Chess
                         std::ifstream file(filePath);
                         if (!file.is_open())
                         {
-                                LOG_ERROR("Could not open file: {}", filePath);
                                 throw Exception::RunTimeException("Could not open file: " + filePath);
                         }
 
@@ -53,7 +52,6 @@ namespace Chess
                         std::ofstream file(filePath);
                         if (!file.is_open())
                         {
-                                LOG_ERROR("Could not open file: {}", filePath);
                                 throw Exception::RunTimeException("Could not open file: " + filePath);
                         }
 
