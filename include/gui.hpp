@@ -34,7 +34,9 @@ namespace Chess
                 void displayGraphics(const std::string& filePath);                // Display a banner
         // Header and footer
                 void displayHeader();                                           // Display the header
+                std::vector<std::string> mergeHeaders();                        // Merge the left and right headers
                 void displayFooter();                                           // Display the footer
+                std::vector<std::string> mergeFooters();                        // Merge the left and right footers
         // Utility
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal
