@@ -38,11 +38,20 @@ namespace Chess
                         // Get the terminal dimensions
                         GUI::getDimensions();
 
+                        // Clear the screen
+                        GUI::clearScreen();
+
+                        // Add header space
+                        GUI::addHeaderSpace();
+
                         // Display welcome banner
                         GUI::displayGraphics("../assets/welcomeBanner.txt");
 
                         // Wait for a few seconds
                         Tool::wait(2);
+
+                        // Clear the screen
+                        GUI::clearScreen();
 
                         // Log application start
                         LOG_INFO("Application started.");
@@ -57,10 +66,13 @@ namespace Chess
                 void mainMenuLoop()
                 {
                         // Display main menu banner
-                        GUI::displayGraphics("../assets/mainMenuBanner.txt");
+                        GUI::displayMainMenu();
 
                         // Wait for a few seconds
                         Tool::wait(2); // DEBUG: Delete
+
+                        // Clear the screen
+                        GUI::clearScreen();
                 }
 
                 /*
