@@ -45,6 +45,8 @@ namespace Chess
                 */
                 void getDimensions()
                 {
+                        // Get the terminal dimensions
+                        struct winsize w;
                         // Use STDOUT_FILENO for standard output or 0 for standard input
                         if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == 0)
                         {
@@ -53,10 +55,10 @@ namespace Chess
                         }
                         else
                         {
-                                // Handle error; for example, use default size
+                                // Failed to get terminal dimensions, use default values
                                 Chess::Globals::GUI_WIDTH = 64; // Default width
                                 Chess::Globals::GUI_HEIGHT = 32; // Default height
-                                std::cerr << "Failed to get terminal dimensions, using default values." << std::endl;
+                                throw std::runtime_error("Failed to get terminal dimensions");
                         }
                 }
 
