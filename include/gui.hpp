@@ -32,9 +32,9 @@ namespace Chess
                 void displayErrorMessage(const std::string& errorMessage);      // Display an error message
         // Banners
                 void displayGraphics(const std::string& filePath);                // Display a banner
-        // Boxes
-                void displayBox(const std::string& filePath,
-                        const bool top, const bool left);                        // Display a box (place is determined by top and left booleans)
+        // Header and footer
+                void displayHeader();                                           // Display the header
+                void displayFooter();                                           // Display the footer
         // Utility
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal
