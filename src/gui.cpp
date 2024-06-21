@@ -92,6 +92,33 @@ namespace Chess
                 }
 
                 /*
+                Display the ending.
+                */
+                void displayEnding()
+                {
+                        // Clear the screen
+                        clearScreen();
+
+                        // Add header
+                        GUI::displayHeader();
+
+                        // Display the ending banner
+                        displayGraphics("../assets/farewellBanner.txt");
+
+                        // Some new lines
+                        GUI::addNewLine(10);
+
+                        // Display the footer
+                        GUI::displayFooter();
+
+                        // Bit more new lines
+                        GUI::addNewLine(2);
+
+                        // Wait for a few seconds
+                        Tool::wait(30);
+                }
+
+                /*
                 Display the graphics by reading the file and displaying it on the
                 console. It centers the graphics and displays it line by line.
 

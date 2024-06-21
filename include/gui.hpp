@@ -22,6 +22,7 @@ namespace Chess
                 void displayIntro();                                            // Display the intro
                 void displayMainMenu();                                         // Display the main menu
                 void displayControlsBar(const Globals::GameState& state);       // Display the controls bar
+                void displayEnding();                                           // Display the ending
         // Gameplay
                 void displayBoard(const Globals::FEN& fen);                     // Display the chess board
                 void displayTile(const Globals::Coordinate& coordinate,
