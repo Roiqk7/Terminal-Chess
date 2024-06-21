@@ -58,7 +58,11 @@ namespace Chess
                 */
                 void mainMenuLoop()
                 {
-                        // TODO: Implement
+                        // Display main menu banner
+                        GUI::displayBanner("../assets/mainMenuBanner.txt");
+
+                        // Wait for a few seconds
+                        Tool::wait(2); // DEBUG: Delete
                 }
 
                 /*
