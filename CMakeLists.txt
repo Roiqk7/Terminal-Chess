@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Option to toggle development mode
-option(DEVELOPMENT_MODE "Build the project in development mode" ON) # TODO: Switch to OFF before release
+option(DEVELOPMENT_MODE "Build the project in development mode" OFF)
+message(STATUS "Development mode: ${DEVELOPMENT_MODE}")
 
 # Add the executable
 add_executable(TerminalChess src/terminalChess.cpp)
