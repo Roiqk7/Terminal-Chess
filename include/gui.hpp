@@ -34,6 +34,8 @@ namespace Chess
         // Utility
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal
+                void addNewLine(const int& count);                              // Add a new line(s) to the console
+                void addHeaderSpace();                                          // Add a header space
                 void clearScreen();                                             // Clear the screen
         }
 }
