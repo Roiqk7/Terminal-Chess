@@ -21,9 +21,6 @@ namespace Chess
                         // Chess board
                         const size_t BOARD_ARRAY_SIZE = 64;                     // Number of elements in the board array
                 // GUI
-                        // GUI Dimensions
-                        const size_t GUI_WIDTH = 70;                            // Width of the GUI
-                        const size_t GUI_HEIGHT = 30;                           // Height of the GUI
                         // ANSI color codes
                         const std::string RESET_COLOR = "\033[0m";              // Reset color
                         const std::string WHITE_PIECE_COLOR = "\033[97m";       // Bright white for pieces
@@ -49,6 +46,11 @@ namespace Chess
                 };
 
                 using FEN = std::string;                                        // FEN string representing the state of the board
+
+        // GUI
+                // GUI Dimensions
+                size_t GUI_WIDTH = 64;                                          // Width of the GUI
+                size_t GUI_HEIGHT = 64;                                         // Height of the GUI
         }
 }
 

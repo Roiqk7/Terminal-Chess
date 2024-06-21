@@ -33,7 +33,7 @@ namespace Chess
                         // Display the banner
                         for (const auto& line : lines)
                         {
-                                size_t leadingSpaces = (Chess::Globals::Constants::GUI_WIDTH - line.length()) / 2;
+                                size_t leadingSpaces = (Chess::Globals::GUI_WIDTH - line.length()) / 2;
                                 std::cout << std::string(leadingSpaces, ' ') << line << std::endl;
                         }
                 }
