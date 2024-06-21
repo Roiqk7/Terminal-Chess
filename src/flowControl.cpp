@@ -38,7 +38,7 @@ namespace Chess
                         GUI::displayBanner("../assets/welcomeHeading.txt");
 
                         // Wait for a few seconds
-                        Tool::wait(3);
+                        Tool::wait(2);
                 }
 
                 /*
