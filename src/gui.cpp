@@ -27,8 +27,15 @@ namespace Chess
                         // Get the banner from the file
                         std::string banner = Tool::readFileContents(filePath);
 
+                        // Split the banner into lines
+                        std::vector<std::string> lines = Tool::splitString(banner, '\n');
+
                         // Display the banner
-                        std::cout << banner << std::endl;
+                        for (const auto& line : lines)
+                        {
+                                size_t leadingSpaces = (Chess::Globals::Constants::GUI_WIDTH - line.length()) / 2;
+                                std::cout << std::string(leadingSpaces, ' ') << line << std::endl;
+                        }
                 }
 
                 /*
