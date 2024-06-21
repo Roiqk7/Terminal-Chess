@@ -31,6 +31,7 @@ namespace Chess
                 void displayGameOverMenu(const Globals::Color& winner);         // Display the game over menu
         // Messages
                 void displayMessage(const std::string& message);                // Display a message
+                void displayErrorMessage(const std::string& errorMessage);      // Display an error message
         }
 }
 
