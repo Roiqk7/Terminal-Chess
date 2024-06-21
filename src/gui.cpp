@@ -48,11 +48,8 @@ namespace Chess
                         // DEBUG: Delete
                         GUI::addNewLine(2);
 
-                        // User input divisor
-                        GUI::displayGraphics("../assets/userInputDivisor.txt");
-
                         // Wait for a few seconds
-                        Tool::wait(30);
+                        Tool::wait(3);
 
                         // Clear the screen
                         GUI::clearScreen();
@@ -81,14 +78,12 @@ namespace Chess
                         // DEBUG: Delete
                         GUI::addNewLine(10);
 
-                        // Display the footer
-                        GUI::displayFooter();
+                        // User input divisor
+                        // DELETE and write a separate function for this purpose (filer(), repeatPattern() or something)
+                        GUI::displayGraphics("../assets/userInputDivisor.txt");
 
                         // DEBUG: Delete
-                        GUI::addNewLine(2);
-
-                        // Wait for a few seconds
-                        Tool::wait(30);
+                        Tool::wait(5);
                 }
 
                 /*
@@ -115,7 +110,7 @@ namespace Chess
                         GUI::addNewLine(2);
 
                         // Wait for a few seconds
-                        Tool::wait(30);
+                        Tool::wait(3);
                 }
 
                 /*
