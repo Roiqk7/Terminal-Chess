@@ -11,6 +11,22 @@ Notes: x
 
 #include <string>
 
+#ifdef DEVELOPMENT
+// Include the spdlog library for logging
+#include <spdlog/spdlog.h>
+// Macro for development logging
+#define LOG_TRACE(...) spdlog::trace(__VA_ARGS__)
+#define LOG_INFO(...) spdlog::info(__VA_ARGS__)
+#define LOG_WARN(...) spdlog::warn(__VA_ARGS__)
+#define LOG_ERROR(...) spdlog::error(__VA_ARGS__)
+#else
+// Define macros as no-operation if not in development mode
+#define LOG_TRACE(...) (void)0
+#define LOG_INFO(...) (void)0
+#define LOG_WARN(...) (void)0
+#define LOG_ERROR(...) (void)0
+#endif
+
 namespace Chess
 {
         namespace Globals
