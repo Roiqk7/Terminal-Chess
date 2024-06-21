@@ -77,6 +77,18 @@ namespace Chess
 
                         // Display the main menu options
                         displayGraphics("../assets/mainMenu.txt");
+
+                        // DEBUG: Delete
+                        GUI::addNewLine(10);
+
+                        // Display the footer
+                        GUI::displayFooter();
+
+                        // DEBUG: Delete
+                        GUI::addNewLine(2);
+
+                        // Wait for a few seconds
+                        Tool::wait(30);
                 }
 
                 /*

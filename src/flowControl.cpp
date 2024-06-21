@@ -53,9 +53,6 @@ namespace Chess
                         // Display main menu banner
                         GUI::displayMainMenu();
 
-                        // Wait for a few seconds
-                        Tool::wait(2); // DEBUG: Delete
-
                         // Clear the screen
                         GUI::clearScreen();
                 }
