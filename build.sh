@@ -18,10 +18,16 @@ if [[ $(basename "$PWD") != "build" ]]; then
         cd build
 fi
 
-echo "Configuring the project with CMake..."
-
-# Configure the project with CMake
-cmake ..
+# Check if the script was called with the 'dev' argument
+if [ "$1" == "dev" ]; then
+        echo "Configuring the project with CMake in development mode..."
+        # Configure the project with CMake in development mode
+        cmake .. -DDEVELOPMENT_MODE=ON
+else
+        echo "Configuring the project with CMake in default mode..."
+        # Configure the project with CMake in default mode
+        cmake .. -DDEVELOPMENT_MODE=OFF
+fi
 
 echo "Building the project..."
 
