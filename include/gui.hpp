@@ -19,6 +19,7 @@ namespace Chess
         namespace GUI
         {
         // Application
+                void displayIntro();                                            // Display the intro
                 void displayMainMenu();                                         // Display the main menu
                 void displayControlsBar(const Globals::GameState& state);       // Display the controls bar
         // Gameplay

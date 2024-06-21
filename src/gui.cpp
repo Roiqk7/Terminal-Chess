@@ -20,6 +20,29 @@ namespace Chess
 {
         namespace GUI
         {
+                /*
+                Display the intro.
+                */
+                void displayIntro()
+                {
+                        // Get the terminal dimensions
+                        GUI::getDimensions();
+
+                        // Clear the screen
+                        GUI::clearScreen();
+
+                        // Add header space
+                        GUI::addHeaderSpace();
+
+                        // Display welcome banner
+                        GUI::displayGraphics("../assets/welcomeBanner.txt");
+
+                        // Wait for a few seconds
+                        Tool::wait(2);
+
+                        // Clear the screen
+                        GUI::clearScreen();
+                }
 
                 /*
                 Display the main menu.
