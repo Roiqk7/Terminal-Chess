@@ -12,6 +12,9 @@ Notes: x
 #include <string>
 #include <thread>
 #include <vector>
+#include "../include/exception.hpp"
+#include "../include/globals.hpp"
+#include "../include/tool.hpp"
 
 namespace Chess
 {
@@ -29,7 +32,8 @@ namespace Chess
                         std::ifstream file(filePath);
                         if (!file.is_open())
                         {
-                                throw std::runtime_error("Could not open file: " + filePath);
+                                LOG_ERROR("Could not open file: {}", filePath);
+                                throw Exception::RunTimeException("Could not open file: " + filePath);
                         }
 
                         std::stringstream buffer;
@@ -49,7 +53,8 @@ namespace Chess
                         std::ofstream file(filePath);
                         if (!file.is_open())
                         {
-                                throw std::runtime_error("Could not open file: " + filePath);
+                                LOG_ERROR("Could not open file: {}", filePath);
+                                throw Exception::RunTimeException("Could not open file: " + filePath);
                         }
 
                         file << contents;
