@@ -1,3 +1,2 @@
-- Finish displayGraphics(). Make sure it separates each word in the banner into separate words and then centers each word.
-        Perhaps add tool/gui.cpp to add a place where to dump these helper functions.
+- Make GUI functions return size_t height so you can better manage it. Will require a bit of rewriting but its necessary.
 - Create a simple demo where you can safely move across the app and have the basic GUI elements working.
