@@ -28,31 +28,31 @@ namespace Chess
                 void displayIntro()
                 {
                         // Get the terminal dimensions
-                        GUI::getDimensions();
+                        getDimensions();
 
                         // Clear the screen
-                        GUI::clearScreen();
+                        clearScreen();
 
                         // Add header
-                        GUI::displayHeader();
+                        displayHeader();
 
                         // Display welcome banner
-                        GUI::displayGraphics("../assets/welcomeBanner.txt");
+                        displayGraphics("../assets/welcomeBanner.txt");
 
                         // DEBUG: Delete
-                        GUI::addNewLine(10);
+                        addNewLine(10);
 
                         // Display the footer
-                        GUI::displayFooter();
+                        displayFooter();
 
                         // DEBUG: Delete
-                        GUI::addNewLine(2);
+                        addNewLine(2);
 
                         // Wait for a few seconds
                         Tool::wait(3);
 
                         // Clear the screen
-                        GUI::clearScreen();
+                        clearScreen();
                 }
 
                 /*
@@ -64,7 +64,7 @@ namespace Chess
                         clearScreen();
 
                         // Add header
-                        GUI::displayHeader();
+                        displayHeader();
 
                         // Display the main menu banner
                         displayGraphics("../assets/mainMenuBanner.txt");
@@ -76,11 +76,10 @@ namespace Chess
                         displayGraphics("../assets/mainMenu.txt");
 
                         // DEBUG: Delete
-                        GUI::addNewLine(10);
+                        addNewLine(10);
 
                         // User input divisor
-                        // DELETE and write a separate function for this purpose (filer(), repeatPattern() or something)
-                        GUI::displayGraphics("../assets/userInputDivisor.txt");
+                        displayInputSeparator();
 
                         // DEBUG: Delete
                         Tool::wait(5);
@@ -95,19 +94,19 @@ namespace Chess
                         clearScreen();
 
                         // Add header
-                        GUI::displayHeader();
+                        displayHeader();
 
                         // Display the ending banner
                         displayGraphics("../assets/farewell.txt");
 
                         // Some new lines
-                        GUI::addNewLine(10);
+                        addNewLine(10);
 
                         // Display the footer
-                        GUI::displayFooter();
+                        displayFooter();
 
                         // Bit more new lines
-                        GUI::addNewLine(2);
+                        addNewLine(2);
 
                         // Wait for a few seconds
                         Tool::wait(3);
@@ -254,10 +253,28 @@ namespace Chess
                 /*
                 Repeat a pattern a certain number of times.
                 */
-                void repeatPattern(const std::string& filePath, const size_t& count, const char& delimiter)
+                std::vector<std::string> repeatPattern(const std::string& filePath, const size_t& count, const char& delimiter)
                 {
                         // Get the pattern
                         std::vector<std::string> pattern = Tool::splitString(Tool::readFileContents(filePath), delimiter);
+
+                        // Repeated pattern
+                        std::vector<std::string> repeatedPattern;
+
+                        // Repeat the pattern
+                        for (size_t i = 0; i < pattern.size(); i++)
+                        {
+                                // New line with repeated pattern
+                                std::string newLine;
+
+                                // Add the pattern to the new line specified number of times
+                                for (int j = count; j > 0; j--)
+                                {
+                                        newLine += pattern[i];
+                                }
+                        }
+
+                        return repeatedPattern;
                 }
 
                 /*
