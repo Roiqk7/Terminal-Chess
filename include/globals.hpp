@@ -43,7 +43,7 @@ namespace Chess
                         int rank;                                               // Rank (row) of the coordinate (0-7) (1-8)
                 };
 
-                using FEN = std::string;
+                using FEN = std::string;                                        // FEN string representing the state of the board
         }
 }
 
