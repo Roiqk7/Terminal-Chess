@@ -8,6 +8,7 @@ Notes: x
 
 #include "../include/flowControl.hpp"
 #include "../include/gui.hpp"
+#include "../include/tool.hpp"
 
 namespace Chess
 {
@@ -33,7 +34,11 @@ namespace Chess
                 */
                 void startApplication()
                 {
-                        // TODO: Implement
+                        // Display welcome banner
+                        GUI::displayBanner("../assets/welcomeHeading.txt");
+
+                        // Wait for a few seconds
+                        Tool::wait(3);
                 }
 
                 /*
