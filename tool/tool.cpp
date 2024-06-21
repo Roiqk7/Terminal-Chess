@@ -11,6 +11,7 @@ Notes: x
 #include <sstream>
 #include <string>
 #include <thread>
+#include <vector>
 
 namespace Chess
 {
@@ -62,6 +63,29 @@ namespace Chess
                 void wait(const unsigned int& seconds)
                 {
                         std::this_thread::sleep_for(std::chrono::seconds(seconds));
+                }
+
+                /*
+                Split a string by a delimiter.
+
+                @param str: The string to split.
+                @param delimiter: The delimiter to split the string by.
+
+                @return: A vector of strings containing the split parts.
+                */
+                std::vector<std::string> splitString(const std::string& str,
+                        const char& delimiter)
+                {
+                        std::vector<std::string> parts;
+                        std::stringstream ss(str);
+                        std::string part;
+
+                        while (std::getline(ss, part, delimiter))
+                        {
+                                parts.push_back(part);
+                        }
+
+                        return parts;
                 }
         }
 }
