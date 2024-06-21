@@ -18,6 +18,7 @@ namespace Chess
                 std::string readFileContents(const std::string& filePath);      // Read the contents of a file
                 void writeFileContents(const std::string& filePath,
                         const std::string& contents);                           // Write contents to a file
+                void wait(const unsigned int& seconds);                         // Wait for a specified amount of time
         }
 }
 

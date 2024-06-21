@@ -6,9 +6,11 @@ Description: This file defines utility functions which can be used throughout th
 Notes: x
 */
 
+#include <chrono>
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <thread>
 
 namespace Chess
 {
@@ -50,6 +52,16 @@ namespace Chess
                         }
 
                         file << contents;
+                }
+
+                /*
+                Wait for a specified amount of time.
+
+                @param seconds: The number of seconds to wait.
+                */
+                void wait(const unsigned int& seconds)
+                {
+                        std::this_thread::sleep_for(std::chrono::seconds(seconds));
                 }
         }
 }
