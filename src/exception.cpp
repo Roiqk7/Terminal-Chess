@@ -19,8 +19,8 @@ namespace Chess
                 Constructor for the runtime exception.
                 */
                 RunTimeException::RunTimeException(const std::string& message)
+                        : message(message)
                 {
-                        this->message = message;
                         logException(message);
                 }
 
