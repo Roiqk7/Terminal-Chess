@@ -42,6 +42,9 @@ namespace Chess
                 std::vector<std::string> merge(const std::vector<std::string>&
                         left, const std::vector<std::string>& right,
                         const size_t& width, const std::string& filler);        // Merge two vectors of strings
+        // Pattern repetition
+                void repeatPattern(const std::string& filePath,
+                        const size_t& count, const char& delimiter);            // Repeat a pattern a certain number of times
         // Utility
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal

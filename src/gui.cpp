@@ -252,6 +252,15 @@ namespace Chess
                 }
 
                 /*
+                Repeat a pattern a certain number of times.
+                */
+                void repeatPattern(const std::string& filePath, const size_t& count, const char& delimiter)
+                {
+                        // Get the pattern
+                        std::vector<std::string> pattern = Tool::splitString(Tool::readFileContents(filePath), delimiter);
+                }
+
+                /*
                 Get the dimensions of the terminal and set them in the globals.
                 */
                 void getDimensions()
