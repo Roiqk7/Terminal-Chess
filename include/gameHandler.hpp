@@ -16,6 +16,8 @@ namespace Chess
                 void mainGameLoop();                                            // Makes sure the game proceeds as expected
                 void startGame();                                               // Create a new game from scratch
                 void endGame();                                                 // Finish the current game
+                void saveGame();                                                // Save the current game
+                void loadGame();                                                // Load a saved game
         }
 }
 
