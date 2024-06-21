@@ -20,7 +20,8 @@ namespace Chess
         {
                 namespace Constants
                 {
-                        // TODO: Add graphics constants
+                        const size_t GUI_WIDTH = 70;                            // Width of the GUI
+                        const size_t GUI_HEIGHT = 30;                           // Height of the GUI
                 }
         // Application
                 void displayMainMenu();                                         // Display the main menu
