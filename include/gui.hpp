@@ -30,7 +30,7 @@ namespace Chess
                 void displayMessage(const std::string& message);                // Display a message
                 void displayErrorMessage(const std::string& errorMessage);      // Display an error message
         // Banners
-                void displayBanner(const std::string& filePath);                // Display a banner
+                void displayGraphics(const std::string& filePath);                // Display a banner
         // Utility
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal

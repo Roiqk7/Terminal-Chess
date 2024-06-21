@@ -39,7 +39,7 @@ namespace Chess
                         GUI::getDimensions();
 
                         // Display welcome banner
-                        GUI::displayBanner("../assets/welcomeBanner.txt");
+                        GUI::displayGraphics("../assets/welcomeBanner.txt");
 
                         // Wait for a few seconds
                         Tool::wait(2);
@@ -57,7 +57,7 @@ namespace Chess
                 void mainMenuLoop()
                 {
                         // Display main menu banner
-                        GUI::displayBanner("../assets/mainMenuBanner.txt");
+                        GUI::displayGraphics("../assets/mainMenuBanner.txt");
 
                         // Wait for a few seconds
                         Tool::wait(2); // DEBUG: Delete

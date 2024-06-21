@@ -20,10 +20,25 @@ namespace Chess
 {
         namespace GUI
         {
+
+                /*
+                Display the main menu.
+                */
+                void displayMainMenu()
+                {
+                        // Display the main menu banner
+                        displayGraphics("../assets/mainMenuBanner.txt");
+
+                        // Display the main menu options
+                        std::cout << "1. Start new game" << std::endl;
+                        std::cout << "2. Load game" << std::endl;
+                        std::cout << "3. Exit" << std::endl;
+                }
+
                 /*
                 Display a banner.
                 */
-                void displayBanner(const std::string& filePath)
+                void displayGraphics(const std::string& filePath)
                 {
                         // Clear the screen
                         clearScreen();
