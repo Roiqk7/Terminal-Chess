@@ -6,7 +6,7 @@ Description: This file implements functions which provide the GUI for the applic
 Notes: x
 */
 
-#include <fstream>
+å#include <fstream>
 #include <iostream>
 #include <string>
 #include <sys/ioctl.h>
@@ -112,6 +112,97 @@ namespace Chess
 
                         // Display the header
                         displayGraphics(header);
+                }
+
+                /*
+                Merge the left and right headers.
+                */
+                std::vector<std::string> mergeHeaders()
+                {
+                        // Left header
+                        std::vector<std::string> leftHeader = Tool::splitString(Tool::readFileContents("../assets/headerLeft.txt"), '\n');
+
+                        // Right header
+                        std::vector<std::string> rightHeader = Tool::splitString(Tool::readFileContents("../assets/headerRight.txt"), '\n');
+
+                        // Merge the headers
+                        return merge(leftHeader, rightHeader, Chess::Globals::GUI_WIDTH, " ");
+                }
+
+                /*
+                Display the footer.
+                */
+                void displayFooter()
+                {
+                        // Get the footer
+                        std::vector<std::string> footer = mergeFooters();
+
+                        // Display the footer
+                        displayGraphics(footer);
+                }
+
+                /*
+                Merge the left and right footers.
+                */
+                std::vector<std::string> mergeFooters()
+                {
+                        // Left footer
+                        std::vector<std::string> leftFooter = Tool::splitString(Tool::readFileContents("../assets/footerLeft.txt"), '\n');
+
+                        // Right footer
+                        std::vector<std::string> rightFooter = Tool::splitString(Tool::readFileContents("../assets/footerRight.txt"), '\n');
+
+                        // Merge the footers
+                        return merge(leftFooter, rightFooter, Chess::Globals::GUI_WIDTH, " ");
+                }
+
+                /*
+                Merge two vectors of strings into one vector of strings with the
+                specified width and filler to fill the gap between the left and right.
+
+                @param left: The left vector of strings.
+                @param right: The right vector of strings.
+                */
+                std::vector<std::string> merge(const std::vector<std::string>& left, const std::vector<std::string>& right,
+                        const size_t& width, const std::string& filler)
+                {
+                        // Merged vector
+                        std::vector<std::string> merged;
+
+                        // Get size (width) of the left and right vectors
+                        size_t leftSize = left[0].size();
+                        size_t rightSize = right[0].size();
+
+                        // Calculate the number of fillers needed
+                        size_t fillersNeeded = (width - leftSize - rightSize) / filler.size();
+
+                        // If the width is not enough to fit the left and right, throw an exception
+                        if (fillersNeeded < 0)
+                        {
+                                // Invalid width
+                                throw Exception::RunTimeException("Negative size provided. Invalid width.");
+                        }
+                        else if (fillersNeeded < leftSize + rightSize)
+                        {
+                                // If the width is not enough to fit the left and right, throw an exception
+                                throw Exception::InvalidInputException("The width is not enough to fit the left and right part of the graphics.");
+                        }
+                        else if (width % fillersNeeded != 0)
+                        {
+                                // If the width is not divisible by the fillers needed, throw an exception
+                                throw Exception::InvalidInputException("The width is not divisible by the fillers needed.");
+                        }
+
+                        // Create the filler string
+                        std::string fillers = std::string(fillersNeeded, filler[0]);
+
+                        // Merge the left and right
+                        for (size_t i = 0; i < left.size(); i++)
+                        {
+                                merged.push_back(left[i] + fillers + right[i]);
+                        }
+
+                        return merged;
                 }
 
                 /*
