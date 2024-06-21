@@ -38,6 +38,9 @@ namespace Chess
                 */
                 void startApplication()
                 {
+                        // Get the terminal dimensions
+                        GUI::getDimensions();
+
                         // Display welcome banner
                         GUI::displayBanner("../assets/welcomeBanner.txt");
 
