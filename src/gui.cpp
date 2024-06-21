@@ -70,6 +70,8 @@ namespace Chess
                 /*
                 Display the graphics by reading the file and displaying it on the
                 console. It centers the graphics and displays it line by line.
+
+                @param filePath: The path to the file containing the graphics.
                 */
                 void displayGraphics(const std::string& filePath)
                 {
@@ -77,10 +79,21 @@ namespace Chess
                         std::string graphics = Tool::readFileContents(filePath);
 
                         // Split the graphics into lines
-                        std::vector<std::string> lines = Tool::splitString(graphics, '\n');
+                        std::vector<std::string> graphicsInLines = Tool::splitString(graphics, '\n');
 
                         // Display the graphics
-                        for (const auto& line : lines)
+                        displayGraphics(graphicsInLines);
+                }
+
+                /*
+                Display the graphics from a vector of strings.
+
+                @param graphics: The graphics to display.
+                */
+                void displayGraphics(const std::vector<std::string>& graphics)
+                {
+                        // Display the graphics line by line
+                        for (const auto& line : graphics)
                         {
                                 size_t leadingSpaces = (Chess::Globals::GUI_WIDTH
                                         - line.length()) / 2;
@@ -98,7 +111,7 @@ namespace Chess
                         std::vector<std::string> header = mergeHeaders();
 
                         // Display the header
-                        displayGraphics()
+                        displayGraphics(header);
                 }
 
                 /*
@@ -132,6 +145,9 @@ namespace Chess
 
                 /*
                 Set the dimensions of the terminal.
+
+                @param width: The width of the terminal.
+                @param height: The height of the terminal.
                 */
                 void setDimensions(const size_t& width, const size_t& height)
                 {
@@ -142,6 +158,8 @@ namespace Chess
 
                 /*
                 Add a new line(s) to the console.
+
+                @param count: The number of new lines to add.
                 */
                 void addNewLine(const int& count)
                 {
