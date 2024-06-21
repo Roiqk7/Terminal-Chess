@@ -11,6 +11,7 @@ Notes: x
 #include <string>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include "../include/exception.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/tool.hpp"
@@ -52,12 +53,21 @@ namespace Chess
                         if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == 0)
                         {
                                 setDimensions(w.ws_col, w.ws_row);
+
+                                // Log terminal dimensions
+                                LOG_INFO("Terminal dimensions: {}x{}", w.ws_col, w.ws_row);
                         }
                         else
                         {
+                                // Default terminal dimensions
+                                size_t width = 0;
+                                size_t height = 0;
+
                                 // Failed to get terminal dimensions, use default values
-                                setDimensions(64, 32);
-                                throw std::runtime_error("Failed to get terminal dimensions");
+                                setDimensions(width, height);
+
+                                // Log warning
+                                LOG_WARN("Failed to get terminal dimensions, using default values: {}x{}", width, height);
                         }
                 }
 

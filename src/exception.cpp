@@ -7,10 +7,7 @@ Notes: x
 */
 
 #include "../include/exception.hpp"
-
-#ifdef DEVELOPMENT
-#include "spdlog/spdlog.h"
-#endif
+#include "../include/globals.hpp"
 
 namespace Chess
 {
@@ -41,9 +38,7 @@ namespace Chess
                 */
                 void logException(const std::string& message)
                 {
-                        #ifdef DEVELOPMENT
-                        spdlog::error(message);
-                        #endif
+                        LOG_ERROR("Exception: {}", message);
                 }
         }
 }

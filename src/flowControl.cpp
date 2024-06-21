@@ -7,12 +7,9 @@ Notes: x
 */
 
 #include "../include/flowControl.hpp"
+#include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/tool.hpp"
-
-#ifdef DEVELOPMENT
-#include "spdlog/spdlog.h"
-#endif
 
 namespace Chess
 {
@@ -48,9 +45,7 @@ namespace Chess
                         Tool::wait(2);
 
                         // Log application start
-                        #ifdef DEVELOPMENT
-                        spdlog::info("Application started");
-                        #endif
+                        LOG_INFO("Application started.");
                 }
 
                 /*
