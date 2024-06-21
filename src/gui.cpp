@@ -68,17 +68,18 @@ namespace Chess
                 }
 
                 /*
-                Display a banner.
+                Display the graphics by reading the file and displaying it on the
+                console. It centers the graphics and displays it line by line.
                 */
                 void displayGraphics(const std::string& filePath)
                 {
-                        // Get the banner from the file
-                        std::string banner = Tool::readFileContents(filePath);
+                        // Get the graphics from the file
+                        std::string graphics = Tool::readFileContents(filePath);
 
-                        // Split the banner into lines
-                        std::vector<std::string> lines = Tool::splitString(banner, '\n');
+                        // Split the graphics into lines
+                        std::vector<std::string> lines = Tool::splitString(graphics, '\n');
 
-                        // Display the banner
+                        // Display the graphics
                         for (const auto& line : lines)
                         {
                                 size_t leadingSpaces = (Chess::Globals::GUI_WIDTH
