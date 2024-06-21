@@ -251,7 +251,27 @@ namespace Chess
                 }
 
                 /*
+                Display a separator.
+                */
+                void displayInputSeparator()
+                {
+                        // Get width of the separator
+                        std::vector<std::string> separator = Tool::splitString(Tool::readFileContents("../assets/inputSeparator.txt"), '\n');
+                        size_t width = separator[0].size();
+
+                        // Get repeated separator
+                        std::vector<std::string> repeatedSeparator = repeatPattern("../assets/inputSeparator.txt", Chess::Globals::GUI_WIDTH / width - 1, '\n');
+
+                        // Display the separator
+                        displayGraphics(repeatedSeparator);
+                }
+
+                /*
                 Repeat a pattern a certain number of times.
+
+                @param filePath: The path to the file containing the pattern.
+                @param count: The number of times to repeat the pattern.
+                @param delimiter: The delimiter to split the pattern.
                 */
                 std::vector<std::string> repeatPattern(const std::string& filePath, const size_t& count, const char& delimiter)
                 {
