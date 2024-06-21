@@ -256,11 +256,11 @@ namespace Chess
                 void displayInputSeparator()
                 {
                         // Get width of the separator
-                        std::vector<std::string> separator = Tool::splitString(Tool::readFileContents("../assets/inputSeparator.txt"), '\n');
+                        std::vector<std::string> separator = Tool::splitString(Tool::readFileContents("../assets/userInputSeparator.txt"), '\n');
                         size_t width = separator[0].size();
 
                         // Get repeated separator
-                        std::vector<std::string> repeatedSeparator = repeatPattern("../assets/inputSeparator.txt", Chess::Globals::GUI_WIDTH / width - 1, '\n');
+                        std::vector<std::string> repeatedSeparator = repeatPattern("../assets/userInputSeparator.txt", Chess::Globals::GUI_WIDTH / width - 1, '\n');
 
                         // Display the separator
                         displayGraphics(repeatedSeparator);
