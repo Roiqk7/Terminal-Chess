@@ -10,6 +10,7 @@ Notes: x
 #define TOOL_CPP
 
 #include <string>
+#include <vector>
 
 namespace Chess
 {
@@ -19,6 +20,8 @@ namespace Chess
                 void writeFileContents(const std::string& filePath,
                         const std::string& contents);                           // Write contents to a file
                 void wait(const unsigned int& seconds);                         // Wait for a specified amount of time
+                std::vector<std::string> splitString(const std::string& str,
+                        const char& delimiter);                                 // Split a string by a delimiter
         }
 }
 
