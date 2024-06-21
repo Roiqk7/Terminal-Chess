@@ -9,13 +9,16 @@ Notes: x
 #ifndef FLOW_CONTROL_HPP
 #define FLOW_CONTROL_HPP
 
+#include <string>
+
 namespace Chess
 {
         namespace FlowControl
         {
                 void mainApplicationLoop();                                     // Makes sure the application proceeds as expected
                 void startApplication();                                        // Start the application
-                void endApplication();                                          // End the application
+                void mainMenuLoop();                                            // Handles the main menu loop
+                void endApplication();                                          // Finish the application
         }
 }
 
