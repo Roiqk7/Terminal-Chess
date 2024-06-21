@@ -292,6 +292,9 @@ namespace Chess
                                 {
                                         newLine += pattern[i];
                                 }
+
+                                // Add the new line to the repeated pattern
+                                repeatedPattern.push_back(newLine);
                         }
 
                         return repeatedPattern;
