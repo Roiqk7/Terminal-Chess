@@ -45,9 +45,15 @@ namespace Chess
                         const std::string BLACK_TILE_COLOR = "\033[48;5;52m";   // Dark red background for black tiles;
                 }
 
+                /*
+                Game states influence the the relationship between the game
+                and the user. Each game state has its own set of rules and
+                acceptable user inputs. For more information visit the
+                documentation. (docs/gameStates.md)
+                */
                 enum class GameState                                            // Enum representing the state of the game
                 {
-                        MainMenu, Game, GameOver
+                        MainMenu, HelpMenu, Game, GameOver
                 };
 
                 enum class Color                                                // Enum representing the color of a piece or player
