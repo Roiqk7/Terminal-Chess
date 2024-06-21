@@ -7,6 +7,7 @@ Notes: x
 */
 
 #include "../include/flowControl.hpp"
+#include "../include/gui.hpp"
 
 namespace Chess
 {
