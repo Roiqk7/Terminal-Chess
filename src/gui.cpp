@@ -103,7 +103,7 @@ namespace Chess
                         GUI::displayHeader();
 
                         // Display the ending banner
-                        displayGraphics("../assets/farewellBanner.txt");
+                        displayGraphics("../assets/farewell.txt");
 
                         // Some new lines
                         GUI::addNewLine(10);
