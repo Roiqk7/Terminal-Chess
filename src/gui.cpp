@@ -50,16 +50,24 @@ namespace Chess
                         // Use STDOUT_FILENO for standard output or 0 for standard input
                         if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == 0)
                         {
-                                Chess::Globals::GUI_WIDTH = w.ws_col;
-                                Chess::Globals::GUI_HEIGHT = w.ws_row;
+                                setDimensions(w.ws_col, w.ws_row);
                         }
                         else
                         {
                                 // Failed to get terminal dimensions, use default values
-                                Chess::Globals::GUI_WIDTH = 64; // Default width
-                                Chess::Globals::GUI_HEIGHT = 32; // Default height
+                                setDimensions(64, 32);
                                 throw std::runtime_error("Failed to get terminal dimensions");
                         }
+                }
+
+                /*
+                Set the dimensions of the terminal.
+                */
+                void setDimensions(const size_t& width, const size_t& height)
+                {
+                        // Set the terminal dimensions
+                        Chess::Globals::GUI_WIDTH = width;
+                        Chess::Globals::GUI_HEIGHT = height;
                 }
 
                 /*
