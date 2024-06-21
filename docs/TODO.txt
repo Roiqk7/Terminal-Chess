@@ -3,6 +3,8 @@
 - Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
 
+Note: After you implement the GUI add the text bellow into docs/.
+
 GUI Architecture Overview:
 
 Scene:
