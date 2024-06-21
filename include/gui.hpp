@@ -18,11 +18,6 @@ namespace Chess
 {
         namespace GUI
         {
-                namespace Constants
-                {
-                        const size_t GUI_WIDTH = 70;                            // Width of the GUI
-                        const size_t GUI_HEIGHT = 30;                           // Height of the GUI
-                }
         // Application
                 void displayMainMenu();                                         // Display the main menu
                 void displayControlsBar(const Globals::GameState& state);       // Display the controls bar

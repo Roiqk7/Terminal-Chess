@@ -17,8 +17,13 @@ namespace Chess
         {
                 namespace Constants
                 {
+                // Gameplay
                         // Chess board
                         const size_t BOARD_ARRAY_SIZE = 64;                     // Number of elements in the board array
+                // GUI
+                        // GUI Dimensions
+                        const size_t GUI_WIDTH = 70;                            // Width of the GUI
+                        const size_t GUI_HEIGHT = 30;                           // Height of the GUI
                         // ANSI color codes
                         const std::string RESET_COLOR = "\033[0m";              // Reset color
                         const std::string WHITE_PIECE_COLOR = "\033[97m";       // Bright white for pieces
