@@ -25,6 +25,7 @@ namespace Chess
                 }
         // Application
                 void displayMainMenu();                                         // Display the main menu
+                void displayControlsBar(const Globals::GameState& state);       // Display the controls bar
         // Gameplay
                 void displayBoard(const Globals::FEN& fen);                     // Display the chess board
                 void displayTile(const Globals::Coordinate& coordinate,
@@ -33,6 +34,8 @@ namespace Chess
         // Messages
                 void displayMessage(const std::string& message);                // Display a message
                 void displayErrorMessage(const std::string& errorMessage);      // Display an error message
+        // Banners
+                void displayBanner(const std::string& filePath);                // Display a banner
         }
 }
 
