@@ -37,7 +37,7 @@ namespace Chess
                         displayHeader();
 
                         // Display welcome banner
-                        displayGraphics("../assets/welcomeBanner.txt");
+                        displayGraphics(Globals::Constants::WELCOME_BANNER_PATH);
 
                         // DEBUG: Delete
                         addNewLine(10);
@@ -67,13 +67,13 @@ namespace Chess
                         displayHeader();
 
                         // Display the main menu banner
-                        displayGraphics("../assets/mainMenuBanner.txt");
+                        displayGraphics(Globals::Constants::MAIN_MENU_BANNER_PATH);
 
                         // Add few new lines
                         addNewLine(2);
 
                         // Display the main menu options
-                        displayGraphics("../assets/mainMenu.txt");
+                        displayGraphics(Globals::Constants::MAIN_MENU_PATH);
 
                         // DEBUG: Delete
                         addNewLine(10);
@@ -97,7 +97,7 @@ namespace Chess
                         displayHeader();
 
                         // Display the ending banner
-                        displayGraphics("../assets/farewell.txt");
+                        displayGraphics(Globals::Constants::FAREWELL_PATH);
 
                         // Some new lines
                         addNewLine(10);
@@ -165,10 +165,12 @@ namespace Chess
                 std::vector<std::string> mergeHeaders()
                 {
                         // Left header
-                        std::vector<std::string> leftHeader = Tool::splitString(Tool::readFileContents("../assets/headerLeft.txt"), '\n');
+                        std::vector<std::string> leftHeader = Tool::splitString(
+                                Tool::readFileContents(Globals::Constants::HEADER_LEFT_PATH), '\n');
 
                         // Right header
-                        std::vector<std::string> rightHeader = Tool::splitString(Tool::readFileContents("../assets/headerRight.txt"), '\n');
+                        std::vector<std::string> rightHeader = Tool::splitString(
+                                Tool::readFileContents(Globals::Constants::HEADER_RIGHT_PATH), '\n');
 
                         // Merge the headers
                         return merge(leftHeader, rightHeader, Chess::Globals::GUI_WIDTH, " ");
@@ -192,10 +194,12 @@ namespace Chess
                 std::vector<std::string> mergeFooters()
                 {
                         // Left footer
-                        std::vector<std::string> leftFooter = Tool::splitString(Tool::readFileContents("../assets/footerLeft.txt"), '\n');
+                        std::vector<std::string> leftFooter = Tool::splitString(
+                                Tool::readFileContents(Globals::Constants::FOOTER_LEFT_PATH), '\n');
 
                         // Right footer
-                        std::vector<std::string> rightFooter = Tool::splitString(Tool::readFileContents("../assets/footerRight.txt"), '\n');
+                        std::vector<std::string> rightFooter = Tool::splitString(
+                                Tool::readFileContents(Globals::Constants::FOOTER_RIGHT_PATH), '\n');
 
                         // Merge the footers
                         return merge(leftFooter, rightFooter, Chess::Globals::GUI_WIDTH, " ");
@@ -225,17 +229,20 @@ namespace Chess
                         if (fillersNeeded < 0)
                         {
                                 // Invalid width
-                                throw Exception::RunTimeException("Negative size provided. Invalid width.");
+                                throw Exception::RunTimeException(
+                                        "Negative size provided. Invalid width.");
                         }
                         else if (fillersNeeded < leftSize + rightSize)
                         {
                                 // If the width is not enough to fit the left and right, throw an exception
-                                throw Exception::InvalidInputException("The width is not enough to fit the left and right part of the graphics.");
+                                throw Exception::InvalidInputException(
+                                        "The width is not enough to fit the left and right part of the graphics.");
                         }
                         else if (width % filler.size() != 0)
                         {
                                 // If the width is not divisible by the fillers width, throw an exception
-                                throw Exception::InvalidInputException("The width is not divisible by the fillers needed.");
+                                throw Exception::InvalidInputException(
+                                        "The width is not divisible by the fillers needed.");
                         }
 
                         // Create the filler string
@@ -256,11 +263,14 @@ namespace Chess
                 void displayInputSeparator()
                 {
                         // Get width of the separator
-                        std::vector<std::string> separator = Tool::splitString(Tool::readFileContents("../assets/userInputSeparator.txt"), '\n');
+                        std::vector<std::string> separator = Tool::splitString(
+                                Tool::readFileContents(Globals::Constants::USER_INPUT_SEPARATOR_PATH), '\n');
                         size_t width = separator[0].size();
 
                         // Get repeated separator
-                        std::vector<std::string> repeatedSeparator = repeatPattern("../assets/userInputSeparator.txt", Chess::Globals::GUI_WIDTH / width - 1, '\n');
+                        std::vector<std::string> repeatedSeparator = repeatPattern(
+                                Globals::Constants::USER_INPUT_SEPARATOR_PATH,
+                                Chess::Globals::GUI_WIDTH / width - 1, '\n');
 
                         // Display the separator
                         displayGraphics(repeatedSeparator);
@@ -276,7 +286,8 @@ namespace Chess
                 std::vector<std::string> repeatPattern(const std::string& filePath, const size_t& count, const char& delimiter)
                 {
                         // Get the pattern
-                        std::vector<std::string> pattern = Tool::splitString(Tool::readFileContents(filePath), delimiter);
+                        std::vector<std::string> pattern = Tool::splitString(
+                                Tool::readFileContents(filePath), delimiter);
 
                         // Repeated pattern
                         std::vector<std::string> repeatedPattern;
