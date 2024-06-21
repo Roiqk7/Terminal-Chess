@@ -37,7 +37,7 @@ namespace Chess
                         GUI::addHeaderSpace();
 
                         // Display welcome banner
-                        GUI::displayGraphicsFromFile("../assets/welcomeBanner.txt");
+                        GUI::displayGraphics("../assets/welcomeBanner.txt");
 
                         // Wait for a few seconds
                         Tool::wait(2);
@@ -58,20 +58,20 @@ namespace Chess
                         addHeaderSpace();
 
                         // Display the main menu banner
-                        displayGraphicsFromFile("../assets/mainMenuBanner.txt");
+                        displayGraphics("../assets/mainMenuBanner.txt");
 
                         // Add few new lines
                         addNewLine(2);
 
                         // Display the main menu options
-                        displayGraphicsFromFile("../assets/mainMenu.txt");
+                        displayGraphics("../assets/mainMenu.txt");
                 }
 
                 /*
                 Display the graphics by reading the file and displaying it on the
                 console. It centers the graphics and displays it line by line.
                 */
-                void displayGraphicsFromFile(const std::string& filePath)
+                void displayGraphics(const std::string& filePath)
                 {
                         // Get the graphics from the file
                         std::string graphics = Tool::readFileContents(filePath);
