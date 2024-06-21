@@ -26,13 +26,20 @@ namespace Chess
                 */
                 void displayMainMenu()
                 {
+                        // Clear the screen
+                        clearScreen();
+
+                        // Add header space
+                        addHeaderSpace();
+
                         // Display the main menu banner
                         displayGraphics("../assets/mainMenuBanner.txt");
 
+                        // Add few new lines
+                        addNewLine(2);
+
                         // Display the main menu options
-                        std::cout << "1. Start new game" << std::endl;
-                        std::cout << "2. Load game" << std::endl;
-                        std::cout << "3. Exit" << std::endl;
+                        displayGraphics("../assets/mainMenu.txt");
                 }
 
                 /*
@@ -40,9 +47,6 @@ namespace Chess
                 */
                 void displayGraphics(const std::string& filePath)
                 {
-                        // Clear the screen
-                        clearScreen();
-
                         // Get the banner from the file
                         std::string banner = Tool::readFileContents(filePath);
 
@@ -52,8 +56,10 @@ namespace Chess
                         // Display the banner
                         for (const auto& line : lines)
                         {
-                                size_t leadingSpaces = (Chess::Globals::GUI_WIDTH - line.length()) / 2;
-                                std::cout << std::string(leadingSpaces, ' ') << line << std::endl;
+                                size_t leadingSpaces = (Chess::Globals::GUI_WIDTH
+                                        - line.length()) / 2;
+                                std::cout << std::string(leadingSpaces, ' ')
+                                        << line << std::endl;
                         }
                 }
 
@@ -94,6 +100,27 @@ namespace Chess
                         // Set the terminal dimensions
                         Chess::Globals::GUI_WIDTH = width;
                         Chess::Globals::GUI_HEIGHT = height;
+                }
+
+                /*
+                Add a new line(s) to the console.
+                */
+                void addNewLine(const int& count)
+                {
+                        // Add new line(s)
+                        for (int i = 0; i < count; i++)
+                        {
+                                std::cout << std::endl;
+                        }
+                }
+
+                /*
+                Add a header space based on the terminal height.
+                */
+                void addHeaderSpace()
+                {
+                        // Add header space
+                        addNewLine(Chess::Globals::GUI_HEIGHT / 6);             // 1/6th of the terminal height (1/6th because it looks the best)
                 }
 
                 /*
