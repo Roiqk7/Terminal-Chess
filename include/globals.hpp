@@ -19,12 +19,32 @@ Notes: x
 #define LOG_INFO(...) spdlog::info(__VA_ARGS__)
 #define LOG_WARN(...) spdlog::warn(__VA_ARGS__)
 #define LOG_ERROR(...) spdlog::error(__VA_ARGS__)
+
+// Macros to set log level
+#define SET_LOG_LEVEL_TRACE() spdlog::set_level(spdlog::level::trace)
+#define SET_LOG_LEVEL_DEBUG() spdlog::set_level(spdlog::level::debug)
+#define SET_LOG_LEVEL_INFO() spdlog::set_level(spdlog::level::info)
+#define SET_LOG_LEVEL_WARN() spdlog::set_level(spdlog::level::warn)
+#define SET_LOG_LEVEL_ERROR() spdlog::set_level(spdlog::level::err)
+#define SET_LOG_LEVEL_CRITICAL() spdlog::set_level(spdlog::level::critical)
+#define SET_LOG_LEVEL_OFF() spdlog::set_level(spdlog::level::off)
+
 #else
 // Define macros as no-operation if not in development mode
 #define LOG_TRACE(...) (void)0
 #define LOG_INFO(...) (void)0
 #define LOG_WARN(...) (void)0
 #define LOG_ERROR(...) (void)0
+
+// Define SET_LOG_LEVEL macros as no-operation if not in development mode
+#define SET_LOG_LEVEL_TRACE() (void)0
+#define SET_LOG_LEVEL_DEBUG() (void)0
+#define SET_LOG_LEVEL_INFO() (void)0
+#define SET_LOG_LEVEL_WARN() (void)0
+#define SET_LOG_LEVEL_ERROR() (void)0
+#define SET_LOG_LEVEL_CRITICAL() (void)0
+#define SET_LOG_LEVEL_OFF() (void)0
+
 #endif
 
 namespace Chess
