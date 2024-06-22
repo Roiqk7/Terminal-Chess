@@ -6,8 +6,8 @@ Description: This file implements utility functions which can be used throughout
 Notes: x
 */
 
-#ifndef TOOL_CPP
-#define TOOL_CPP
+#ifndef TOOL_HPP
+#define TOOL_HPP
 
 #include <string>
 #include <vector>
@@ -26,8 +26,9 @@ namespace Chess
                         filePath);                                              // Read a graphics file
                 void writeGraphicsFile(const std::string& filePath,
                         const std::vector<std::string>& graphics);               // Write a graphics file
-                std::vector<std::string> merge(const std::vector<std::string>&
-                        left, const std::vector<std::string>& right,
+                std::vector<std::string> mergeGraphics(
+                        const std::vector<std::string>&left,
+                        const std::vector<std::string>& right,
                         const size_t& width, const std::string& filler);        // Merge two vectors of strings into one vector of strings with the specified width and filler
                 std::vector<std::string> repeatPattern(
                         const std::string& filePath, const size_t& width,
@@ -36,4 +37,4 @@ namespace Chess
 }
 
 
-#endif // !TOOL_CPP
+#endif // !TOOL_HPP

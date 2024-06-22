@@ -33,7 +33,7 @@ namespace Chess
                         getDimensions();
 
                         // Merge header
-                        auto header = Tool::merge(
+                        auto header = Tool::mergeGraphics(
                                 Tool::readGraphicsFile(
                                         Globals::Constants::HEADER_LEFT_PATH),
                                 Tool::readGraphicsFile(
@@ -71,9 +71,15 @@ namespace Chess
                         Scene introScene = Scene("Intro");
 
                         // Add the elements to the intro scene
+                        introScene.addElement(Element("Header",
+                                Globals::Constants::HEADER_PATH,
+                                false, false));
                         introScene.addElement(Element("Welcome",
                                 Globals::Constants::WELCOME_BANNER_PATH,
-                                true, false));
+                                false, false));
+                        introScene.addElement(Element("Footer",
+                                Globals::Constants::FOOTER_PATH,
+                                false, false));
 
                         // Format the intro scene
                         formatScene(introScene);
