@@ -50,12 +50,16 @@ namespace Chess
                                 + "errorBanner.txt";                            // Path to the error banner
                         const std::string FAREWELL_PATH = ASSETS_PATH
                                 + "farewell.txt";                               // Path to the farewell text
+                        const std::string FOOTER_PATH = ASSETS_PATH
+                                + "footer.txt";                                  // Path to the footer
                         const std::string FOOTER_LEFT_PATH = ASSETS_PATH
                                 + "footerLeft.txt";                             // Path to the left footer
                         const std::string FOOTER_RIGHT_PATH = ASSETS_PATH
                                 + "footerRight.txt";                            // Path to the right footer
                         const std::string GAME_OVER_BANNER_PATH = ASSETS_PATH
                                 + "gameOverBanner.txt";                         // Path to the game over banner
+                        const std::string HEADER_PATH = ASSETS_PATH
+                                + "header.txt";                                  // Path to the header
                         const std::string HEADER_LEFT_PATH = ASSETS_PATH
                                 + "headerLeft.txt";                             // Path to the left header
                         const std::string HEADER_RIGHT_PATH = ASSETS_PATH
