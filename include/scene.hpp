@@ -12,7 +12,7 @@ Notes: x
 
 namespace Chess
 {
-        namespace Scene
+        namespace GUI
         {
         // Element
                 struct Element
