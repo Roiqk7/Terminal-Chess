@@ -24,6 +24,10 @@ namespace Chess
                 */
                 void formatScene(Scene& scene)
                 {
+                        // Log the formatting
+                        // TODO Switch to trace
+                        LOG_INFO("Formatting scene {}", scene.name);
+
                         // Format the scene's width and height
                         handleSceneWidth(scene);
                         handleSceneHeight(scene);
