@@ -95,9 +95,42 @@ namespace Chess
 
                         // Wait for a few seconds
                         Tool::wait(3);
+                }
 
+                /*
+                Display the main menu.
+                */
+                void displayMainMenu()
+                {
                         // Clear the screen
                         clearScreen();
+
+                        // Create the main menu scene
+                        Scene mainMenuScene = Scene("Main Menu");
+
+                        // Add the elements to the main menu scene
+                        mainMenuScene.addElement(Element("Header",
+                                Globals::Constants::HEADER_PATH,
+                                false, false));
+                        mainMenuScene.addElement(Element("Main Menu Banner",
+                                Globals::Constants::MAIN_MENU_BANNER_PATH,
+                                false, false));
+                        mainMenuScene.addElement(Element("Main Menu",
+                                Globals::Constants::MAIN_MENU_PATH,
+                                true, false));
+                        mainMenuScene.addElement(Element("Footer",
+                                Globals::Constants::FOOTER_PATH,
+                                false, false));
+
+                        // Format the main menu scene
+                        formatScene(mainMenuScene);
+
+                        // Display the main menu scene
+                        display(mainMenuScene);
+
+                        // Delete the wait bellow!!!
+                        // Wait for a few seconds
+                        Tool::wait(3);
                 }
 
                 /*
