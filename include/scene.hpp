@@ -26,8 +26,6 @@ namespace Chess
                 public: // Methods
                 // Constructors
                         Scene();                                                // Default constructor
-                // GUI
-                        void display();                                         // Display the scene
                 // Scene management
                         void addElement(const Element& element);                // Add an element to the scene
                         void removeElement(const size_t& index);                // Remove an element from the scene
