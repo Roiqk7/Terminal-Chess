@@ -1,33 +1,5 @@
-- Make GUI functions return size_t height so you can better manage it. Will require a bit of rewriting but its necessary.
-        ! implement the above using Scene class => should make it easier to manage the GUI elements.
-- Create a simple demo where you can safely move across the app and have the basic GUI elements working.
+Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-
-Note: After you implement the GUI add the text bellow into docs/.
-
-GUI Architecture Overview:
-
-Scene:
-- A Scene is a collection of lines that are rendered independently.
-        - Each line spans `GUI::width` characters, with a total of `GUI::height` lines per scene.
-        - In scenes requiring user input, the number of lines is reduced to accommodate the input area.
-        - Scenes are containers for elements but do not manage their lifecycle or interactions.
-- Scenes are categorized into raw and processed types:
-        - Raw scenes contain unformatted elements.
-        - Processed scenes have been formatted for rendering.
-- Scenes are static in nature; they do not handle user interactions directly. It's assumed that scene switching is infrequent, eliminating the need for active scene management.
-
-Element:
-- Elements are the fundamental components of the GUI, representing individual pieces of content or functionality.
-- An Element's responsibility is limited to storing its own metadata, which includes information necessary for formatting.
-- Elements provide the structural information required by the Formatter to arrange them within a scene.
-
-Formatter:
-- The Formatter plays a critical role in the GUI architecture. Its primary function is to arrange elements within a scene according to specific layout rules.
-        - It ensures that each scene adheres to the dimensions specified by `GUI::width` and `GUI::height`, adjusting for scenes that incorporate user input fields.
-- The Formatter's task is to translate raw scenes into processed scenes, ready for rendering, by positioning elements appropriately.
-
-Renderer:
-- The Renderer is tasked with displaying scenes to the user.
-        - It accepts processed scenes and visually renders them, ensuring that the GUI's content is presented on the screen.
-- The Renderer acts as the bridge between the GUI's internal representation and its visual output, bringing formatted scenes to life.
+- Make the startApplication() function format header and footer and put it formatted into header.txt and footer.txt
+- Create the few basic scenes
+- Add user input
