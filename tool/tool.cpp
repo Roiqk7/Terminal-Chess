@@ -146,26 +146,23 @@ namespace Chess
                         size_t fillersNeeded = (width - leftSize - rightSize) / filler.size();
 
                         // If the width is not enough to fit the left and right, throw an exception
-                        if (fillersNeeded < 0)
+                        if (width < leftSize + rightSize)
                         {
                                 // Invalid width
-                                throw Exception::RunTimeException(
-                                        "Negative size provided. Invalid width.");
+                                throw Exception::TerminalSizeException(
+                                        "Negative size provided. Invalid width.", true, true);
                         }
-                        // If the width is not enough to fit the left and right, throw an exception
+                        // If the width is not enough to fit the left and right, log a warning
                         else if (fillersNeeded < leftSize + rightSize)
                         {
-                                // If the width is not enough to fit the left and right, throw an exception
-                                throw Exception::InvalidInputException(
-                                        "The width is not enough to fit the left and right part of the graphics.");
+                                // Log warning
+                                LOG_WARN("The width is not enough to fit the left and right part of the graphics.");
                         }
-                        // If the width is not divisible by the fillers width, throw an exception
-                        // Note: Maybe remove and handle more properly without an exception
+                        // If the width is not divisible by the fillers width, log a warning
                         else if (width % filler.size() != 0)
                         {
-                                // If the width is not divisible by the fillers width, throw an exception
-                                throw Exception::InvalidInputException(
-                                        "The width is not divisible by the fillers needed.");
+                                // Log warning
+                                LOG_WARN("The width is not divisible by the fillers needed.");
                         }
 
                         // Create the filler string
