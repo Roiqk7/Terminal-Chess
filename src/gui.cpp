@@ -27,32 +27,13 @@ namespace Chess
                 */
                 void displayIntro()
                 {
-                        // Get the terminal dimensions
-                        getDimensions();
+                        /*
+                        Header
 
-                        // Clear the screen
-                        clearScreen();
+                        Welcome
 
-                        // Add header
-                        displayHeader();
-
-                        // Display welcome banner
-                        displayGraphics(Globals::Constants::WELCOME_BANNER_PATH);
-
-                        // DEBUG: Delete
-                        addNewLine(10);
-
-                        // Display the footer
-                        displayFooter();
-
-                        // DEBUG: Delete
-                        addNewLine(2);
-
-                        // Wait for a few seconds
-                        Tool::wait(3);
-
-                        // Clear the screen
-                        clearScreen();
+                        Footer
+                        */
                 }
 
                 /*
@@ -60,29 +41,15 @@ namespace Chess
                 */
                 void displayMainMenu()
                 {
-                        // Clear the screen
-                        clearScreen();
+                        /*
+                        Header
 
-                        // Add header
-                        displayHeader();
+                        Main Menu Banner
 
-                        // Display the main menu banner
-                        displayGraphics(Globals::Constants::MAIN_MENU_BANNER_PATH);
+                        Main Menu
 
-                        // Add few new lines
-                        addNewLine(2);
-
-                        // Display the main menu options
-                        displayGraphics(Globals::Constants::MAIN_MENU_PATH);
-
-                        // DEBUG: Delete
-                        addNewLine(10);
-
-                        // User input divisor
-                        displayInputSeparator();
-
-                        // DEBUG: Delete
-                        Tool::wait(5);
+                        Input Separator
+                        */
                 }
 
                 /*
@@ -90,61 +57,13 @@ namespace Chess
                 */
                 void displayEnding()
                 {
-                        // Clear the screen
-                        clearScreen();
+                        /*
+                        Header
 
-                        // Add header
-                        displayHeader();
+                        Farewell
 
-                        // Display the ending banner
-                        displayGraphics(Globals::Constants::FAREWELL_PATH);
-
-                        // Some new lines
-                        addNewLine(10);
-
-                        // Display the footer
-                        displayFooter();
-
-                        // Bit more new lines
-                        addNewLine(2);
-
-                        // Wait for a few seconds
-                        Tool::wait(3);
-                }
-
-                /*
-                Display the graphics by reading the file and displaying it on the
-                console. It centers the graphics and displays it line by line.
-
-                @param filePath: The path to the file containing the graphics.
-                */
-                void displayGraphics(const std::string& filePath)
-                {
-                        // Get the graphics from the file
-                        std::string graphics = Tool::readFileContents(filePath);
-
-                        // Split the graphics into lines
-                        std::vector<std::string> graphicsInLines = Tool::splitString(graphics, '\n');
-
-                        // Display the graphics
-                        displayGraphics(graphicsInLines);
-                }
-
-                /*
-                Display the graphics from a vector of strings.
-
-                @param graphics: The graphics to display.
-                */
-                void displayGraphics(const std::vector<std::string>& graphics)
-                {
-                        // Display the graphics line by line
-                        for (const auto& line : graphics)
-                        {
-                                size_t leadingSpaces = (Chess::Globals::GUI_WIDTH
-                                        - line.length()) / 2;
-                                std::cout << std::string(leadingSpaces, ' ')
-                                        << line << std::endl;
-                        }
+                        Footer
+                        */
                 }
 
                 /*
@@ -156,7 +75,7 @@ namespace Chess
                         std::vector<std::string> header = mergeHeaders();
 
                         // Display the header
-                        displayGraphics(header);
+                        //! displayGraphics(header);
                 }
 
                 /*
@@ -185,7 +104,7 @@ namespace Chess
                         std::vector<std::string> footer = mergeFooters();
 
                         // Display the footer
-                        displayGraphics(footer);
+                        //! displayGraphics(footer);
                 }
 
                 /*
@@ -232,12 +151,15 @@ namespace Chess
                                 throw Exception::RunTimeException(
                                         "Negative size provided. Invalid width.");
                         }
+                        // If the width is not enough to fit the left and right, throw an exception
                         else if (fillersNeeded < leftSize + rightSize)
                         {
                                 // If the width is not enough to fit the left and right, throw an exception
                                 throw Exception::InvalidInputException(
                                         "The width is not enough to fit the left and right part of the graphics.");
                         }
+                        // If the width is not divisible by the fillers width, throw an exception
+                        // Note: Maybe remove and handle more properly without an exception
                         else if (width % filler.size() != 0)
                         {
                                 // If the width is not divisible by the fillers width, throw an exception
@@ -255,25 +177,6 @@ namespace Chess
                         }
 
                         return merged;
-                }
-
-                /*
-                Display a separator.
-                */
-                void displayInputSeparator()
-                {
-                        // Get width of the separator
-                        std::vector<std::string> separator = Tool::splitString(
-                                Tool::readFileContents(Globals::Constants::USER_INPUT_SEPARATOR_PATH), '\n');
-                        size_t width = separator[0].size();
-
-                        // Get repeated separator
-                        std::vector<std::string> repeatedSeparator = repeatPattern(
-                                Globals::Constants::USER_INPUT_SEPARATOR_PATH,
-                                Chess::Globals::GUI_WIDTH / width - 1, '\n');
-
-                        // Display the separator
-                        displayGraphics(repeatedSeparator);
                 }
 
                 /*
@@ -329,8 +232,8 @@ namespace Chess
                         else
                         {
                                 // Default terminal dimensions
-                                size_t width = 0;
-                                size_t height = 0;
+                                size_t width = 64;
+                                size_t height = 32;
 
                                 // Failed to get terminal dimensions, use default values
                                 setDimensions(width, height);
@@ -351,29 +254,6 @@ namespace Chess
                         // Set the terminal dimensions
                         Chess::Globals::GUI_WIDTH = width;
                         Chess::Globals::GUI_HEIGHT = height;
-                }
-
-                /*
-                Add a new line(s) to the console.
-
-                @param count: The number of new lines to add.
-                */
-                void addNewLine(const int& count)
-                {
-                        // Add new line(s)
-                        for (int i = 0; i < count; i++)
-                        {
-                                std::cout << std::endl;
-                        }
-                }
-
-                /*
-                Add a header space based on the terminal height.
-                */
-                void addHeaderSpace()
-                {
-                        // Add header space
-                        addNewLine(Chess::Globals::GUI_HEIGHT / 6);             // 1/6th of the terminal height (1/6th because it looks the best)
                 }
 
                 /*
