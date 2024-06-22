@@ -27,8 +27,8 @@ namespace Chess
                         Scene();                                                // Default constructor
                 // Scene management
                         void addElement(const Element& element);                // Add an element to the scene
-                        void removeElement(const size_t& index);                // Remove an element from the scene
-                        void updateElement(
+                        void removeElement(const std::string& name);            // Remove an element from the scene
+                        void updateElement(const std::string& name,
                                 const std::vector<std::string>& graphics);      // Update the graphics of an element
                 private: // Variables
                         std::vector<Element> elements;                          // Elements in the scene
