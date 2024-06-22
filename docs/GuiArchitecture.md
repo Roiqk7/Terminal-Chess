@@ -7,21 +7,26 @@
         - In scenes requiring user input, the number of lines is reduced to accommodate the input area.
         - Scenes are containers for elements but do not manage their lifecycle or interactions.
 - Scenes are categorized into raw and processed types:
-        - **Raw scenes** contain unformatted elements.
-        - **Processed scenes** have been formatted for rendering.
-- Scenes are static in nature; they do not handle user interactions directly. It's assumed that scene switching is infrequent, eliminating the need for active scene management.
+        - **Raw scenes** need to be formatted in order to be rendered.
+        - **Processed scenes** have been formatted and are ready for rendering.
+- Scenes are static in nature; they do not handle user interactions directly. That is left to the rest of the program.
+- It's assumed that scene switching is infrequent, eliminating the need for active scene management or some form of scene stack.
 
 ## Element
 
 - **Elements** are the fundamental components of the GUI, representing individual pieces of content or functionality.
-- An Element's responsibility is limited to storing its own metadata, which includes information necessary for formatting.
-- Elements provide the structural information required by the Formatter to arrange them within a scene.
+- An Element's responsibility is limited to storing its own metadata, which includes information necessary for formatting and rendering.
+        - This metadata includes if the element is necessary for the scene. If not then in **can be skipped** during rendering if the user's terminal is too small.
+- Elements do not provide the structural information required by the Formatter to arrange them within a scene. That task is left to the Scene itself. (It depends on the order in which elements are added to the scene.)
 
 ## Formatter
 
 - The **Formatter** plays a critical role in the GUI architecture. Its primary function is to arrange elements within a scene according to specific layout rules.
         - It ensures that each scene adheres to the dimensions specified by `GUI::width` and `GUI::height`, adjusting for scenes that incorporate user input fields.
-- The Formatter's task is to translate raw scenes into processed scenes, ready for rendering, by positioning elements appropriately.
+- The Formatter's task is to translate raw scenes into processed scenes, ready for rendering.
+- The Formatter **assumes** that the first element in the Scene is at the top and the last is at the bottom. It **does not** handle the reordering of elements within a scene.
+- The Formatter will add equal number of empty lines in between elements to ensure that the scene is filled up to `GUI::height`.
+- The Formatter **will center** all elements in the scene.
 
 ## Renderer
 
