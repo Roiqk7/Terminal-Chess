@@ -26,6 +26,8 @@ namespace Chess
                 public: // Methods
                 // Constructors
                         Scene();                                                // Default constructor
+                // Dimensions
+                        void calculateDimensions();                             // Calculate the dimensions of the scene
                 // Scene management
                         void addElement(const Element& element);                // Add an element to the scene
                         void removeElement(const std::string& name);            // Remove an element from the scene

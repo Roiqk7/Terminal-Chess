@@ -23,6 +23,23 @@ namespace Chess
                         : width(0), height(0), raw(true) {}
 
                 /*
+                Calculate the dimensions of the scene.
+                */
+                void Scene::calculateDimensions()
+                {
+                        // Initialize the dimensions
+                        width = 0;
+                        height = 0;
+
+                        // Calculate the width and height
+                        for (const Element& element : elements)
+                        {
+                                width = std::max(width, element.width);
+                                height += element.height;
+                        }
+                }
+
+                /*
                 Add an element to the scene.
 
                 @param element: The element to be added
