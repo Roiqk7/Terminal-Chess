@@ -6,6 +6,7 @@ Description: This file implements formatter functions.
 Notes: x
 */
 
+#include <cmath>
 #include <string>
 #include <vector>
 #include "../include/element.hpp"
@@ -184,7 +185,8 @@ namespace Chess
                         size_t remainingEmptyLines = emptyLines % emptyPlaces;
 
                         // Calculate the number of remaining empty lines per place
-                        size_t remainingEmptyLinesPerPlace = remainingEmptyLines / emptyPlaces;
+                        size_t remainingEmptyLinesPerPlace = std::ceil(remainingEmptyLines
+                                / static_cast<double>(emptyPlaces));
 
                         // Log the calculations
                         LOG_TRACE("Empty lines: {}", emptyLines);
@@ -218,7 +220,8 @@ namespace Chess
                                         // Add remaining empty lines
                                         if (remainingEmptyLines > 0)
                                         {
-                                                for (size_t i = 0; i < remainingEmptyLinesPerPlace; i++)
+                                                for (size_t i = 0; i < remainingEmptyLinesPerPlace
+                                                        && remainingEmptyLines > 0; i++)
                                                 {
                                                         formattedGraphics.push_back({" "});
                                                         remainingEmptyLines--;
