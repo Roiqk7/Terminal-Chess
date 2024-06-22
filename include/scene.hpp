@@ -27,6 +27,7 @@ namespace Chess
                         size_t width;                                           // Width of the scene
                         size_t height;                                          // Height of the scene
                         bool raw;                                               // Whether the scene is raw (not ready for display) or not
+                        bool userInput;                                         // Whether the scene requires user input or not
                 public: // Methods
                 // Constructors
                         Scene(const std::string& name);                         // Default constructor

@@ -20,7 +20,8 @@ namespace Chess
                 Default constructor for the scene.
                 */
                 Scene::Scene(const std::string& name)
-                        : name(name), width(0), height(0), raw(true) {}
+                        : name(name), width(0), height(0), raw(true),
+                        userInput(false) {}
 
                 /*
                 Calculate the dimensions of the scene.
@@ -46,6 +47,10 @@ namespace Chess
                 */
                 void Scene::addElement(const Element& element)
                 {
+                        // Check for user input
+                        userInput = element.userInput;
+
+                        // Add the element
                         elements.push_back(element);
                 }
 
