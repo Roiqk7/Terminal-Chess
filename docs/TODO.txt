@@ -1,4 +1,5 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Formatter can not handle user input scenes. Update it and then move to user input system.
 - Add user input
+- Add event system
+- Once you can move around and everything is nice, add the actuall Chess game and logic
