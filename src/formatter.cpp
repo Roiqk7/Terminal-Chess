@@ -109,20 +109,27 @@ namespace Chess
                                         formattedGraphics.push_back(line);
                                 }
 
-                                // Add empty lines
-                                for (size_t i = 0; i < emptyLinesPerPlace; i++)
+                                // Check for end of empty places
+                                if (emptyPlaces > 0)
                                 {
-                                        formattedGraphics.push_back({" "});
-                                }
-
-                                // Add remaining empty lines
-                                if (remainingEmptyLines > 0)
-                                {
-                                        for (size_t i = 0; i < remainingEmptyLinesPerPlace; i++)
+                                        // Add empty lines
+                                        for (size_t i = 0; i < emptyLinesPerPlace; i++)
                                         {
                                                 formattedGraphics.push_back({" "});
-                                                remainingEmptyLines--;
                                         }
+
+                                        // Add remaining empty lines
+                                        if (remainingEmptyLines > 0)
+                                        {
+                                                for (size_t i = 0; i < remainingEmptyLinesPerPlace; i++)
+                                                {
+                                                        formattedGraphics.push_back({" "});
+                                                        remainingEmptyLines--;
+                                                }
+                                        }
+
+                                        // Decrement the empty places
+                                        emptyPlaces--;
                                 }
                         }
 
