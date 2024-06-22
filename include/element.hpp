@@ -23,6 +23,7 @@ namespace Chess
                         std::vector<std::string> graphics;                      // Graphics to be displayed
                         size_t width;                                           // Width of the element
                         size_t height;                                          // Height of the element
+                        bool required;                                          // Whether the element is required and must be displayed or not
                 public: // Constructors
                         Element(const std::string& filePath);                   // Constructor with file path
                         Element(const std::vector<std::string>& graphics);      // Constructor with graphics
