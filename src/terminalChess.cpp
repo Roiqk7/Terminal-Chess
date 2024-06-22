@@ -7,9 +7,14 @@ Notes: x
 */
 
 #include "../include/flowControl.hpp"
+#include "../include/globals.hpp"
 
 int main()
 {
+        // Set the log level
+        SET_LOG_LEVEL_TRACE();
+
+        // Start the main application loop
         Chess::FlowControl::mainApplicationLoop();
         return 0;
 }
