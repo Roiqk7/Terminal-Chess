@@ -28,7 +28,7 @@ namespace Chess
                         const std::string& filePath,
                         const bool required, const bool userInput)
                         : name(name), filePath(filePath), width(0), height(0),
-                        required(required), userInput(userInput)
+                        required(required), userInput(userInput), raw(true)
                 {
                         // Load the graphics
                         graphics = Tool::splitString(Tool::readFileContents(filePath), '\n');
@@ -49,7 +49,7 @@ namespace Chess
                         const std::vector<std::string>& graphics,
                         const bool required, const bool userInput)
                         : name(name), graphics(graphics), width(0), height(0),
-                        required(required), userInput(userInput)
+                        required(required), userInput(userInput), raw(true)
                 {
                         // Calculate the dimensions
                         calculateDimensions();

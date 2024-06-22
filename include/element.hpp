@@ -24,6 +24,7 @@ namespace Chess
                         size_t height;                                          // Height of the element
                         bool required;                                          // Whether the element is required and must be displayed or not
                         bool userInput;                                         // Whether the element requires user input or not
+                        bool raw;                                               // Whether the element is raw (not ready for display) or not
                 public: // Constructors
                         Element(const std::string& name,
                                 const std::string& filePath,
