@@ -25,10 +25,7 @@ namespace Chess
                         // Display the graphics line by line
                         for (const auto& line : scene.graphics)
                         {
-                                size_t leadingSpaces = (Chess::Globals::GUI_WIDTH
-                                        - line.length()) / 2;
-                                std::cout << std::string(leadingSpaces, ' ')
-                                        << line << std::endl;
+                                std::cout << line << '\n';
                         }
                 }
         }
