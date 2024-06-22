@@ -182,6 +182,20 @@ namespace Chess
                         size_t emptyLines = Globals::GUI_HEIGHT - scene.height
                                 - 1;                                            // Note: We skip this one line as the last line is reserved for the cursor.
 
+                        // Check if we need to remove empty lines for user input
+                        if (scene.userInput)
+                        {
+                                // Check if there are enough empty lines
+                                if (emptyLines < Globals::Constants::USER_INPUT_BUFFER_SIZE)
+                                {
+                                        emptyLines = 0;
+                                }
+                                else
+                                {
+                                        emptyLines -= Globals::Constants::USER_INPUT_BUFFER_SIZE;
+                                }
+                        }
+
                         // No calculate the number of places where we can add empty lines
                         size_t emptyPlaces = scene.elements.size() - 1;
 
