@@ -31,6 +31,24 @@ namespace Chess
                 */
                 void displayIntro()
                 {
+                        // Get the terminal dimensions
+                        getDimensions();
+
+                        // Clear the screen
+                        clearScreen();
+
+                        // Create the intro scene
+                        Scene introScene;
+
+                        // Add the elements to the intro scene
+                        introScene.addElement(Element("Welcome", Globals::Constants::WELCOME_BANNER_PATH, true, false));
+
+                        // Format the intro scene
+                        formatScene(introScene);
+
+                        // Display the intro scene
+                        display(introScene);
+
                         /*
                         Header
 

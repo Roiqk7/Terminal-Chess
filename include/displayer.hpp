@@ -6,6 +6,9 @@ Description: This file defines displayer (renderer) related functions.
 Notes: x
 */
 
+#ifndef DISPLAYER_HPP
+#define DISPLAYER_HPP
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,3 +22,5 @@ namespace Chess
                 void display(const Scene& scene);                               // Display the scene
         }
 }
+
+#endif // !DISPLAYER_HPP

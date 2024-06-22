@@ -6,6 +6,9 @@ Description: This file defines element related classes and functions.
 Notes: x
 */
 
+#ifndef ELEMENT_HPP
+#define ELEMENT_HPP
+
 #include <string>
 #include <vector>
 #include "globals.hpp"
@@ -39,3 +42,5 @@ namespace Chess
                 };
         }
 }
+
+#endif // !ELEMENT_HPP

@@ -6,6 +6,9 @@ Description: This file defines scene related classes and functions.
 Notes: x
 */
 
+#ifndef SCENE_HPP
+#define SCENE_HPP
+
 #include <string>
 #include <vector>
 #include "element.hpp"
@@ -36,3 +39,5 @@ namespace Chess
                 };
         }
 }
+
+#endif // !SCENE_HPP
