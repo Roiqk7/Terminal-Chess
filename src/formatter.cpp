@@ -30,6 +30,9 @@ namespace Chess
                         // Log the formatting
                         LOG_TRACE("Formatting scene {}", scene.name);
 
+                        // Manage the scene's elements
+                        manageSceneElements(scene);
+
                         // Format the scene's width and height
                         handleSceneWidth(scene);
                         handleSceneHeight(scene);
@@ -43,8 +46,12 @@ namespace Chess
 
                 @param scene: The scene to be managed
                 */
+                // TODO Divide this function into several smaller functions
                 void manageSceneElements(Scene& scene)
                 {
+                        // Get current scene dimensions
+                        scene.calculateDimensions();
+
                         // Check the width of the elements
                         for (auto& element : scene.elements)
                         {
@@ -73,7 +80,7 @@ namespace Chess
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
                                                                 + scene.name + " but its width is greater than the terminal width. Application will terminate.",
-                                                                true, false);
+                                                                true, true);
                                                 }
                                         }
                                         // If not then we can remove the element
@@ -90,7 +97,7 @@ namespace Chess
                                         }
                                 }
                                 // Check if the element's height is greater than Globals::GUI_HEIGHT
-                                if (element.height > Globals::GUI_HEIGHT)
+                                if (element.height > Globals::GUI_HEIGHT || Globals::GUI_HEIGHT < scene.height + 1)
                                 {
                                         // Check if the element is required
                                         if (element.required)
@@ -105,7 +112,7 @@ namespace Chess
                                                 GUI::getDimensions();
 
                                                 // Check if the new dimensions are okay
-                                                if (element.height > Globals::GUI_HEIGHT)
+                                                if (element.height > Globals::GUI_HEIGHT || Globals::GUI_HEIGHT < scene.height + 1)
                                                 {
                                                         // Log the error
                                                         LOG_ERROR("Element {} is still required in scene {} but its height is still greater than GUI_HEIGHT. Application will terminate.", element.name, scene.name);
@@ -113,7 +120,7 @@ namespace Chess
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
                                                                 + scene.name + " but its height is greater than the terminal height. Application will terminate.",
-                                                                false, false);
+                                                                false, true);
                                                 }
                                         }
                                         // If not then we can remove the element
