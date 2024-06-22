@@ -24,8 +24,13 @@ namespace Chess
                 */
                 void formatScene(Scene& scene)
                 {
+                        // Format the scene's width and height
                         handleSceneWidth(scene);
                         handleSceneHeight(scene);
+
+                        // Update scene's values
+                        scene.raw = false;
+                        scene.calculateDimensions();
                 }
 
                 /*
