@@ -33,6 +33,8 @@
 
 # Custom
 .vscode/
+assets/footer.txt
+assets/header.txt
 build/
 data/
 LICENSE
