@@ -85,7 +85,7 @@ namespace Chess
                                 false, false));
                         introScene.addElement(Element("Footer",
                                 Globals::Constants::FOOTER_PATH,
-                                false, false));
+                                false, true));
 
                         // Format the intro scene
                         formatScene(introScene);

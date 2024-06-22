@@ -57,8 +57,6 @@ namespace Chess
                         // Chess board
                         const size_t BOARD_ARRAY_SIZE = 64;                     // Number of elements in the board array
                 // GUI
-                        // Formatting
-                        const size_t USER_INPUT_BUFFER_SIZE = 5;                // Space reserved for input handler to get user input
                         // ANSI color codes
                         const std::string RESET_COLOR = "\033[0m";              // Reset color
                         const std::string WHITE_PIECE_COLOR = "\033[97m";       // Bright white for pieces
