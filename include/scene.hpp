@@ -21,6 +21,7 @@ namespace Chess
                 class Scene
                 {
                 public: // Variables
+                        std::string name;                                       // Name of the scene
                         std::vector<std::string> graphics;                      // Graphics to be displayed
                         std::vector<Element> elements;                          // Elements in the scene
                         size_t width;                                           // Width of the scene
@@ -28,7 +29,7 @@ namespace Chess
                         bool raw;                                               // Whether the scene is raw (not ready for display) or not
                 public: // Methods
                 // Constructors
-                        Scene();                                                // Default constructor
+                        Scene(const std::string& name);                         // Default constructor
                 // Dimensions
                         void calculateDimensions();                             // Calculate the dimensions of the scene
                 // Scene management

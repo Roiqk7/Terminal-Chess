@@ -19,8 +19,8 @@ namespace Chess
                 /*
                 Default constructor for the scene.
                 */
-                Scene::Scene()
-                        : width(0), height(0), raw(true) {}
+                Scene::Scene(const std::string& name)
+                        : name(name), width(0), height(0), raw(true) {}
 
                 /*
                 Calculate the dimensions of the scene.
