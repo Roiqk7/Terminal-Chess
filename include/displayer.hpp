@@ -18,7 +18,6 @@ namespace Chess
 {
         namespace GUI
         {
-                void display(Scene& scene);                               // Display the scene
                 void display(const Scene& scene);                               // Display the scene
         }
 }
