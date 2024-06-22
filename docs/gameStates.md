@@ -8,6 +8,15 @@
   - [Game States](#game-states-1)
     - [MainMenu](#mainmenu)
       - [Input Options](#input-options)
+    - [HelpMenu](#helpmenu)
+      - [Input Options](#input-options-1)
+    - [GameModeMenu](#gamemodemenu)
+    - [DifficultyMenu](#difficultymenu)
+  - [GamePlay](#gameplay)
+  - [PauseMenu](#pausemenu)
+  - [SaveGame](#savegame)
+  - [LoadGame](#loadgame)
+  - [GameOver](#gameover)
 
 ## Introduction
 
@@ -15,7 +24,12 @@ Game states are defined in the `include/globals.hpp` header file in the `GameSta
 
 - MainMenu
 - HelpMenu
-- Game
+- GameModeMenu
+- DifficultyMenu
+- GamePlay
+- PauseMenu
+- SaveGame
+- LoadGame
 - GameOver
 
 ## Definition
@@ -24,7 +38,8 @@ Game states are defined in the `include/globals.hpp` header file in the `GameSta
 // include/globals.hpp
 enum class GameState
 {
-        MainMenu, HelpMenu, Game, GameOver
+        MainMenu, HelpMenu, GameModeMenu, DifficultyMenu,
+        GamePlay, PauseMenu, SaveGame, LoadGame, GameOver
 };
 ```
 
@@ -38,6 +53,52 @@ enum class GameState
 - `h` - View the help menu
 - `q` - Quit the game
 
-All other values are considered invalid. User has several opportunities to enter a valid input. If valid input is not entered, main menu will be reprinted and the loop will repeat. This will continue until a valid input is entered and then the event handler will manage the transition to the next game state.
+### HelpMenu
 
-TODO: Add rest of the documentation once relevant.
+#### Input Options
+
+- `q` - Return to the main menu
+
+### GameModeMenu
+
+- `s` - Single player
+- `m` - Multiplayer
+
+### DifficultyMenu
+
+- `h` - Hard
+- `m` - Medium
+- `e` - Easy
+- `q` - Return to the main menu
+
+## GamePlay
+
+- `chessPiece` - Select a chess piece to move
+- `chessSquare` - Select a square to move the chess piece to
+- `q` - Pause the game
+
+## PauseMenu
+
+- `r` - Resume the game
+- `s` - Save the game
+- `l` - Load the game
+- `q` - Quit the game
+
+## SaveGame
+
+- `1` - Save the game to slot 1
+- `2` - Save the game to slot 2
+- `3` - Save the game to slot 3
+- `q` - Return to the game
+
+## LoadGame
+
+- `1` - Load the game from slot 1
+- `2` - Load the game from slot 2
+- `3` - Load the game from slot 3
+- `q` - Return to the game
+
+## GameOver
+
+- `r` - Restart the game
+- `q` - Quit the game
