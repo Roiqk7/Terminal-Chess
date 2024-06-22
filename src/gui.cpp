@@ -25,6 +25,39 @@ namespace Chess
         namespace GUI
         {
                 /*
+                Initialize the GUI.
+                */
+                void initGUI()
+                {
+                        // Get the terminal dimensions
+                        getDimensions();
+
+                        // Merge header
+                        auto header = Tool::merge(
+                                Tool::readGraphicsFile(
+                                        Globals::Constants::HEADER_LEFT_PATH),
+                                Tool::readGraphicsFile(
+                                        Globals::Constants::HEADER_RIGHT_PATH),
+                                Globals::GUI_WIDTH, " ");
+
+                        // Write the header to a file
+                        Tool::writeGraphicsFile(Globals::Constants::HEADER_PATH,
+                                header);
+
+                        // Merge footer
+                        Tool::merge(
+                                Tool::readGraphicsFile(
+                                        Globals::Constants::FOOTER_LEFT_PATH),
+                                Tool::readGraphicsFile(
+                                        Globals::Constants::FOOTER_RIGHT_PATH),
+                                Globals::GUI_WIDTH, " ");
+
+                        // Write the footer to a file
+                        Tool::writeGraphicsFile(Globals::Constants::FOOTER_PATH,
+                                header);
+                }
+
+                /*
                 Display the intro. Actually, it also prepares the terminal for the
                 application by getting the terminal dimensions and clearing the
                 screen.
@@ -34,14 +67,13 @@ namespace Chess
                         // Clear the screen
                         clearScreen();
 
-                        // Get the terminal dimensions
-                        getDimensions();
-
                         // Create the intro scene
                         Scene introScene = Scene("Intro");
 
                         // Add the elements to the intro scene
-                        introScene.addElement(Element("Welcome", Globals::Constants::WELCOME_BANNER_PATH, true, false));
+                        introScene.addElement(Element("Welcome",
+                                Globals::Constants::WELCOME_BANNER_PATH,
+                                true, false));
 
                         // Format the intro scene
                         formatScene(introScene);

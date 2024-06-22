@@ -18,6 +18,8 @@ namespace Chess
 {
         namespace GUI
         {
+        // General
+                void initGUI();                                                 // Initialize the GUI
         // Application
                 void displayIntro();                                            // Display the intro
                 void displayMainMenu();                                         // Display the main menu
