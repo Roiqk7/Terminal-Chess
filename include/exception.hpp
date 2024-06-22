@@ -17,6 +17,7 @@ namespace Chess
         namespace Exception
         {
         // Classes
+        // RunTimeException
                 class RunTimeException : public std::exception
                 {
                 public:
@@ -28,7 +29,7 @@ namespace Chess
                 // Variables
                         std::string message;
                 };
-
+        // InvalidInputException
                 class InvalidInputException : public RunTimeException
                 {
                 public:
@@ -39,6 +40,22 @@ namespace Chess
                 private:
                 // Variables
                         std::string message;
+                };
+        // TerminalSizeException
+                class TerminalSizeException : public RunTimeException
+                {
+                public:
+                // Constructors
+                        TerminalSizeException(const std::string& message, bool width, bool tooSmall);
+                // Methods
+                        virtual const char* what() const noexcept override;
+                private:
+                // Variables
+                        std::string message;
+                        bool width;
+                        bool tooSmall;
+                // Methods
+                        void logException(const std::string& message, const bool& width, const bool& tooSmall);
                 };
         // Functions
                 void logException(const std::string& message);
