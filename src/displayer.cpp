@@ -25,8 +25,7 @@ namespace Chess
                 void display(const Scene& scene)
                 {
                         // Log the display
-                        // TODO Switch to trace
-                        LOG_INFO("Displaying {} scene {} with width {} and height {}",
+                        LOG_TRACE("Displaying {} scene {} with width {} and height {}",
                                 scene.raw ? "raw" : "formatted", scene.name, scene.width, scene.height);
 
                         // Display the graphics line by line
