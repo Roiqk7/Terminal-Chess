@@ -15,7 +15,6 @@ namespace Chess
 {
         namespace GUI
         {
-        // Scene
                 class Scene
                 {
                 public: // Variables
