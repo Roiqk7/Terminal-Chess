@@ -76,7 +76,8 @@ namespace Chess
                         scene.calculateDimensions();
 
                         // Calculate the number of empty lines to add to fit the GUI_HEIGHT
-                        size_t emptyLines = Globals::GUI_HEIGHT - scene.height;
+                        size_t emptyLines = Globals::GUI_HEIGHT - scene.height
+                                - 1;                                            // Note: We skip this one line as the last line is reserved for the cursor.
 
                         // No calculate the number of places where we can add empty lines
                         size_t emptyPlaces = scene.elements.size() - 1;
@@ -95,7 +96,8 @@ namespace Chess
                         LOG_TRACE("Empty places: {}", emptyPlaces);
                         LOG_TRACE("Empty lines per place: {}", emptyLinesPerPlace);
                         LOG_TRACE("Remaining empty lines: {}", remainingEmptyLines);
-                        LOG_TRACE("Remaining empty lines per place: {}", remainingEmptyLinesPerPlace);
+                        LOG_TRACE("Remaining empty lines per place: {}",
+                                remainingEmptyLinesPerPlace);
 
                         // Add the empty lines in between the elements
                         std::vector<std::string> formattedGraphics;
