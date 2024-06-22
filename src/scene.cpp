@@ -23,16 +23,6 @@ namespace Chess
                         : width(0), height(0), raw(true) {}
 
                 /*
-                Get the elements in the scene.
-
-                @return: The elements in the scene
-                */
-                std::vector<Element> Scene::getElements() const
-                {
-                        return elements;
-                }
-
-                /*
                 Add an element to the scene.
 
                 @param element: The element to be added
