@@ -14,7 +14,6 @@ namespace Chess
 {
         namespace GUI
         {
-        // Element
                 struct Element
                 {
                 public: // Variables
@@ -26,12 +25,16 @@ namespace Chess
                         bool required;                                          // Whether the element is required and must be displayed or not
                         bool userInput;                                         // Whether the element requires user input or not
                 public: // Constructors
-                        Element(const std::string& filePath,
+                        Element(const std::string& name,
+                                const std::string& filePath,
                                 const bool required, const bool userInput);     // Constructor with file path
-                        Element(const std::vector<std::string>& graphics,
+                        Element(const std::string& name,
+                                const std::vector<std::string>& graphics,
                                 const bool required, const bool userInput);     // Constructor with graphics
                 public: // Operators
                         bool operator==(const Element& element) const;          // Equality operator
+                private: // Methods
+                        void calculateDimensions();                             // Calculate the dimensions of the element
                 };
         }
 }
