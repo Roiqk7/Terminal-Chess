@@ -36,7 +36,7 @@ namespace Chess
                 void startApplication()
                 {
                         // Display the intro
-                        GUI::displayIntro();
+                        // GUI::displayIntro();
 
                         // Log application start
                         LOG_INFO("Application started.");
@@ -51,10 +51,10 @@ namespace Chess
                 void mainMenuLoop()
                 {
                         // Display main menu banner
-                        GUI::displayMainMenu();
+                        // GUI::displayMainMenu();
 
                         // Clear the screen
-                        GUI::clearScreen();
+                        // GUI::clearScreen();
                 }
 
                 /*
@@ -63,13 +63,13 @@ namespace Chess
                 void endApplication()
                 {
                         // Display the ending
-                        GUI::displayEnding();
+                        // GUI::displayEnding();
 
                         // Log application end
                         LOG_INFO("Application ended.");
 
                         // Clear the screen
-                        GUI::clearScreen();
+                        // GUI::clearScreen();
                 }
         }
 }
