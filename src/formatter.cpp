@@ -25,8 +25,7 @@ namespace Chess
                 void formatScene(Scene& scene)
                 {
                         // Log the formatting
-                        // TODO Switch to trace
-                        LOG_INFO("Formatting scene {}", scene.name);
+                        LOG_TRACE("Formatting scene {}", scene.name);
 
                         // Format the scene's width and height
                         handleSceneWidth(scene);
@@ -92,12 +91,11 @@ namespace Chess
                         size_t remainingEmptyLinesPerPlace = remainingEmptyLines / emptyPlaces;
 
                         // Log the calculations
-                        // TODO Switch to trace
-                        LOG_INFO("Empty lines: {}", emptyLines);
-                        LOG_INFO("Empty places: {}", emptyPlaces);
-                        LOG_INFO("Empty lines per place: {}", emptyLinesPerPlace);
-                        LOG_INFO("Remaining empty lines: {}", remainingEmptyLines);
-                        LOG_INFO("Remaining empty lines per place: {}", remainingEmptyLinesPerPlace);
+                        LOG_TRACE("Empty lines: {}", emptyLines);
+                        LOG_TRACE("Empty places: {}", emptyPlaces);
+                        LOG_TRACE("Empty lines per place: {}", emptyLinesPerPlace);
+                        LOG_TRACE("Remaining empty lines: {}", remainingEmptyLines);
+                        LOG_TRACE("Remaining empty lines per place: {}", remainingEmptyLinesPerPlace);
 
                         // Add the empty lines in between the elements
                         std::vector<std::string> formattedGraphics;
