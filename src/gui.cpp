@@ -45,7 +45,7 @@ namespace Chess
                                 header);
 
                         // Merge footer
-                        Tool::merge(
+                        Tool::mergeGraphics(
                                 Tool::readGraphicsFile(
                                         Globals::Constants::FOOTER_LEFT_PATH),
                                 Tool::readGraphicsFile(
@@ -55,6 +55,12 @@ namespace Chess
                         // Write the footer to a file
                         Tool::writeGraphicsFile(Globals::Constants::FOOTER_PATH,
                                 header);
+
+                        // Clear the screen
+                        clearScreen();
+
+                        // Log GUI initialization
+                        LOG_INFO("GUI initialized.");
                 }
 
                 /*
