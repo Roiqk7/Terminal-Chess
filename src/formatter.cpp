@@ -38,7 +38,7 @@ namespace Chess
                 }
 
                 /*
-                Manage the elements of the scene.
+                Manage the elements of the scene. Check if the elements are within the terminal dimensions.
 
                 @param scene: The scene to be managed
                 */
