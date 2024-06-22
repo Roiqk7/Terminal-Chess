@@ -11,9 +11,13 @@ Notes: x
 #include <string>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include "../include/displayer.hpp"
+#include "../include/element.hpp"
 #include "../include/exception.hpp"
+#include "../include/formatter.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
+#include "../include/scene.hpp"
 #include "../include/tool.hpp"
 
 namespace Chess
