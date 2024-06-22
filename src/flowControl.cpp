@@ -36,7 +36,7 @@ namespace Chess
                 void startApplication()
                 {
                         // Display the intro
-                        // GUI::displayIntro();
+                        GUI::displayIntro();
 
                         // Log application start
                         LOG_INFO("Application started.");
