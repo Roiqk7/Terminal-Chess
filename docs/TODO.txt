@@ -1,5 +1,4 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Make the startApplication() function format header and footer and put it formatted into header.txt and footer.txt
-- Create the few basic scenes
+- Formatter can not handle user input scenes. Update it and then move to user input system.
 - Add user input
