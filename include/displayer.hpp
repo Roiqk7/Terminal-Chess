@@ -6,17 +6,23 @@ Description: This file implements displayer (renderer) related classes and funct
 Notes: x
 */
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include "globals.hpp"
+#include "scene.hpp"
 
 namespace Chess
 {
-        namespace Displayer
+        namespace GUI
         {
-                class Displayer
+                void display(const Scene& scene)
                 {
-                public: // Methods
-                };
+                        // Display the scene graphics line by line
+                        for (const std::string& line : scene.graphics)
+                        {
+                                std::cout << line << std::endl;
+                        }
+                }
         }
 }
