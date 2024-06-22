@@ -49,6 +49,9 @@ namespace Chess
                         // Display the intro scene
                         display(introScene);
 
+                        // Wait for a few seconds
+                        Tool::wait(3);
+
                         /*
                         Header
 
@@ -86,6 +89,9 @@ namespace Chess
 
                         Footer
                         */
+
+                        // Clear the screen
+                        clearScreen();
                 }
 
                 /*
