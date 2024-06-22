@@ -88,6 +88,8 @@ namespace Chess
                                 {
                                         LOG_ERROR("Terminal height is too small: {}", message);
                                 }
+
+                                LOG_INFO("Hint: Resize the terminal to a larger size.");
                         }
                         // Terminal can not be too large. The boolean value serves readability purpose.
                 }
