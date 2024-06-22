@@ -32,4 +32,4 @@
 
 - The **Renderer** is tasked with displaying scenes to the user.
         - It accepts processed scenes and visually renders them, ensuring that the GUI's content is presented on the screen.
-- The Renderer acts as the bridge between the GUI's internal representation and its visual output, bringing formatted scenes to life.
+- The Renderer displays the scene **line by line** to the user. The Renderer **is not** responsible for the number of lines in the scene.
