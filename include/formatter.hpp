@@ -17,6 +17,5 @@ namespace Chess
                 void formatScene(Scene& scene);                                         // Format the scene for display
                 void handleSceneWidth(Scene& scene);                                    // Handle the width of the scene
                 void handleSceneHeight(Scene& scene);                                   // Handle the height of the scene
-
         }
 }
