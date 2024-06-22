@@ -84,6 +84,10 @@ namespace Chess
                                 + "headerLeft.txt";                             // Path to the left header
                         const std::string HEADER_RIGHT_PATH = ASSETS_PATH
                                 + "headerRight.txt";                            // Path to the right header
+                        const std::string HELP_MENU_PATH = ASSETS_PATH
+                                + "helpMenu.txt";                               // Path to the help menu
+                        const std::string HELP_MENU_BANNER_PATH = ASSETS_PATH
+                                + "helpMenuBanner.txt";                         // Path to the help menu banner
                         const std::string MAIN_MENU_PATH = ASSETS_PATH
                                 + "mainMenu.txt";                               // Path to the main menu
                         const std::string MAIN_MENU_BANNER_PATH = ASSETS_PATH

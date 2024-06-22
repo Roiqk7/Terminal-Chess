@@ -55,6 +55,9 @@ namespace Chess
                 {
                         // Display main menu banner
                         GUI::displayMainMenu();
+
+                        // Display help menu
+                        GUI::displayHelpMenu();
                 }
 
                 /*

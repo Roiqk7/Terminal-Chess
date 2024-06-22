@@ -134,6 +134,41 @@ namespace Chess
                 }
 
                 /*
+                Display the help menu.
+                */
+                void displayHelpMenu()
+                {
+                        // Clear the screen
+                        clearScreen();
+
+                        // Create the help menu scene
+                        Scene helpMenuScene = Scene("Help Menu");
+
+                        // Add the elements to the help menu scene
+                        helpMenuScene.addElement(Element("Header",
+                                Globals::Constants::HEADER_PATH,
+                                false, false));
+                        helpMenuScene.addElement(Element("Help Menu Banner",
+                                Globals::Constants::HELP_MENU_BANNER_PATH,
+                                false, false));
+                        helpMenuScene.addElement(Element("Help Menu",
+                                Globals::Constants::HELP_MENU_PATH,
+                                true, false));
+                        helpMenuScene.addElement(Element("Footer",
+                                Globals::Constants::FOOTER_PATH,
+                                false, false));
+
+                        // Format the help menu scene
+                        formatScene(helpMenuScene);
+
+                        // Display the help menu scene
+                        display(helpMenuScene);
+
+                        // Wait for a few seconds
+                        Tool::wait(3);
+                }
+
+                /*
                 Display the ending.
                 */
                 void displayEnding()
