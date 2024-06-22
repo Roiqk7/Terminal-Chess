@@ -54,10 +54,7 @@ namespace Chess
                 void mainMenuLoop()
                 {
                         // Display main menu banner
-                        // GUI::displayMainMenu();
-
-                        // Clear the screen
-                        // GUI::clearScreen();
+                        GUI::displayMainMenu();
                 }
 
                 /*
