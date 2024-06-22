@@ -92,6 +92,36 @@ namespace Chess
                 }
 
                 /*
+                Read a graphics file and return it as a vector of strings.
+
+                @param filePath: The path to the graphics file.
+
+                @return: The graphics file as a vector of strings.
+                */
+                std::vector<std::string> readGraphicsFile(const std::string& filePath)
+                {
+                        return splitString(readFileContents(filePath), '\n');
+                }
+
+                /*
+                Write a vector of strings to a file.
+
+                @param filePath: The path to the file to write to.
+                @param graphics: The vector of strings to write to the file.
+                */
+                void writeGraphicsFile(const std::string& filePath,
+                        const std::vector<std::string>& graphics)
+                {
+                        std::string contents;
+                        for (const std::string& line : graphics)
+                        {
+                                contents += line + '\n';
+                        }
+
+                        writeFileContents(filePath, contents);
+                }
+
+                /*
                 Merge two vectors of strings into one vector of strings with the
                 specified width and filler to fill the gap between the left and right.
 

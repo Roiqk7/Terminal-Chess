@@ -22,6 +22,10 @@ namespace Chess
                 void wait(const unsigned int& seconds);                         // Wait for a specified amount of time
                 std::vector<std::string> splitString(const std::string& str,
                         const char& delimiter);                                 // Split a string by a delimiter
+                std::vector<std::string> readGraphicsFile(const std::string&
+                        filePath);                                              // Read a graphics file
+                void writeGraphicsFile(const std::string& filePath,
+                        const std::vector<std::string>& graphics);               // Write a graphics file
                 std::vector<std::string> merge(const std::vector<std::string>&
                         left, const std::vector<std::string>& right,
                         const size_t& width, const std::string& filler);        // Merge two vectors of strings into one vector of strings with the specified width and filler
