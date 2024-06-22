@@ -20,13 +20,17 @@ target_include_directories(TerminalChess PUBLIC "include/")
 target_sources(TerminalChess PRIVATE
         src/chessBoard.cpp
         src/chessPieces.cpp
+        src/displayer.cpp
+        src/element.cpp
+        src/eventHandler.cpp
         src/exception.cpp
         src/flowControl.cpp
-        src/eventHandler.cpp
+        src/formatter.cpp
         src/gameHandler.cpp
         src/globals.cpp
         src/gui.cpp
         src/inputHandler.cpp
+        src/scene.cpp
         tool/tool.cpp
 )
 
