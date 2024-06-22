@@ -66,13 +66,10 @@ namespace Chess
                 void endApplication()
                 {
                         // Display the ending
-                        // GUI::displayEnding();
+                        GUI::displayEnding();
 
                         // Log application end
                         LOG_INFO("Application ended.");
-
-                        // Clear the screen
-                        // GUI::clearScreen();
                 }
         }
 }
