@@ -91,12 +91,21 @@ namespace Chess
                         // Calculate the number of remaining empty lines per place
                         size_t remainingEmptyLinesPerPlace = remainingEmptyLines / emptyPlaces;
 
+                        // Log the calculations
+                        // TODO Switch to trace
+                        LOG_INFO("Empty lines: {}", emptyLines);
+                        LOG_INFO("Empty places: {}", emptyPlaces);
+                        LOG_INFO("Empty lines per place: {}", emptyLinesPerPlace);
+                        LOG_INFO("Remaining empty lines: {}", remainingEmptyLines);
+                        LOG_INFO("Remaining empty lines per place: {}", remainingEmptyLinesPerPlace);
+
                         // Add the empty lines in between the elements
                         std::vector<std::string> formattedGraphics;
 
-                        // First add the element
+                        // Add it all to the formatted graphics
                         for (auto element : scene.elements)
                         {
+                                // Add the element's graphics
                                 for (auto line : element.graphics)
                                 {
                                         formattedGraphics.push_back(line);
@@ -105,7 +114,7 @@ namespace Chess
                                 // Add empty lines
                                 for (size_t i = 0; i < emptyLinesPerPlace; i++)
                                 {
-                                        formattedGraphics.push_back(" ");
+                                        formattedGraphics.push_back({" "});
                                 }
 
                                 // Add remaining empty lines
@@ -113,11 +122,14 @@ namespace Chess
                                 {
                                         for (size_t i = 0; i < remainingEmptyLinesPerPlace; i++)
                                         {
-                                                formattedGraphics.push_back(" ");
+                                                formattedGraphics.push_back({" "});
                                                 remainingEmptyLines--;
                                         }
                                 }
                         }
+
+                        // Update the scene's graphics
+                        scene.graphics = formattedGraphics;
                 }
         }
 }
