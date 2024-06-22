@@ -45,7 +45,7 @@ namespace Chess
                                 header);
 
                         // Merge footer
-                        Tool::mergeGraphics(
+                        auto footer = Tool::mergeGraphics(
                                 Tool::readGraphicsFile(
                                         Globals::Constants::FOOTER_LEFT_PATH),
                                 Tool::readGraphicsFile(
@@ -54,7 +54,7 @@ namespace Chess
 
                         // Write the footer to a file
                         Tool::writeGraphicsFile(Globals::Constants::FOOTER_PATH,
-                                header);
+                                footer);
 
                         // Clear the screen
                         clearScreen();
