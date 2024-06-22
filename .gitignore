@@ -33,7 +33,6 @@
 
 # Custom
 .vscode/
-assets/
 build/
 data/
 LICENSE
