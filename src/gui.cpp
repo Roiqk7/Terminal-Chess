@@ -96,13 +96,43 @@ namespace Chess
                         // Wait for a few seconds
                         Tool::wait(3);
 
-                        /*
-                        Header
+                        // Clear the screen
+                        clearScreen();
+                }
 
-                        Welcome
+                /*
+                Display the ending.
+                */
+                void displayEnding()
+                {
+                        // Clear the screen
+                        clearScreen();
 
-                        Footer
-                        */
+                        // Create the ending scene
+                        Scene endingScene = Scene("Ending");
+
+                        // Add the elements to the ending scene
+                        endingScene.addElement(Element("Header",
+                                Globals::Constants::HEADER_PATH,
+                                false, false));
+                        endingScene.addElement(Element("Farewell",
+                                Globals::Constants::FAREWELL_PATH,
+                                false, false));
+                        endingScene.addElement(Element("Footer",
+                                Globals::Constants::FOOTER_PATH,
+                                false, false));
+
+                        // Format the ending scene
+                        formatScene(endingScene);
+
+                        // Display the ending scene
+                        display(endingScene);
+
+                        // Wait for a few seconds
+                        Tool::wait(3);
+
+                        // Clear the screen
+                        clearScreen();
                 }
 
                 /*
