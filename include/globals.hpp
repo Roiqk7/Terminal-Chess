@@ -100,9 +100,10 @@ namespace Chess
                 acceptable user inputs. For more information visit the
                 documentation. (docs/gameStates.md)
                 */
-                enum class GameState                                            // Enum representing the state of the game
+                enum class GameState                                            // Enum representing the state of the application (game as a whole)
                 {
-                        MainMenu, HelpMenu, Game, GameOver
+                        MainMenu, HelpMenu, GameModeMenu, DifficultyMenu,
+                        GamePlay, PauseMenu, SaveGame, LoadGame, GameOver
                 };
 
                 enum class Color                                                // Enum representing the color of a piece or player
@@ -117,7 +118,8 @@ namespace Chess
                 };
 
                 using FEN = std::string;                                        // FEN string representing the state of the board
-
+        // Application
+                extern GameState gameState;                                     // Current state of the application
         // GUI
                 // GUI Dimensions
                 extern size_t GUI_WIDTH;                                        // Width of the GUI (defined in gui.cpp)
