@@ -1,0 +1,5 @@
+Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
+
+- Add user input
+- Add event system
+- Once you can move around and everything is nice, add the actual Chess game and logic
