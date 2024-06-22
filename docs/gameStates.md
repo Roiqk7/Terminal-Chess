@@ -73,7 +73,7 @@ enum class GameState
 
 ## GamePlay
 
-- `chessPiece` - Select a chess piece to move
+- `chessPieceSquare` - Select a chess piece to move
 - `chessSquare` - Select a square to move the chess piece to
 - `q` - Pause the game
 
