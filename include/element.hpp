@@ -24,9 +24,12 @@ namespace Chess
                         size_t width;                                           // Width of the element
                         size_t height;                                          // Height of the element
                         bool required;                                          // Whether the element is required and must be displayed or not
+                        bool userInput;                                         // Whether the element requires user input or not
                 public: // Constructors
-                        Element(const std::string& filePath);                   // Constructor with file path
-                        Element(const std::vector<std::string>& graphics);      // Constructor with graphics
+                        Element(const std::string& filePath,
+                                const bool required, const bool userInput);     // Constructor with file path
+                        Element(const std::vector<std::string>& graphics,
+                                const bool required, const bool userInput);     // Constructor with graphics
                 public: // Operators
                         bool operator==(const Element& element) const;          // Equality operator
                 };
