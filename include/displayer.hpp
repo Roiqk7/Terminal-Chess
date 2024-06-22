@@ -16,13 +16,6 @@ namespace Chess
 {
         namespace GUI
         {
-                void display(const Scene& scene)
-                {
-                        // Display the scene graphics line by line
-                        for (const std::string& line : scene.graphics)
-                        {
-                                std::cout << line << std::endl;
-                        }
-                }
+                void display(const Scene& scene);                               // Display the scene
         }
 }
