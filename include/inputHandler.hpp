@@ -17,9 +17,7 @@ namespace Chess
 {
         namespace InputHandler
         {
-                EventHandler::Event handleUserInput();                          // Handles user input from start to finish
-                std::string getUserInput(const std::string& prompt,
-                        Globals::GameState gameState);                          // Get user input from the console
+                std::string getUserInput(const std::string& prompt);            // Get user input from the console
                 bool validateUserInput(const std::string& input,
                         Globals::GameState gameState);                          // Validate user input
                 EventHandler::Event getEventFromUserInput(
