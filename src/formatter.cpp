@@ -76,7 +76,7 @@ namespace Chess
                                                 if (element.width > Globals::GUI_WIDTH)
                                                 {
                                                         // Log the error
-                                                        LOG_ERROR("Element {} is still required in scene {} but its width is still greater than GUI_WIDTH. Application will terminate.", element.name, scene.name);
+                                                        LOG_CRITICAL("Element {} is still required in scene {} but its width is still greater than GUI_WIDTH. Application will terminate.", element.name, scene.name);
 
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
@@ -116,7 +116,7 @@ namespace Chess
                                                 if (element.height > Globals::GUI_HEIGHT || Globals::GUI_HEIGHT < scene.height + 1)
                                                 {
                                                         // Log the error
-                                                        LOG_ERROR("Element {} is still required in scene {} but its height is still greater than GUI_HEIGHT. Application will terminate.", element.name, scene.name);
+                                                        LOG_CRITICAL("Element {} is still required in scene {} but its height is still greater than GUI_HEIGHT. Application will terminate.", element.name, scene.name);
 
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "

@@ -19,6 +19,7 @@ Notes: x
 #define LOG_INFO(...) spdlog::info(__VA_ARGS__)
 #define LOG_WARN(...) spdlog::warn(__VA_ARGS__)
 #define LOG_ERROR(...) spdlog::error(__VA_ARGS__)
+#define LOG_CRITICAL(...) spdlog::critical(__VA_ARGS__)
 
 // Macros to set log level
 #define SET_LOG_LEVEL_TRACE() spdlog::set_level(spdlog::level::trace)
@@ -35,6 +36,7 @@ Notes: x
 #define LOG_INFO(...) (void)0
 #define LOG_WARN(...) (void)0
 #define LOG_ERROR(...) (void)0
+#define LOG_CRITICAL(...) (void)0
 
 // Define SET_LOG_LEVEL macros as no-operation if not in development mode
 #define SET_LOG_LEVEL_TRACE() (void)0
