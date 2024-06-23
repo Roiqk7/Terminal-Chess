@@ -158,6 +158,8 @@ namespace Chess
                                         return false;
                         }
 
+                        // Invalid input
+                        LOG_WARN("Invalid input: " + input);
                         return false;
                 }
         }
