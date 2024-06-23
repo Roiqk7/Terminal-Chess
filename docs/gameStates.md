@@ -10,6 +10,7 @@
       - [Input Options](#input-options)
     - [HelpMenu](#helpmenu)
       - [Input Options](#input-options-1)
+  - [Credits](#credits)
     - [GameModeMenu](#gamemodemenu)
     - [DifficultyMenu](#difficultymenu)
   - [GamePlay](#gameplay)
@@ -24,6 +25,7 @@ Game states are defined in the `include/globals.hpp` header file in the `GameSta
 
 - MainMenu
 - HelpMenu
+- Credits
 - GameModeMenu
 - DifficultyMenu
 - GamePlay
@@ -38,8 +40,9 @@ Game states are defined in the `include/globals.hpp` header file in the `GameSta
 // include/globals.hpp
 enum class GameState
 {
-        MainMenu, HelpMenu, GameModeMenu, DifficultyMenu,
-        GamePlay, PauseMenu, SaveGame, LoadGame, GameOver
+        MainMenu, Credits, HelpMenu, GameModeMenu,
+        DifficultyMenu, GamePlay, PauseMenu, SaveGame,
+        LoadGame, GameOver
 };
 ```
 
@@ -52,10 +55,15 @@ enum class GameState
 - `p` - Play the game
 - `h` - View the help menu
 - `q` - Quit the game
+- `c` - View the credits
 
 ### HelpMenu
 
 #### Input Options
+
+- `q` - Return to the main menu
+
+## Credits
 
 - `q` - Return to the main menu
 

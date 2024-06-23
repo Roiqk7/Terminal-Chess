@@ -106,8 +106,9 @@ namespace Chess
                 */
                 enum class GameState                                            // Enum representing the state of the application (game as a whole)
                 {
-                        MainMenu, HelpMenu, GameModeMenu, DifficultyMenu,
-                        GamePlay, PauseMenu, SaveGame, LoadGame, GameOver
+                        MainMenu, Credits, HelpMenu, GameModeMenu,
+                        DifficultyMenu, GamePlay, PauseMenu, SaveGame,
+                        LoadGame, GameOver
                 };
 
                 enum class Color                                                // Enum representing the color of a piece or player
