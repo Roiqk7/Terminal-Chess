@@ -256,6 +256,16 @@ namespace Chess
                         // Find the first newline, space or tab
                         size_t pos = str.find_first_of("\n \t");
 
+                        // The string starts with a newline, space or tab
+                        if (pos == 0)
+                        {
+                                // Log warning
+                                LOG_WARN("The string starts with a newline, space or tab.");
+
+                                // Return an empty string
+                                return "";
+                        }
+
                         // Return the trimmed string
                         return str.substr(0, pos);
                 }
