@@ -27,7 +27,7 @@ namespace Chess
                         startApplication();
 
                         // Main application loop
-                        mainMenuLoop();
+                        mainMenu();
 
                         // End the application
                         endApplication();
@@ -54,39 +54,21 @@ namespace Chess
                 on the user's input and then return here until the user decides
                 to exit the application.
                 */
-                void mainMenuLoop()
+                void mainMenu()
                 {
-                        while (true)
+                        // Display main menu banner
+                        GUI::displayMainMenu();
+
+                        // Get user input
+                        char input;
+                        input = InputHandler::getUserInput(
+                                "Enter your choice:");
+
+                        // Validate user input
+                        if (!InputHandler::validateUserInput(input,
+                                Globals::GameState::MainMenu))
                         {
-                                // Display main menu banner
-                                GUI::displayMainMenu();
-
-                                // Get user input
-                                char input;
-                                input = InputHandler::getUserInput(
-                                        "Enter your choice:");
-
-                                // Validate user input
-                                if (!InputHandler::validateUserInput(input,
-                                        Globals::GameState::MainMenu))
-                                {
-                                        continue;
-                                }
-
-                                // Determine event
-                                Event::Event event = EventHandler::handleEvent(
-                                        input, Globals::GameState::MainMenu);
-
-                                // Handle event
-                                if (event == Globals::Event::Exit)
-                                {
-                                        break;
-                                }
-                                // Handle non-exit event
-                                else
-                                {
-                                        // TODO: handle event
-                                }
+                                // continue;
                         }
                 }
 

@@ -17,7 +17,7 @@ namespace Chess
         {
                 void mainApplicationLoop();                                     // Makes sure the application proceeds as expected
                 void startApplication();                                        // Start the application
-                void mainMenuLoop();                                            // Handles the main menu loop
+                void mainMenu();                                            // Handles the main menu loop
                 void endApplication();                                          // Finish the application
         }
 }
