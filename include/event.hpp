@@ -28,6 +28,9 @@ namespace Chess
                 public: // Methods
                 // Constructor
                         Event(char input, Globals::GameState gameState);
+                // Setters
+                        void setEvent(Globals::Event event,
+                                std::string eventName);
                 };
 
                 // TODO: Game event
