@@ -61,10 +61,12 @@ namespace Chess
 
                                 // Get user input
                                 std::string input;
-                                input = InputHandler::getUserInput("Enter your choice:");
+                                input = InputHandler::getUserInput(
+                                        "Enter your choice:");
 
                                 // Validate user input
-                                if (!InputHandler::validateUserInput(input, Globals::GameState::MainMenu))
+                                if (!InputHandler::validateUserInput(input,
+                                        Globals::GameState::MainMenu))
                                 {
                                         continue;
                                 }
