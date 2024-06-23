@@ -113,6 +113,8 @@ namespace Chess
                                         return false;
                         }
 
+                        // Invalid input
+                        LOG_ERROR("Invalid input: {} for game state: {}.", input, gameState);
                         return false;
                 }
         }
