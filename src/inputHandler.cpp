@@ -79,6 +79,7 @@ namespace Chess
                                 return false;
                         }
 
+                        // Check if the input is valid
                         return Validator::validateGameState(input, gameState);
                 }
         }
