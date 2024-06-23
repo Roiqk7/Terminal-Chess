@@ -74,6 +74,7 @@ enum class GameState
 
 - `s` - Single player
 - `m` - Multiplayer
+- `q` - Return to the main menu
 
 ### DifficultyMenu
 
