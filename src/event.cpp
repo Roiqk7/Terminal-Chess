@@ -12,7 +12,7 @@ Notes: x
 
 namespace Chess
 {
-        namespace Event
+        namespace EventSystem
         {
                 // TODO:
         }

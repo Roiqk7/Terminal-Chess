@@ -15,7 +15,7 @@ Notes: x
 
 namespace Chess
 {
-        namespace EventHandler
+        namespace EventSystemSystem
         {
                 // TODO:
         }
