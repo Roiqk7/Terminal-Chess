@@ -94,7 +94,7 @@ namespace Chess
                         display(introScene);
 
                         // Wait for a few seconds
-                        Tool::wait(3);
+                        Tool::wait(2);
                 }
 
                 /*
@@ -127,10 +127,6 @@ namespace Chess
 
                         // Display the main menu scene
                         display(mainMenuScene);
-
-                        // Delete the wait bellow!!!
-                        // Wait for a few seconds
-                        Tool::wait(3);
                 }
 
                 /*
