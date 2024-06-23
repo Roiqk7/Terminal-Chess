@@ -59,8 +59,15 @@ namespace Chess
                                 // Display main menu banner
                                 GUI::displayMainMenu();
 
+                                // Get user input
                                 std::string input;
                                 input = InputHandler::getUserInput("Enter your choice:");
+
+                                // Validate user input
+                                if (!InputHandler::validateUserInput(input, Globals::GameState::MainMenu))
+                                {
+                                        continue;
+                                }
 
                                 // DELETE
                                 if (input == "q")
