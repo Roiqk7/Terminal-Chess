@@ -1,7 +1,16 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Add event system
-        - Event system will be the center of the app
+- Rethink the event system
+        - Transition to the Command pattern for the event system (https://gameprogrammingpatterns.com/command.html)
+                - Before you do anything READ the entire thing and understand it!
+        - The Event will be a command (needs a few changes)
+        - Handle event will be the invoker ("messenger"). It will tell the receiver to execute the command.
+        - The receiver will be the actual object that will execute the command. Call the receiver "EventExecutor".
+        - This transition should not be hard as your current event system can easily be converted to this pattern.
+        - Just then change the flowControl functions to obey this pattern as right now they dont at all.
+
+
+
 
 - Once you can move around and everything is nice, add the actual Chess game and logic
         - Keep in mind that you would like to use Stockfish as an opponent
