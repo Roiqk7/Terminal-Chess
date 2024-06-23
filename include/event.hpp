@@ -16,7 +16,10 @@ namespace Chess
 {
         namespace EventSystem
         {
-                // TODO:
+                class Event
+                {
+                        // TODO
+                };
         }
 }
 

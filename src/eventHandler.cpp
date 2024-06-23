@@ -1,21 +1,23 @@
 /*
 Date: 23/06/2024
 
-Description: This file implements functions related to event handling.
+Description: This file implements the Event Handler class.
 
-Notes: x
+Notes: Based on the Command Pattern. More in docs/resources.md
 */
 
+#include <memory>
+#include <queue>
+#include <stack>
 #include <string>
 #include "../include/event.hpp"
 #include "../include/eventHandler.hpp"
-#include "../include/inputHandler.hpp"
 #include "../include/globals.hpp"
 
 namespace Chess
 {
-        namespace EventSystemSystem
+        namespace EventSystem
         {
-                class
+                // TODO: Implement the Event Handler class
         }
 }
