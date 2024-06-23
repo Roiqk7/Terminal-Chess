@@ -6,6 +6,7 @@
   - [Introduction](#introduction)
   - [Definition](#definition)
   - [Game States](#game-states-1)
+    - [Invalid](#invalid)
     - [MainMenu](#mainmenu)
       - [Input Options](#input-options)
   - [Credits](#credits)
@@ -24,6 +25,7 @@
 
 Game states are defined in the `include/globals.hpp` header file in the `GameState` enum class. The game states are used to determine the current state of the game which influences the expected user input and game behavior. This documentation aims to provide a brief overview of each game state. The game states are as follows:
 
+- Invalid
 - MainMenu
 - HelpMenu
 - Credits
@@ -41,13 +43,15 @@ Game states are defined in the `include/globals.hpp` header file in the `GameSta
 // include/globals.hpp
 enum class GameState
 {
-        MainMenu, Credits, HelpMenu, GameModeMenu,
+        Invalid = 0, MainMenu, Credits, HelpMenu, GameModeMenu,
         DifficultyMenu, GamePlay, PauseMenu, SaveGame,
         LoadGame, GameOver
 };
 ```
 
 ## Game States
+
+### Invalid
 
 ### MainMenu
 
