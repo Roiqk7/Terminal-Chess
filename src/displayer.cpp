@@ -31,7 +31,7 @@ namespace Chess
                         // Display the graphics line by line
                         for (const auto& line : scene.graphics)
                         {
-                                std::cout << line << '\n';
+                                displayString(line);
                         }
                 }
 
@@ -42,9 +42,6 @@ namespace Chess
                 */
                 void displayString(const std::string& str)
                 {
-                        // Log the display
-                        LOG_TRACE("Displaying string: {}", str);
-
                         // Display the string
                         std::cout << str << '\n';
                 }
