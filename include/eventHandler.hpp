@@ -1,7 +1,7 @@
 /*
 Date: 20/06/2024
 
-Description: This file contains functions related to event handling.
+Description: This file defines functions related to event handling.
 
 Notes: x
 */
@@ -11,13 +11,16 @@ Notes: x
 
 #include <stack>
 #include <string>
+#include "event.hpp"
 #include "globals.hpp"
 
 namespace Chess
 {
         namespace EventHandler
         {
-                // TODO: Add event handling functions here
+                Event::Event handleEvent(std::string input, Globals::GameState gameState);
+                bool isInputValid(std::string input, Globals::GameState gameState);
+                Event::Event determineEvent(std::string input, Globals::GameState gameState);
         }
 }
 
