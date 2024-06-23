@@ -161,7 +161,7 @@ namespace Chess
                         display(helpMenuScene);
 
                         // Wait for a few seconds
-                        Tool::wait(3);
+                        Tool::wait(2);
                 }
 
                 /*
