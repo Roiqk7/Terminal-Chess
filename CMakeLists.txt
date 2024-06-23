@@ -25,7 +25,7 @@ target_sources(TerminalChess PRIVATE
         src/event.cpp
         src/eventHandler.cpp
         src/exception.cpp
-        src/flowControl.cpp
+        src/application.cpp
         src/formatter.cpp
         src/gameHandler.cpp
         src/globals.cpp

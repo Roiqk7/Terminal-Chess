@@ -6,7 +6,7 @@ Description: This is the entry point of the program. It contains the main functi
 Notes: x
 */
 
-#include "../include/flowControl.hpp"
+#include "../include/application.hpp"
 #include "../include/globals.hpp"
 
 int main()
@@ -15,6 +15,6 @@ int main()
         SET_LOG_LEVEL_TRACE();
 
         // Start the main application loop
-        Chess::FlowControl::mainApplicationLoop();
+        Chess::application::mainApplicationLoop();
         return 0;
 }

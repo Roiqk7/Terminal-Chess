@@ -13,7 +13,7 @@ Notes: x
 
 namespace Chess
 {
-        namespace FlowControl
+        namespace application
         {
                 void mainApplicationLoop();                                     // Makes sure the application proceeds as expected
                 void startApplication();                                        // Start the application

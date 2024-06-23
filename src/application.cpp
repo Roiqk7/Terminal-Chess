@@ -6,9 +6,9 @@ Description: This file implements functions which control the flow of the progra
 Notes: x
 */
 
+#include "../include/application.hpp"
 #include "../include/event.hpp"
 #include "../include/eventHandler.hpp"
-#include "../include/flowControl.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/inputHandler.hpp"
@@ -16,7 +16,7 @@ Notes: x
 
 namespace Chess
 {
-        namespace FlowControl
+        namespace application
         {
                 /*
                 Handles the main application loop.
