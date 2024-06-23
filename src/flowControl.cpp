@@ -44,9 +44,6 @@ namespace Chess
 
                         // Display the intro
                         GUI::displayIntro();
-
-                        // DELETE
-                        std::string test = InputHandler::getUserInput("Wazzup?");
                 }
 
                 /*
@@ -57,34 +54,20 @@ namespace Chess
                 */
                 void mainMenuLoop()
                 {
-                /*
                         while (true)
                         {
                                 // Display main menu banner
                                 GUI::displayMainMenu();
 
                                 std::string input;
-                                input = getUserInput(Globals::GameStates::MAIN_MENU);
+                                input = InputHandler::getUserInput("Enter your choice:");
 
-                                AppEvent event = getEvent(input, Globals::GameStates::MAIN_MENU);
-
-                                if (event == AppEvent::EXIT)
+                                // DELETE
+                                if (input == "q")
                                 {
                                         break;
                                 }
-                                else if (event == AppEvent::NEW_GAME)
-                                {
-                                        // Start a new game
-                                        Game::startNewGame();
-                                }
-                                ...
-                                else
-                                {
-                                        // Invalid input
-                                        GUI::displayInvalidInput();
-                                }
                         }
-                */
                 }
 
                 /*
