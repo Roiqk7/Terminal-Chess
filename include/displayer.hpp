@@ -19,7 +19,7 @@ namespace Chess
         namespace GUI
         {
                 void display(const Scene& scene);                               // Display the scene
-                void displayString(const std::string& str);                     // Display a string
+                void displayString(const std::string& str, const char endChar); // Display a string
         }
 }
 
