@@ -9,6 +9,7 @@ Notes: x
 #include "../include/flowControl.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
+#include "../include/inputHandler.hpp"
 #include "../include/tool.hpp"
 
 namespace Chess
@@ -43,6 +44,9 @@ namespace Chess
 
                         // Display the intro
                         GUI::displayIntro();
+
+                        // DELETE
+                        std::string test = InputHandler::getUserInput("Wazzup?");
                 }
 
                 /*
