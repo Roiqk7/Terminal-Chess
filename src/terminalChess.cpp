@@ -12,7 +12,7 @@ Notes: x
 int main()
 {
         // Set the log level
-        SET_LOG_LEVEL_INFO();
+        SET_LOG_LEVEL_TRACE();
 
         // Start the main application loop
         Chess::FlowControl::mainApplicationLoop();
