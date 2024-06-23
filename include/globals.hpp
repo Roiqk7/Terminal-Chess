@@ -111,6 +111,16 @@ namespace Chess
                         LoadGame, GameOver
                 };
 
+                enum class Event                                                // Enum representing an event that can occur in the application
+                {
+                        Exit
+                };
+
+                enum class GameEvent                                            // Enum representing an event that can occur in the game
+                {
+                        Move // TODO add rest
+                };
+
                 enum class Color                                                // Enum representing the color of a piece or player
                 {
                         None = 0, White, Black
