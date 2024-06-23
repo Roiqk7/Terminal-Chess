@@ -1,0 +1,29 @@
+Welcome 2 Terminal Chess!
+
+In this brief tutorial, I will explain the rules of the game and how to play.
+First of all, every screen provides you with a list of commands that you can use.
+It doesn't matter if you write the command as, e.g., 'help', 'Help', or 'HELP'.
+Each command also provides a shorter version of the command that you can use.
+For example, 'help' can be written as 'h' or 'H'.
+
+Let's say you are bored and want to play a quick game of chess. Once you open
+the game, you will be greeted with the main menu. Here, you can choose the option
+'Play'. Then you will be asked to pick a game mode. You can choose between
+single-player and multiplayer. In single-player, you will play against the AI.
+with three different difficulty levels. In multiplayer, you can play against a friend.
+Assuming you picked a single player, you will be asked to pick a difficulty level.
+Select the difficulty level you want to play against, and the game will start.
+
+The game will randomly select your colour, so you will never know what colour you
+will be playing with. White always starts first. The game will display the board.
+and the pieces. You can move your pieces by typing the coordinates of the piece
+you want to move and the coordinates of the square you want to move it to. Don't
+worry if you don't know how the knight moves; the game will highlight the squares.
+where you can move the piece. If you want to cancel your selection, just type 'c'
+or 'cancel'.
+
+During the game, you can type `q` to pause the game and perhaps to save it. You can
+also load a saved game or quit the game. Don't worry about not having enough save
+slots. You have up to three available save slots, which is more than the actual game
+of chess, I think. Anyway... Have fun!
+
