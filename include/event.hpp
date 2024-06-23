@@ -9,6 +9,7 @@ Notes: x
 #ifndef EVENT_HPP
 #define EVENT_HPP
 
+#include <string>
 #include "globals.hpp"
 
 namespace Chess
@@ -23,6 +24,7 @@ namespace Chess
                         Globals::GameState gameState;                           // The game in which the event was triggered
                 // Output
                         Globals::Event event;                                   // The event attributed by the event handler
+                        std::string eventName;                                  // The name of the event
                 public: // Methods
                 // Constructor
                         Event(char input, Globals::GameState gameState);
