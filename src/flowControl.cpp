@@ -53,11 +53,34 @@ namespace Chess
                 */
                 void mainMenuLoop()
                 {
-                        // Display main menu banner
-                        GUI::displayMainMenu();
+                /*
+                        while (true)
+                        {
+                                // Display main menu banner
+                                GUI::displayMainMenu();
 
-                        // Display help menu
-                        GUI::displayHelpMenu();
+                                std::string input;
+                                input = getUserInput(Globals::GameStates::MAIN_MENU);
+
+                                AppEvent event = getEvent(input, Globals::GameStates::MAIN_MENU);
+
+                                if (event == AppEvent::EXIT)
+                                {
+                                        break;
+                                }
+                                else if (event == AppEvent::NEW_GAME)
+                                {
+                                        // Start a new game
+                                        Game::startNewGame();
+                                }
+                                ...
+                                else
+                                {
+                                        // Invalid input
+                                        GUI::displayInvalidInput();
+                                }
+                        }
+                */
                 }
 
                 /*
