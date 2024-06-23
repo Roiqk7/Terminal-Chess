@@ -88,10 +88,26 @@ namespace Chess
 
                                         break;
                                 case Globals::GameState::Credits:
-
+                                        switch (input)
+                                        {
+                                                case 'q':
+                                                        event.setEvent(Globals::Event::Exit, "Exit");
+                                                        break;
+                                                default:
+                                                        LOG_ERROR("Invalid input.");
+                                                        return Event::Event('\0', Globals::GameState::Invalid);
+                                        }
                                         break;
                                 case Globals::GameState::HelpMenu:
-
+                                        switch (input)
+                                        {
+                                                case 'q':
+                                                        event.setEvent(Globals::Event::Exit, "Exit");
+                                                        break;
+                                                default:
+                                                        LOG_ERROR("Invalid input.");
+                                                        return Event::Event('\0', Globals::GameState::Invalid);
+                                        }
                                         break;
                                 case Globals::GameState::GameModeMenu:
 
