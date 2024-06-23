@@ -33,6 +33,7 @@ target_sources(TerminalChess PRIVATE
         src/inputHandler.cpp
         src/scene.cpp
         tool/tool.cpp
+        src/validator.cpp
 )
 
 # Conditionally include spdlog in development mode
