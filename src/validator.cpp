@@ -113,7 +113,7 @@ namespace Chess
                         }
 
                         // Invalid input
-                        LOG_WARN("Invalid input: {}", input);
+                        LOG_WARN("Invalid input: {}.", input);
                         return false;
                 }
         }
