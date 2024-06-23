@@ -60,7 +60,7 @@ namespace Chess
                                 GUI::displayMainMenu();
 
                                 // Get user input
-                                std::string input;
+                                char input;
                                 input = InputHandler::getUserInput(
                                         "Enter your choice:");
 
@@ -81,7 +81,7 @@ namespace Chess
                                 */
 
                                 // DELETE
-                                if (input == "q")
+                                if (input == 'q')
                                 {
                                         break;
                                 }

@@ -15,7 +15,7 @@ namespace Chess
         namespace Event
         {
                 // Constructor
-                Event::Event(char, Globals::GameState gameState)
+                Event::Event(char input, Globals::GameState gameState)
                         : input(input), gameState(gameState),
                         event(Globals::Event::None) {}
         }

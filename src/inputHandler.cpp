@@ -57,7 +57,10 @@ namespace Chess
                         std::cout << std::endl;
 
                         // Log the input
-                        LOG_TRACE("User input: " + inputChar);
+                        LOG_TRACE("User input: {}", input);
+
+                        // Log the input char
+                        LOG_TRACE("User input char: {}", inputChar);
 
                         return inputChar;
                 }
