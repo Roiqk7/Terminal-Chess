@@ -1,7 +1,7 @@
 /*
 Date: 20/06/2024
 
-Description: This file defines functions which control the flow of the program.
+Description: This file defines functions which create the application.
 
 Notes: x
 */
@@ -15,9 +15,11 @@ namespace Chess
 {
         namespace application
         {
-                void mainApplicationLoop();                                     // Makes sure the application proceeds as expected
                 void startApplication();                                        // Start the application
-                void mainMenu();                                            // Handles the main menu loop
+                void mainMenu();                                                // Handles the main menu loop
+                void helpMenu();                                                // Handles the help menu loop
+                void credits();                                                 // Display the credits
+                // TODO: Add rest
                 void endApplication();                                          // Finish the application
         }
 }
