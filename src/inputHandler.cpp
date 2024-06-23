@@ -56,9 +56,6 @@ namespace Chess
                         inputChar = std::tolower(
                                 static_cast<unsigned char>(inputChar));
 
-                        // Add a newline
-                        std::cout << std::endl;
-
                         // Log the input
                         LOG_TRACE("User input: {}", input);
 
