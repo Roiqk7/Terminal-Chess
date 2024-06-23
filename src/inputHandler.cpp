@@ -40,7 +40,7 @@ namespace Chess
                         GUI::displayString(centeredPrompt, ' ');
 
                         // Get the input
-                        std::getline(std::cin, input);
+                        std::cin >> input;
 
                         // Log the input
                         LOG_TRACE("User input: " + input);
