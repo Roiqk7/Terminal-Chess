@@ -106,7 +106,7 @@ namespace Chess
                 */
                 enum class GameState                                            // Enum representing the state of the application (game as a whole)
                 {
-                        MainMenu, Credits, HelpMenu, GameModeMenu,
+                        Invalid = 0, MainMenu, Credits, HelpMenu, GameModeMenu,
                         DifficultyMenu, GamePlay, PauseMenu, SaveGame,
                         LoadGame, GameOver
                 };
