@@ -35,6 +35,7 @@ namespace Chess
                         const char& delimiter);                                 // Repeat a pattern to fill a certain width
                 std::string centerString(const std::string& str,
                         const size_t& width, const bool addTrailingSpaces);     // Center a string in a certain width
+                std::string trimString(const std::string& str);                 // Trim a string after a newline, space or tab
         }
 }
 

@@ -244,5 +244,20 @@ namespace Chess
                         return centeredStr;
                 }
 
+                /*
+                Trim a string after a newline, space or tab.
+
+                @param str: The string to trim.
+
+                @return: The trimmed string.
+                */
+                std::string trimString(const std::string& str)
+                {
+                        // Find the first newline, space or tab
+                        size_t pos = str.find_first_of("\n \t");
+
+                        // Return the trimmed string
+                        return str.substr(0, pos);
+                }
         }
 }
