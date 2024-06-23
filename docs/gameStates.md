@@ -8,9 +8,10 @@
   - [Game States](#game-states-1)
     - [MainMenu](#mainmenu)
       - [Input Options](#input-options)
-    - [HelpMenu](#helpmenu)
-      - [Input Options](#input-options-1)
   - [Credits](#credits)
+    - [Input Options](#input-options-1)
+    - [HelpMenu](#helpmenu)
+      - [Input Options](#input-options-2)
     - [GameModeMenu](#gamemodemenu)
     - [DifficultyMenu](#difficultymenu)
   - [GamePlay](#gameplay)
@@ -57,13 +58,15 @@ enum class GameState
 - `q` - Quit the game
 - `c` - View the credits
 
-### HelpMenu
+## Credits
 
-#### Input Options
+### Input Options
 
 - `q` - Return to the main menu
 
-## Credits
+### HelpMenu
+
+#### Input Options
 
 - `q` - Return to the main menu
 
