@@ -1,14 +1,15 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Rethink the event system
-        - Transition to the Command pattern for the event system (https://gameprogrammingpatterns.com/command.html)
-                - Before you do anything READ the entire thing and understand it!
-        - The Event will be a command (needs a few changes)
-        - Handle event will be the invoker ("messenger"). It will tell the receiver to execute the command.
-        - The receiver will be the actual object that will execute the command. Call the receiver "EventExecutor".
-        - This transition should not be hard as your current event system can easily be converted to this pattern.
-        - Just then change the flowControl functions to obey this pattern as right now they dont at all.
-
+- New Event System using the Command pattern
+        1. Make Event base class (command object)
+                - And plenty smaller subclasses
+        2. Event Handler class will be a singleton global center point of this system
+                - It will have a submit() method that will take an Event object and
+                put it into a submittedEvents queue
+                - All the submitted events will then be passed to process() method
+                which will call the execute() method of the event.
+                - Once the event is executed, it will be removed from the queue
+                and added to the eventStack. This will allow for undo/redo.
 
 
 
