@@ -23,7 +23,19 @@ namespace Chess
                 */
                 Event::Event(char input, Globals::GameState gameState)
                         : input(input), gameState(gameState),
-                        event(Globals::Event::None) {}
+                        type(Globals::Event::None) {}
+        // Operator
+                /*
+                Compares the event type with another event type.
+
+                @param other The other event to compare
+
+                @return True if the events are equal, false otherwise
+                */
+                bool Event::operator==(Globals::Event other) const
+                {
+                        return this->type == other;
+                }
 
         // Setter
                 /*
@@ -32,9 +44,9 @@ namespace Chess
                 @param event The event to set
                 @param eventName The name of the event
                 */
-                void Event::setEvent(Globals::Event event, std::string eventName)
+                void Event::setEvent(Globals::Event type, std::string eventName)
                 {
-                        this->event = event;
+                        this->type = type;
                         this->eventName = eventName;
                 }
         }

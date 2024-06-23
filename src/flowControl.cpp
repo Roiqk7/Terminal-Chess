@@ -6,6 +6,8 @@ Description: This file implements functions which control the flow of the progra
 Notes: x
 */
 
+#include "../include/event.hpp"
+#include "../include/eventHandler.hpp"
 #include "../include/flowControl.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
@@ -71,19 +73,19 @@ namespace Chess
                                         continue;
                                 }
 
-                                /*
-                                Event event = handleEvent(input, gameState);
+                                // Determine event
+                                Event::Event event = EventHandler::handleEvent(
+                                        input, Globals::GameState::MainMenu);
 
+                                // Handle event
                                 if (event == Globals::Event::Exit)
                                 {
                                         break;
                                 }
-                                */
-
-                                // DELETE
-                                if (input == 'q')
+                                // Handle non-exit event
+                                else
                                 {
-                                        break;
+                                        // TODO: handle event
                                 }
                         }
                 }
