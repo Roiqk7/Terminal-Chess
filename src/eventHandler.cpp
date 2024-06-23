@@ -67,6 +67,24 @@ namespace Chess
                         switch (gameState)
                         {
                                 case Globals::GameState::MainMenu:
+                                        switch (input)
+                                        {
+                                                case 'p':
+                                                        //event.setNextState(Globals::GameState::GameModeMenu);
+                                                        break;
+                                                case 'h':
+                                                        //event.setNextState(Globals::GameState::HelpMenu);
+                                                        break;
+                                                case 'c':
+                                                        //event.setNextState(Globals::GameState::Credits);
+                                                        break;
+                                                case 'q':
+                                                        //event.setNextState(Globals::GameState::Exit);
+                                                        break;
+                                                default:
+                                                        LOG_ERROR("Invalid input.");
+                                                        return Event::Event('\0', Globals::GameState::Invalid);
+                                        }
 
                                         break;
                                 case Globals::GameState::Credits:
