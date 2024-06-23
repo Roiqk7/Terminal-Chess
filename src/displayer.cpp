@@ -34,5 +34,19 @@ namespace Chess
                                 std::cout << line << '\n';
                         }
                 }
+
+                /*
+                Display a string.
+
+                @param str: The string to be displayed
+                */
+                void displayString(const std::string& str)
+                {
+                        // Log the display
+                        LOG_TRACE("Displaying string: {}", str);
+
+                        // Display the string
+                        std::cout << str << '\n';
+                }
         }
 }
