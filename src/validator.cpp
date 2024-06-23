@@ -28,6 +28,12 @@ namespace Chess
                 bool validateGameState(const char& input,
                         const Globals::GameState gameState)
                 {
+                        // Check empty input
+                        if (input == '\0')
+                        {
+                                return false;
+                        }
+
                         // Vector of valid inputs
                         std::vector<char> validInputs;
 
@@ -113,7 +119,7 @@ namespace Chess
                         }
 
                         // Invalid input
-                        LOG_WARN("Invalid input: {}.", input);
+                        LOG_WARN("Invalid input: {}", input);
                         return false;
                 }
         }
