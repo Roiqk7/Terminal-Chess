@@ -20,8 +20,8 @@ namespace Chess
                 std::string getUserInput(const std::string& prompt);            // Get user input from the console
                 bool validateUserInput(const std::string& input,
                         Globals::GameState gameState);                          // Validate user input
-                EventHandler::Event getEventFromUserInput(
-                        const std::string& input);                              // Translate user input into an event
+                //EventHandler::Event getEventFromUserInput(
+                //        const std::string& input);                              // Translate user input into an event
         }
 }
 
