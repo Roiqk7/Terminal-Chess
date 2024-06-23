@@ -30,14 +30,14 @@ namespace Chess
                         std::string input;
 
                         // Center the prompt
-                        std::string centeredPrompt = prompt + " ";
+                        std::string centeredPrompt = prompt;
 
                         // Center the prompt
                         centeredPrompt = Tool::centerString(
                                 centeredPrompt, Globals::GUI_WIDTH, false);
 
                         // Display the prompt
-                        GUI::displayString(centeredPrompt);
+                        GUI::displayString(centeredPrompt, ' ');
 
                         // Get the input
                         std::getline(std::cin, input);
