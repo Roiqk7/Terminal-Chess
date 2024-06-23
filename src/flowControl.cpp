@@ -71,6 +71,15 @@ namespace Chess
                                         continue;
                                 }
 
+                                /*
+                                Event event = handleEvent(input, gameState);
+
+                                if (event == Globals::Event::Exit)
+                                {
+                                        break;
+                                }
+                                */
+
                                 // DELETE
                                 if (input == "q")
                                 {
