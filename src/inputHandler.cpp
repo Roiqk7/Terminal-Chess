@@ -47,6 +47,9 @@ namespace Chess
                         std::getline(std::cin, input);
 
                         // Trim the input
+                        input = Tool::trimString(input);
+
+                        // Get the first char of the input
                         char inputChar = getCharFromUserInput(input);
 
                         // Lowercase the input
@@ -95,6 +98,15 @@ namespace Chess
                 */
                 char getCharFromUserInput(const std::string& input)
                 {
+                        // Check if the input is empty
+                        if (input.empty())
+                        {
+                                // Log the error
+                                LOG_ERROR("Input is empty.");
+
+                                return '\0';
+                        }
+
                         return input[0];
                 }
         }
