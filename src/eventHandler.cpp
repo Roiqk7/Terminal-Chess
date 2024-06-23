@@ -24,7 +24,7 @@ namespace Chess
 
                 @return The event attributed by the event handler
                 */
-                Event::Event handleEvent(const std::string& input, Globals::GameState gameState)
+                Event::Event handleEvent(const char& input, Globals::GameState gameState)
                 {
                         // Check if the input is valid
                         if (!isInputValid(input, gameState))
@@ -44,7 +44,7 @@ namespace Chess
 
                 @return True if the input is valid, false otherwise
                 */
-                bool isInputValid(const std::string& input, Globals::GameState gameState)
+                bool isInputValid(const char& input, Globals::GameState gameState)
                 {
                         // Check if the input is valid
                         return InputHandler::validateUserInput(input, gameState);
@@ -95,7 +95,7 @@ namespace Chess
                                         break;
                                 default:
                                         LOG_ERROR("Invalid game state.");
-                                        return Event::Event("", Globals::GameState::);
+                                        return Event::Event('\0', Globals::GameState::Invalid);
                         }
 
                         return event;

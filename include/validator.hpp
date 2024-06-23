@@ -9,14 +9,13 @@ Notes: x
 #ifndef VALIDATOR_HPP
 #define VALIDATOR_HPP
 
-#include <string>
 #include "globals.hpp"
 
 namespace Chess
 {
         namespace Validator
         {
-                bool validateGameState(const std::string& input,
+                bool validateGameState(const char& input,
                         const Globals::GameState gameState);                    // Determines if the input is valid for the game state
         }
 }

@@ -70,11 +70,11 @@ namespace Chess
 
                 @return: True if the input is valid, false otherwise
                 */
-                bool validateUserInput(const std::string& input,
+                bool validateUserInput(const char& input,
                         Globals::GameState gameState)
                 {
                         // Check empty input
-                        if (input.empty())
+                        if (input == '\0')
                         {
                                 return false;
                         }

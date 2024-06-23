@@ -18,11 +18,9 @@ namespace Chess
         namespace InputHandler
         {
                 char getUserInput(const std::string& prompt);                   // Get user input from the console
-                bool validateUserInput(const std::string& input,
+                bool validateUserInput(const char& input,
                         Globals::GameState gameState);                          // Validate user input
                 char getCharFromUserInput(const std::string& input);            // Get a char from user input
-                //EventHandler::Event getEventFromUserInput(
-                //        const std::string& input);                            // Translate user input into an event
         }
 }
 
