@@ -22,6 +22,7 @@ target_sources(TerminalChess PRIVATE
         src/chessPieces.cpp
         src/displayer.cpp
         src/element.cpp
+        src/event.cpp
         src/eventHandler.cpp
         src/exception.cpp
         src/flowControl.cpp
