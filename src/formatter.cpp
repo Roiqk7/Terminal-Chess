@@ -15,6 +15,7 @@ Notes: x
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/scene.hpp"
+#include "../include/tool.hpp"
 
 namespace Chess
 {
@@ -154,15 +155,9 @@ namespace Chess
                                 // Each line must be GUI_WIDTH characters long
                                 for (const auto& line : element.graphics)
                                 {
-                                        size_t padding = (Globals::GUI_WIDTH
-                                                - line.length()) / 2;
-                                        std::string centeredLine(padding, ' '); // Create left padding
-                                        centeredLine += line;                   // Add the original line
-                                        centeredLine += std::string(
-                                                Globals::GUI_WIDTH
-                                                - centeredLine.length(), ' ');  // Add right padding to fill up to GUI_WIDTH
-                                        centeredGraphics.push_back(
-                                                centeredLine);
+                                        std::string centeredLine = Tool::centerString(
+                                                line, Globals::GUI_WIDTH, true);
+                                        centeredGraphics.push_back(centeredLine);
                                 }
                                 element.graphics = centeredGraphics;            // Update the element's graphics with the centered version
                         }
