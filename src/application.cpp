@@ -19,21 +19,6 @@ namespace Chess
         namespace application
         {
                 /*
-                Handles the main application loop.
-                */
-                void mainApplicationLoop()
-                {
-                        // Start the application
-                        startApplication();
-
-                        // Main application loop
-                        mainMenu();
-
-                        // End the application
-                        endApplication();
-                }
-
-                /*
                 Starts the application.
                 */
                 void startApplication()

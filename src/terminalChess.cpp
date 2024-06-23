@@ -14,7 +14,7 @@ int main()
         // Set the log level
         SET_LOG_LEVEL_TRACE();
 
-        // Start the main application loop
-        Chess::application::mainApplicationLoop();
+        // TODO Add a start point for the application
+
         return 0;
 }
