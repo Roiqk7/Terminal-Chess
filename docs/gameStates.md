@@ -9,17 +9,24 @@
     - [Invalid](#invalid)
     - [MainMenu](#mainmenu)
       - [Input Options](#input-options)
-  - [Credits](#credits)
-    - [Input Options](#input-options-1)
+    - [Credits](#credits)
+      - [Input Options](#input-options-1)
     - [HelpMenu](#helpmenu)
       - [Input Options](#input-options-2)
     - [GameModeMenu](#gamemodemenu)
+      - [Input Options](#input-options-3)
     - [DifficultyMenu](#difficultymenu)
-  - [GamePlay](#gameplay)
-  - [PauseMenu](#pausemenu)
-  - [SaveGame](#savegame)
-  - [LoadGame](#loadgame)
-  - [GameOver](#gameover)
+      - [Input Options](#input-options-4)
+    - [GamePlay](#gameplay)
+      - [Input Options](#input-options-5)
+    - [PauseMenu](#pausemenu)
+      - [Input Options](#input-options-6)
+    - [SaveGame](#savegame)
+      - [Input Options](#input-options-7)
+    - [LoadGame](#loadgame)
+      - [Input Options](#input-options-8)
+    - [GameOver](#gameover)
+      - [Input Options](#input-options-9)
 
 ## Introduction
 
@@ -62,9 +69,9 @@ enum class GameState
 - `q` - Quit the game
 - `c` - View the credits
 
-## Credits
+### Credits
 
-### Input Options
+#### Input Options
 
 - `q` - Return to the main menu
 
@@ -76,46 +83,60 @@ enum class GameState
 
 ### GameModeMenu
 
+#### Input Options
+
 - `s` - Single player
 - `m` - Multiplayer
 - `q` - Return to the main menu
 
 ### DifficultyMenu
 
+#### Input Options
+
 - `h` - Hard
 - `m` - Medium
 - `e` - Easy
 - `q` - Return to the main menu
 
-## GamePlay
+### GamePlay
+
+#### Input Options
 
 - `chessPieceSquare` - Select a chess piece to move
 - `chessSquare` - Select a square to move the chess piece to
 - `c` - Cancel the current selection
 - `q` - Pause the game
 
-## PauseMenu
+### PauseMenu
+
+#### Input Options
 
 - `r` - Resume the game
 - `s` - Save the game
 - `l` - Load the game
 - `q` - Quit the game
 
-## SaveGame
+### SaveGame
+
+#### Input Options
 
 - `1` - Save the game to slot 1
 - `2` - Save the game to slot 2
 - `3` - Save the game to slot 3
 - `q` - Return to the game
 
-## LoadGame
+### LoadGame
+
+#### Input Options
 
 - `1` - Load the game from slot 1
 - `2` - Load the game from slot 2
 - `3` - Load the game from slot 3
 - `q` - Return to the game
 
-## GameOver
+### GameOver
+
+#### Input Options
 
 - `r` - Restart the game
 - `q` - Quit the game
