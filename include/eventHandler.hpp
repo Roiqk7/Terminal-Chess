@@ -17,39 +17,7 @@ namespace Chess
 {
         namespace EventHandler
         {
-                struct Event
-                {
-                        enum class Type                                         // Enum class to represent the type of an event
-                        {
-                                None = 0,GameStart, GameEnd, Move, Capture,
-                                Check, Checkmate, Stalemate, Draw, Promotion,
-                                Castling, EnPassant
-                        };
-
-                        Type type;                                              // Type of the event
-                        Globals::Color player;                                  // Player who caused the event
-                        std::string userInput;                                  // User input that caused the event (various parts are comma separated)
-                };
-
-                using EventStack = std::stack<Event>;                           // Stack of events to keep track of the game history
-
-                class Handler                                                   // Handles events
-                {
-                public: // Methods
-                // Constructors
-                        Handler();                                              // Default constructor
-                // Event handling
-                        void submitEvent(const Event& event);                   // Submit an event
-                // Getters
-                        Event getCurrentEvent() const;                          // Get the current event
-                        Event getPreviousEvent() const;                         // Get the previous event
-                private: // Variables
-                        EventStack eventStack;                                  // Stack of events (current one at the top)
-                        Event previousEvent;                                    // Previous event
-                private: // Methods
-                // Event handling
-                        void handleEvent(const Event& event);                   // Handle an event
-                };
+                // TODO: Add event handling functions here
         }
 }
 
