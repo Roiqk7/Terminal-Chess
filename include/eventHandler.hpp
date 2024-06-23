@@ -17,9 +17,7 @@ namespace Chess
 {
         namespace EventHandler
         {
-                Event::Event handleEvent(const char& input, const Globals::GameState gameState);
-                bool isInputValid(const char& input, Globals::GameState gameState);
-                Event::Event determineEvent(const char input, Globals::GameState gameState);
+                // TODO:
         }
 }
 
