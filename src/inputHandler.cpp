@@ -48,6 +48,10 @@ namespace Chess
                         // Trim the input
                         input = Tool::trimString(input);
 
+                        // Lowercase the input
+                        std::transform(input.begin(), input.end(), input.begin(),
+                                [](unsigned char c){ return std::tolower(c); });
+
                         // Add a newline
                         std::cout << std::endl;
 
@@ -74,12 +78,6 @@ namespace Chess
                                 return false;
                         }
 
-                        // Lowercase the input
-                        std::string lowercaseInput;
-                        lowercaseInput.resize(input.size());
-                        std::transform(input.begin(), input.end(), lowercaseInput.begin(),
-                                [](unsigned char c){ return std::tolower(c); });
-
                         // Vector of valid inputs
                         std::vector<std::string> validInputs;
 
@@ -89,35 +87,40 @@ namespace Chess
                         {
                                 case Globals::GameState::MainMenu:
                                         validInputs = {"p", "play", "h", "help", "q", "quit", "c", "credits"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::Credits:
                                         validInputs = {"q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::HelpMenu:
                                         validInputs = {"q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::GameModeMenu:
                                         validInputs = {"s", "single", "singleplayer", "single-player", "m", "multi", "multiplayer", "q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::DifficultyMenu:
                                         validInputs = {"e", "easy", "m", "medium", "h", "hard", "q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
@@ -127,28 +130,32 @@ namespace Chess
                                         break;
                                 case Globals::GameState::PauseMenu:
                                         validInputs = {"r", "resume", "s", "save", "l", "load", "q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::SaveGame:
                                         validInputs = {"1", "2", "3", "q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::LoadGame:
                                         validInputs = {"1", "2", "3", "q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
                                         break;
                                 case Globals::GameState::GameOver:
                                         validInputs = {"r", "restart", "q", "quit"};
-                                        if (std::find(validInputs.begin(), validInputs.end(), lowercaseInput) != validInputs.end())
+                                        if (std::find(validInputs.begin(), validInputs.end(), input)
+                                                != validInputs.end())
                                         {
                                                 return true;
                                         }
