@@ -29,7 +29,7 @@ namespace Chess
 
                 @return: The user's input
                 */
-                std::string getUserInput(const std::string& prompt)
+                char getUserInput(const std::string& prompt)
                 {
                         std::string input;
 
@@ -47,19 +47,19 @@ namespace Chess
                         std::getline(std::cin, input);
 
                         // Trim the input
-                        input = Tool::trimString(input);
+                        char inputChar = getCharFromUserInput(input);
 
                         // Lowercase the input
-                        std::transform(input.begin(), input.end(), input.begin(),
-                                [](unsigned char c){ return std::tolower(c); });
+                        inputChar = std::tolower(
+                                static_cast<unsigned char>(inputChar));
 
                         // Add a newline
                         std::cout << std::endl;
 
                         // Log the input
-                        LOG_TRACE("User input: " + input);
+                        LOG_TRACE("User input: " + inputChar);
 
-                        return input;
+                        return inputChar;
                 }
 
                 /*
@@ -81,6 +81,18 @@ namespace Chess
 
                         // Check if the input is valid
                         return Validator::validateGameState(input, gameState);
+                }
+
+                /*
+                Get a char from user input.
+
+                @param input: The user's input
+
+                @return: The first char of the input
+                */
+                char getCharFromUserInput(const std::string& input)
+                {
+                        return input[0];
                 }
         }
 }

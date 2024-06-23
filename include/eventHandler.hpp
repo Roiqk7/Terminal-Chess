@@ -10,7 +10,6 @@ Notes: x
 #define EVENT_HANDLER_HPP
 
 #include <stack>
-#include <string>
 #include "event.hpp"
 #include "globals.hpp"
 
@@ -18,9 +17,9 @@ namespace Chess
 {
         namespace EventHandler
         {
-                Event::Event handleEvent(std::string input, Globals::GameState gameState);
-                bool isInputValid(std::string input, Globals::GameState gameState);
-                Event::Event determineEvent(std::string input, Globals::GameState gameState);
+                Event::Event handleEvent(const char& input, const Globals::GameState gameState);
+                bool isInputValid(const char& input, Globals::GameState gameState);
+                Event::Event determineEvent(const char input, Globals::GameState gameState);
         }
 }
 

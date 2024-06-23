@@ -24,7 +24,7 @@ namespace Chess
 
                 @return The event attributed by the event handler
                 */
-                Event::Event handleEvent(std::string input, Globals::GameState gameState)
+                Event::Event handleEvent(const std::string& input, Globals::GameState gameState)
                 {
                         // Check if the input is valid
                         if (!isInputValid(input, gameState))
@@ -44,7 +44,7 @@ namespace Chess
 
                 @return True if the input is valid, false otherwise
                 */
-                bool isInputValid(std::string input, Globals::GameState gameState)
+                bool isInputValid(const std::string& input, Globals::GameState gameState)
                 {
                         // Check if the input is valid
                         return InputHandler::validateUserInput(input, gameState);
@@ -58,13 +58,47 @@ namespace Chess
 
                 @return The event attributed by the event handler
                 */
-                Event::Event determineEvent(std::string input, Globals::GameState gameState)
+                Event::Event determineEvent(const char input, Globals::GameState gameState)
                 {
                         // Create an event
                         Event::Event event(input, gameState);
 
                         // Determine the event
+                        switch (gameState)
+                        {
+                                case Globals::GameState::MainMenu:
 
+                                        break;
+                                case Globals::GameState::Credits:
+
+                                        break;
+                                case Globals::GameState::HelpMenu:
+
+                                        break;
+                                case Globals::GameState::GameModeMenu:
+
+                                        break;
+                                case Globals::GameState::DifficultyMenu:
+
+                                        break;
+                                case Globals::GameState::PauseMenu:
+
+                                        break;
+                                case Globals::GameState::SaveGame:
+
+                                        break;
+                                case Globals::GameState::LoadGame:
+
+                                        break;
+                                case Globals::GameState::GameOver:
+
+                                        break;
+                                default:
+                                        LOG_ERROR("Invalid game state.");
+                                        return Event::Event("", Globals::GameState::);
+                        }
+
+                        return event;
                 }
         }
 }
