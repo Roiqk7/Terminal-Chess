@@ -214,5 +214,35 @@ namespace Chess
 
                         return repeatedPattern;
                 }
+
+                /*
+                Center a string in a certain width.
+
+                @param str: The string to center.
+                @param width: The width to center the string in.
+                @param addTrailingSpaces: Whether to add trailing spaces to the string.
+
+                @return: The centered string.
+                */
+                std::string centerString(const std::string& str, const size_t& width, const bool addTrailingSpaces)
+                {
+                        // Calculate the left padding
+                        size_t padding = (width - str.size()) / 2;
+
+                        // Create left padding
+                        std::string centeredStr(padding, ' ');
+
+                        // Add the string
+                        centeredStr += str;
+
+                        // Add trailing spaces if needed
+                        if (addTrailingSpaces)
+                        {
+                                centeredStr += std::string(width - centeredStr.size(), ' ');
+                        }
+
+                        return centeredStr;
+                }
+
         }
 }

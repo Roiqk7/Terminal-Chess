@@ -33,6 +33,8 @@ namespace Chess
                 std::vector<std::string> repeatPattern(
                         const std::string& filePath, const size_t& width,
                         const char& delimiter);                                 // Repeat a pattern to fill a certain width
+                std::string centerString(const std::string& str,
+                        const size_t& width, const bool addTrailingSpaces);     // Center a string in a certain width
         }
 }
 
