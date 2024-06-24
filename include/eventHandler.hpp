@@ -9,6 +9,8 @@ Notes: x
 #ifndef EVENT_HANDLER_HPP
 #define EVENT_HANDLER_HPP
 
+#include <memory>
+#include <queue>
 #include <stack>
 #include "event.hpp"
 #include "globals.hpp"
