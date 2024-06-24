@@ -14,12 +14,16 @@
       - [Description](#description)
     - [HelpMenu](#helpmenu)
       - [Input Options](#input-options-1)
+      - [Description](#description-1)
     - [Credits](#credits)
       - [Input Options](#input-options-2)
+      - [Description](#description-2)
     - [GameModeMenu](#gamemodemenu)
       - [Input Options](#input-options-3)
+      - [Description](#description-3)
     - [DifficultyMenu](#difficultymenu)
       - [Input Options](#input-options-4)
+      - [Description](#description-4)
     - [GamePlay](#gameplay)
       - [Input Options](#input-options-5)
     - [PauseMenu](#pausemenu)
@@ -50,11 +54,11 @@ Scenes create the application as a whole. Each scene has its own set of inputs a
 
 ### `h`
 
-`h` is usually used as the help key to display the help menu. Not every scene has this key binding but the ones where you would expect to see a help menu do.
+`h` is usually used as the help key to display the help menu. Every scene has this key binding but not every scene has a custom help menu. So you may be redirected to the main help menu.
 
 ### `q`
 
-`q` is usually used as `esc` key to go back to the previous menu or to quit the game. Every scene has this key binding.
+`q` is usually used as `esc` key. It serves as universal key to go back to where you were or to exit a menu. Every scene has this key binding.
 
 ### `x`
 
@@ -80,12 +84,20 @@ Main menu is the center hub of the application. From here the user can navigate 
 #### Input Options
 
 - `q` - Return to the main menu
+-
+#### Description
+
+Help menus are displayed when the user presses `h` in any scene. The help will provide the user with basic information on how to navigate the scene and what the scene is about. There are multiple help menus depending on the scene you are in to ensure that the help menu is always relevant... and well... helpful.
 
 ### Credits
 
 #### Input Options
 
 - `q` - Return to the main menu
+
+#### Description
+
+The credits show all the special thanks to various projects that were used in the creation of this application. The credits are displayed when the user presses `c` in the main menu.
 
 ### GameModeMenu
 
@@ -95,6 +107,10 @@ Main menu is the center hub of the application. From here the user can navigate 
 - `m` - Multiplayer
 - `q` - Return to the main menu
 
+#### Description
+
+In game mode menu the user can pick their opponent. It can either be a computer or another player. The computer opponent is the well known [Stockfish](https://stockfishchess.org). But don't worry, you can pick the difficulty level of the computer... so you don't have to play against the best chess engine in the world if you don't want to.
+
 ### DifficultyMenu
 
 #### Input Options
@@ -103,6 +119,10 @@ Main menu is the center hub of the application. From here the user can navigate 
 - `m` - Medium
 - `e` - Easy
 - `q` - Return to the main menu
+
+#### Description
+
+The difficulty menu is summoned when the user picks the computer as their opponent. The user can pick the difficulty level of the computer. There are 3 difficulty levels each carefully chosen. I will not tell you the precise ELO for each difficulty... I will let you speculate.
 
 ### GamePlay
 
@@ -138,6 +158,7 @@ Main menu is the center hub of the application. From here the user can navigate 
 - `1` - Load the game from slot 1
 - `2` - Load the game from slot 2
 - `3` - Load the game from slot 3
+- `4` - Load the autosave
 - `q` - Return to the game
 
 ### GameOver
