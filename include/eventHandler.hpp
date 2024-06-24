@@ -20,7 +20,7 @@ namespace Chess
         namespace EventSystem
         {
                 class EventHandler
-                { // TODO: Make the constructor submit a welcome event and destructor farewell event
+                {
                 public: // Methods
                 // Destructor
                         ~EventHandler();
@@ -31,8 +31,6 @@ namespace Chess
                 // Event Handling
                         void submit(std::shared_ptr<Event> event);
                         void processEvents();
-                        void undo();
-                        void redo();
                 private: // Variables
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
                         std::stack<std::unique_ptr<Event>> m_eventStack;

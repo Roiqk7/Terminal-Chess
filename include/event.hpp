@@ -24,7 +24,7 @@ namespace Chess
                         virtual ~Event() = default;
                         virtual void execute() = 0;
                 protected:
-                        std::shared_ptr<EventExecuter> executor;
+                        std::shared_ptr<EventExecuter> m_executor;
                 };
 
                 // TODO: Create all the necessary concrete event classes
