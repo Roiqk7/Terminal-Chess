@@ -4,7 +4,7 @@ In this brief tutorial, I will explain the rules of the game and how to play.
 First of all, every screen provides you with a list of commands that you can use.
 It doesn't matter if you write the command as, e.g., 'help', 'Help', or 'HELP'.
 Each command also provides a shorter version of the command that you can use.
-For example, 'help' can be written as 'h' or 'H'.
+For example, 'help' can be written as 'h' or 'H'. Shorted input is preferred.
 
 Let's say you are bored and want to play a quick game of chess. Once you open
 the game, you will be greeted with the main menu. Here, you can choose the option
