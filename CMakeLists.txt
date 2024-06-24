@@ -18,6 +18,7 @@ target_include_directories(TerminalChess PUBLIC "include/")
 
 # Add source files
 target_sources(TerminalChess PRIVATE
+        src/application.cpp
         src/chessBoard.cpp
         src/chessPieces.cpp
         src/displayer.cpp
@@ -25,7 +26,6 @@ target_sources(TerminalChess PRIVATE
         src/event.cpp
         src/eventHandler.cpp
         src/exception.cpp
-        src/application.cpp
         src/formatter.cpp
         src/gameHandler.cpp
         src/globals.cpp
@@ -33,7 +33,6 @@ target_sources(TerminalChess PRIVATE
         src/inputHandler.cpp
         src/scene.cpp
         tool/tool.cpp
-        src/validator.cpp
 )
 
 # Conditionally include spdlog in development mode

@@ -16,7 +16,6 @@ Notes: x
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/tool.hpp"
-#include "../include/validator.hpp"
 
 namespace Chess
 {
@@ -63,27 +62,6 @@ namespace Chess
                         LOG_TRACE("User input char: {}", inputChar);
 
                         return inputChar;
-                }
-
-                /*
-                Validate user input.
-
-                @param input: The user's input
-                @param gameState: The current game state
-
-                @return: True if the input is valid, false otherwise
-                */
-                bool validateUserInput(const char& input,
-                        Globals::GameState gameState)
-                {
-                        // Check empty input
-                        if (input == '\0')
-                        {
-                                return false;
-                        }
-
-                        // Check if the input is valid
-                        return Validator::validateGameState(input, gameState);
                 }
 
                 /*
