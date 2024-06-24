@@ -9,8 +9,10 @@ Notes: x
 #ifndef EVENT_HPP
 #define EVENT_HPP
 
+#include <memory>
 #include <string>
 #include "globals.hpp"
+#include "eventExecuter.hpp"
 
 namespace Chess
 {
@@ -18,7 +20,20 @@ namespace Chess
         {
                 class Event
                 {
-                        // TODO
+                public:
+                        virtual ~Event() = default;
+                        virtual void execute() = 0;
+                protected:
+                        std::shared_ptr<EventExecuter> executor;
+                };
+
+                // TODO: Create all the necessary concrete event classes
+
+                class WelcomeEvent : public Event
+                {
+                public: // Methods
+                        WelcomeEvent(std::shared_ptr<EventExecuter> executor) {}
+                        void execute() override;
                 };
         }
 }
