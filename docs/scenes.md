@@ -1,17 +1,20 @@
-# Game States
+# Scenes
 
 ## Table of Contents
-- [Game States](#game-states)
+- [Scenes](#scenes)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
-  - [Definition](#definition)
-  - [Game States](#game-states-1)
-    - [Invalid](#invalid)
+  - [Basic key bindings](#basic-key-bindings)
+    - [`h`](#h)
+    - [`q`](#q)
+    - [`x`](#x)
+  - [Scenes](#scenes-1)
     - [MainMenu](#mainmenu)
       - [Input Options](#input-options)
-    - [Credits](#credits)
-      - [Input Options](#input-options-1)
+      - [Description](#description)
     - [HelpMenu](#helpmenu)
+      - [Input Options](#input-options-1)
+    - [Credits](#credits)
       - [Input Options](#input-options-2)
     - [GameModeMenu](#gamemodemenu)
       - [Input Options](#input-options-3)
@@ -30,9 +33,8 @@
 
 ## Introduction
 
-Game states are defined in the `include/globals.hpp` header file in the `GameState` enum class. The game states are used to determine the current state of the game which influences the expected user input and game behavior. This documentation aims to provide a brief overview of each game state. The game states are as follows:
+Scenes create the application as a whole. Each scene has its own set of inputs and expected user interactions. The layout of the various scenes can be found in src/gui.cpp where each scene is implemented. Since this is a terminal and not a traditional GUI application, each scene is not rendered but displayed. And there do not need to be re-displayed 60 times a second. Instead they are only upon user interaction which can change the scene or an element within the scene. Bellow are all the scenes with their respective inputs and brief descriptions.
 
-- Invalid
 - MainMenu
 - HelpMenu
 - Credits
@@ -43,22 +45,22 @@ Game states are defined in the `include/globals.hpp` header file in the `GameSta
 - SaveGame
 - LoadGame
 - GameOver
+-
+## Basic key bindings
 
-## Definition
+### `h`
 
-```cpp
-// include/globals.hpp
-enum class GameState
-{
-        Invalid = 0, MainMenu, Credits, HelpMenu, GameModeMenu,
-        DifficultyMenu, GamePlay, PauseMenu, SaveGame,
-        LoadGame, GameOver
-};
-```
+`h` is usually used as the help key to display the help menu. Not every scene has this key binding but the ones where you would expect to see a help menu do.
 
-## Game States
+### `q`
 
-### Invalid
+`q` is usually used as `esc` key to go back to the previous menu or to quit the game. Every scene has this key binding.
+
+### `x`
+
+`x` is used to exit the application. This is a global key binding. It will exit the application no matter what scene the user is in and will skip the ending scene. Good for quick exits when the boss is coming...
+
+## Scenes
 
 ### MainMenu
 
@@ -66,16 +68,20 @@ enum class GameState
 
 - `p` - Play the game
 - `h` - View the help menu
-- `q` - Quit the game
 - `c` - View the credits
+- `q` - Quit the game
 
-### Credits
+#### Description
+
+Main menu is the center hub of the application. From here the user can navigate to the various other scenes. Main menu is automatically displayed on the start of the application.
+
+### HelpMenu
 
 #### Input Options
 
 - `q` - Return to the main menu
 
-### HelpMenu
+### Credits
 
 #### Input Options
 
@@ -114,7 +120,7 @@ enum class GameState
 - `r` - Resume the game
 - `s` - Save the game
 - `l` - Load the game
-- `q` - Quit the game
+- `q` - Quit the game and return to the main menu
 
 ### SaveGame
 
@@ -139,4 +145,4 @@ enum class GameState
 #### Input Options
 
 - `r` - Restart the game
-- `q` - Quit the game
+- `q` - Quit the game and return to the main menu
