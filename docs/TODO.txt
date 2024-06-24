@@ -15,4 +15,5 @@ Goal: Create a simple demo where you can safely move across the app and have the
 
 - Once you can move around and everything is nice, add the actual Chess game and logic
         - Keep in mind that you would like to use Stockfish as an opponent
-- Add credits to main menu and into all the docs etc.
+- Once you have working Chess game, polish everything and beautify the application.
+        - Also do not forget to add custom help menus and all the other stuff you promise in the docs
