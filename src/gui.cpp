@@ -161,9 +161,6 @@ namespace Chess
 
                         // Display the help menu scene
                         display(helpMenuScene);
-
-                        // Wait for a few seconds
-                        Tool::wait(2);
                 }
 
                 /*
@@ -195,7 +192,7 @@ namespace Chess
                         display(endingScene);
 
                         // Wait for a few seconds
-                        Tool::wait(3);
+                        Tool::wait(2);
 
                         // Clear the screen
                         clearScreen();
