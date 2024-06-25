@@ -98,6 +98,11 @@ namespace Chess
                         // Process user input
                         switch (input)
                         {
+                                case 'm':
+                                        // Display the main menu
+                                        return EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationMainMenuEvent>());
                                 case 'h':
                                         // Display the help menu
                                         return EventSystem::EventHandler::getInstance().submit(
@@ -109,7 +114,7 @@ namespace Chess
                                                 std::make_unique<
                                                         EventSystem::ResetGUIEvent>());
                                         break; // Deliberately return to the event which asked for the input to reset the GUI
-                                case 'q':
+                                case 'u':
                                         // Undo the last event
                                         return EventSystem::EventHandler::getInstance().undo();
                                 case 'x':
