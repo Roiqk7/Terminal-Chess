@@ -1,5 +1,6 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
+- Add key binding 'r' to reset the GUI.
 - Make sure there is no vulnerability/all the memory is safe.
 - Improve help menu. Currently it is not really helpful.
 - Add all the scenes except the Chess game.
