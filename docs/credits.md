@@ -6,4 +6,8 @@ Big thanks to [Fancy Text Pro](https://www.fancytextpro.com/BigTextGenerator/Var
 ## ASCII Art
 Another big thanks to [Ascii Art Web](https://www.asciiart.eu) for the ASCII art used in the application. All the frames and fantastic art pieces are from this website! Please visit and support them.
 
+## jeromevonk
+
+I want to give full credit to [jeromevonk](https://github.com/jeromevonk/chess_console.git) for his chess game implementation! This project would have taken much longer and would end up worse without his awesome library!
+
 ## Thank You!
