@@ -18,14 +18,8 @@ namespace Chess
                 /*
                 Starts the application.
                 */
-                ApplicationStartEvent::ApplicationStartEvent(std::shared_ptr<Event> self, std::unique_ptr<EventExecuter> executor)
+                ApplicationStartEvent::ApplicationStartEvent()
                 {
-                        // Set the pointer to itself
-                        m_self = self;
-
-                        // Set the executor
-                        m_executor = std::move(executor);
-
                         // Log application start
                         LOG_INFO("Application started.");
                 }
@@ -35,20 +29,7 @@ namespace Chess
                 */
                 void ApplicationStartEvent::execute()
                 {
-                        // Create a shared pointer to itself
-                        auto self = m_self.lock();
 
-                        // If the pointer is valid
-                        if (self)
-                        {
-                                // Execute the event
-                                m_executor->handleEvent(self);
-                        }
-                        else
-                        {
-                                // Log the failure to execute the event
-                                LOG_ERROR("Failed to execute ApplicationStartEvent.");
-                        }
                 }
         }
 }

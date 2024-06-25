@@ -23,15 +23,12 @@ namespace Chess
                 public:
                         virtual ~Event() = default;
                         virtual void execute() = 0;
-                protected:
-                        std::weak_ptr<Event> m_self;                          // Pointer to itself
-                        std::unique_ptr<EventExecuter> m_executor;              // Pointer to the executor which will execute the event
                 };
 
                 class ApplicationStartEvent : public Event
                 {
                 public: // Methods
-                        ApplicationStartEvent(std::shared_ptr<Event> self, std::unique_ptr<EventExecuter> executor);
+                        ApplicationStartEvent();
                         void execute() override;
                 };
         }

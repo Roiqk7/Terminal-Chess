@@ -43,7 +43,7 @@ namespace Chess
 
                 @param event The event to submit
                 */
-                void EventHandler::submit(std::shared_ptr<Event> event)
+                void EventHandler::submit(std::unique_ptr<Event> event)
                 {
                         m_eventQueue.push(event);
                 }
