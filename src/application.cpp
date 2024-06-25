@@ -91,9 +91,7 @@ namespace Chess
                         {
                                 case 'q':
                                         // Return to the main menu
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<
-                                                        EventSystem::ApplicationMainMenuEvent>());
+                                        EventSystem::EventHandler::getInstance().undo();
                                         break;
                                 default:
                                         // Invalid input

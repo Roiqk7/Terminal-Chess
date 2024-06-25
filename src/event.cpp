@@ -8,6 +8,7 @@ Notes: x
 
 #include <memory>
 #include <string>
+#include <typeinfo>
 #include "../include/application.hpp"
 #include "../include/event.hpp"
 #include "../include/globals.hpp"
@@ -17,6 +18,15 @@ namespace Chess
 {
         namespace EventSystem
         {
+        // Event
+                /*
+                Compares two events.
+                */
+                bool operator!=(const Event& lhs, const Event& rhs)
+                {
+                        return typeid(lhs) != typeid(rhs);
+                }
+
         // Application Start Event
                 /*
                 Starts the application.

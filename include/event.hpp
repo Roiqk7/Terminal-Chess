@@ -22,6 +22,7 @@ namespace Chess
                 public:
                         virtual ~Event() = default;
                         virtual void execute() = 0;
+                        friend bool operator!=(const Event& lhs, const Event& rhs);
                 };
 
                 class ApplicationStartEvent : public Event

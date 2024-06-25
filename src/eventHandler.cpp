@@ -89,7 +89,7 @@ namespace Chess
                                 event->execute();
 
                                 // Add the event to the recent events
-                                m_recentEvents.push_back(std::move(event));
+                                addRecentEvent(std::move(event));
                         }
 
                         // Handle the recent events
@@ -99,9 +99,6 @@ namespace Chess
                 /*
                 Undo the last event
                 */
-                /*
-                ERROR: Doesn't work as expected... if the same event floods the recent events,
-                it is impossible to undo it. So we first need a smarter recent events system.
                 void EventHandler::undo()
                 {
                         // If there are no recent events
@@ -118,7 +115,6 @@ namespace Chess
                         // -2 because [..., eventWeWant, eventWeDontWant, undoEvent]
                         submit(std::move(m_recentEvents[m_recentEvents.size() - 2]));
                 }
-                */
 
                 /*
                 Handle the recent events
@@ -130,6 +126,21 @@ namespace Chess
                         {
                                 // Pop the oldest event
                                 m_recentEvents.pop_front();
+                        }
+                }
+
+                /*
+                Add an event to the recent events
+
+                @param event The event to add
+                */
+                void EventHandler::addRecentEvent(std::unique_ptr<Event> event)
+                {
+                        // If the recent events are empty or the event is different from the last one
+                        if (m_recentEvents.empty() || *m_recentEvents.back() != *event)
+                        {
+                                // Add the event to the recent events
+                                m_recentEvents.push_back(std::move(event));
                         }
                 }
 

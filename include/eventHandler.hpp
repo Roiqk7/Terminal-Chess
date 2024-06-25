@@ -45,6 +45,8 @@ namespace Chess
                         const size_t m_maxRecentEvents = 10;
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
                         std::deque<std::unique_ptr<Event>> m_recentEvents;
+                // Helpers
+                        void addRecentEvent(std::unique_ptr<Event> event);
                 private: // Methods
                         void handleRecentEvents();
                 protected: // Constructors
