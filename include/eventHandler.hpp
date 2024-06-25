@@ -48,6 +48,7 @@ namespace Chess
                 // Helpers
                         void addRecentEvent(std::unique_ptr<Event> event);
                 private: // Methods
+                        void init();
                         void handleRecentEvents();
                 protected: // Constructors
                         EventHandler();

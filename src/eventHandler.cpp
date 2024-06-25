@@ -104,7 +104,7 @@ namespace Chess
                                 // Log that there are no events to undo
                                 LOG_WARN("No events to undo. Restarting the application...");
 
-                                return submit(std::make_unique<ApplicationStartEvent>());
+                                return init();
                         }
 
                         // Remove the last event from the recent events
@@ -115,6 +115,45 @@ namespace Chess
 
                         // Execute the event
                         m_recentEvents.back()->execute();
+                }
+
+                /*
+                Add an event to the recent events
+
+                @param event The event to add
+                */
+                void EventHandler::addRecentEvent(std::unique_ptr<Event> event)
+                {
+                        // If the recent events are empty or the event is different from the last one
+                        if (m_recentEvents.empty() || *m_recentEvents.back() != *event)
+                        {
+                                // Log the event
+                                LOG_TRACE("Event added to recent events: {}", event->getName());
+
+                                // Add the event to the recent events
+                                m_recentEvents.push_back(std::move(event));
+                        }
+
+                        // Handle the recent events
+                        handleRecentEvents();
+                }
+
+                /*
+                Initialize the event handler
+                */
+                void EventHandler::init()
+                {
+                        // Log that the event handler is being initialized
+                        LOG_TRACE("Initializing the event handler.");
+
+                        // Clear the recent events
+                        m_recentEvents.clear();
+
+                        // Add the null event to the recent events to properly initialize the event handlers
+                        addRecentEvent(std::make_unique<NullEvent>());
+
+                        // Submit the application start event to start the application
+                        submit(std::make_unique<ApplicationStartEvent>());
                 }
 
                 /*
@@ -143,27 +182,6 @@ namespace Chess
                 }
 
                 /*
-                Add an event to the recent events
-
-                @param event The event to add
-                */
-                void EventHandler::addRecentEvent(std::unique_ptr<Event> event)
-                {
-                        // If the recent events are empty or the event is different from the last one
-                        if (m_recentEvents.empty() || *m_recentEvents.back() != *event)
-                        {
-                                // Log the event
-                                LOG_TRACE("Event added to recent events: {}", event->getName());
-
-                                // Add the event to the recent events
-                                m_recentEvents.push_back(std::move(event));
-                        }
-
-                        // Handle the recent events
-                        handleRecentEvents();
-                }
-
-                /*
                 Constructor
                 */
                 EventHandler::EventHandler()
@@ -172,11 +190,7 @@ namespace Chess
                         // Log the creation of the event handler
                         LOG_INFO("Event Handler created.");
 
-                        // Add the null event to the recent events to properly initialize the event handlers
-                        addRecentEvent(std::make_unique<NullEvent>());
-
-                        // Submit the application start event to start the application
-                        submit(std::make_unique<ApplicationStartEvent>());
+                        init();
                 }
         }
 }
