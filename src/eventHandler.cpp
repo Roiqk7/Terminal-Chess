@@ -11,7 +11,6 @@ Notes: Based on the Command Pattern. More in docs/resources.md
 #include <stack>
 #include <string>
 #include "../include/event.hpp"
-#include "../include/eventExecuter.hpp"
 #include "../include/eventHandler.hpp"
 #include "../include/globals.hpp"
 
@@ -24,7 +23,8 @@ namespace Chess
                 */
                 EventHandler::~EventHandler()
                 {
-                        // Ending scene
+                        // Log the destruction of the event handler
+                        LOG_INFO("Event Handler destroyed.");
                 }
 
                 /*
@@ -58,14 +58,16 @@ namespace Chess
                         while (!m_eventQueue.empty())
                         {
                                 // Get the event
-                                std::shared_ptr<Event> event = std::move(m_eventQueue.front());
+                                auto event = m_eventQueue.front();
+
+                                // Pop the event from the queue
                                 m_eventQueue.pop();
 
                                 // Execute the event
                                 event->execute();
 
                                 // Add the event to the recent events
-                                m_recentEvents.push_back(std::move(event));
+                                m_recentEvents.push_back(event);
                         }
 
                         // Handle the recent events
@@ -109,10 +111,10 @@ namespace Chess
                 Constructor
                 */
                 EventHandler::EventHandler()
+                        : m_eventQueue(), m_recentEvents()
                 {
-                        // Starting scene
-                        EventExecuter executer;
-                        std::shared_ptr<EventExecuter> executor = std::make_shared<EventExecuter>(executer);
+                        // Log the creation of the event handler
+                        LOG_INFO("Event Handler created.");
                 }
         }
 }
