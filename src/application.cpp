@@ -53,6 +53,10 @@ namespace Chess
                         // Handle user input
                         switch (input)
                         {
+                                // Credits
+                                case 'c':
+                                        return EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<EventSystem::ApplicationCreditsEvent>());
                                 // We do this to make sure 'q' leaves the application
                                 case 'q':
                                         // Start the game
@@ -60,7 +64,7 @@ namespace Chess
                                                 std::make_unique<EventSystem::ApplicationEndEvent>());
 
                                 default:
-                                        // Handle universal input
+                                        // Handle "other" input
                                         break;
                         }
 
@@ -82,9 +86,27 @@ namespace Chess
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
 
-                        // Handle universal input
+                        // Handle input
                         return InputHandler::handleInput(input,
                                 std::make_unique<EventSystem::ApplicationHelpMenuEvent>());
+                }
+
+                /*
+                Credits
+                */
+                void credits()
+                {
+                        // Display the credits
+                        GUI::displayCredits();
+
+                        // Get user input
+                        char input;
+                        input = InputHandler::getUserInput(
+                                "Enter your choice:");
+
+                        // Handle input
+                        return InputHandler::handleInput(input,
+                                std::make_unique<EventSystem::ApplicationCreditsEvent>());
                 }
 
                 /*

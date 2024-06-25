@@ -135,6 +135,9 @@ namespace Chess
 
                                                 // Remove the element
                                                 scene.removeElement(element.name);
+
+                                                // Recalculate the scene's dimensions
+                                                scene.calculateDimensions();
                                         }
                                 }
                         }

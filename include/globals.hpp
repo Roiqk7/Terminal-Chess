@@ -70,6 +70,10 @@ namespace Chess
                 // File paths
                 // Assets
                         const std::string ASSETS_PATH = "../assets/";           // Path to the assets folder
+                        const std::string CREDITS_PATH = ASSETS_PATH
+                                + "credits.txt";                                // Path to the credits
+                        const std::string CREDITS_BANNER = ASSETS_PATH
+                                + "creditsBanner.txt";                          // Path to the credits banner
                         const std::string ERROR_BANNER_PATH = ASSETS_PATH
                                 + "errorBanner.txt";                            // Path to the error banner
                         const std::string FAREWELL_PATH = ASSETS_PATH

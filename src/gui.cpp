@@ -164,6 +164,38 @@ namespace Chess
                 }
 
                 /*
+                Display the credits.
+                */
+                void displayCredits()
+                {
+                        // Clear the screen
+                        clearScreen();
+
+                        // Create the credits scene
+                        Scene creditsScene = Scene("Credits");
+
+                        // Add the elements to the credits scene
+                        creditsScene.addElement(Element("Header",
+                                Globals::Constants::HEADER_PATH,
+                                false, false));
+                        creditsScene.addElement(Element("Credits Banner",
+                                Globals::Constants::CREDITS_BANNER,
+                                false, false));
+                        creditsScene.addElement(Element("Credits",
+                                Globals::Constants::CREDITS_PATH,
+                                true, false));
+                        creditsScene.addElement(Element("Footer",
+                                Globals::Constants::FOOTER_PATH,
+                                false, false));
+
+                        // Format the credits scene
+                        formatScene(creditsScene);
+
+                        // Display the credits scene
+                        display(creditsScene);
+                }
+
+                /*
                 Display the ending.
                 */
                 void displayEnding()

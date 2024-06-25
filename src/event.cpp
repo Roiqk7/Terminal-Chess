@@ -163,6 +163,37 @@ namespace Chess
                 {
                         return std::make_unique<ApplicationHelpMenuEvent>(*this);
                 }
+        // Application Credits Event
+                /*
+                Display the credits.
+                */
+                ApplicationCreditsEvent::ApplicationCreditsEvent()
+                {
+                        // Set the name of the event
+                        m_name = "Application Credits Event";
+
+                        // Log application start event was created
+                        LOG_INFO("{} created.", m_name);
+                }
+
+                /*
+                Executes the event.
+                */
+                void ApplicationCreditsEvent::execute()
+                {
+                        // Display the credits
+                        application::credits();
+                }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ApplicationCreditsEvent::clone() const
+                {
+                        return std::make_unique<ApplicationCreditsEvent>(*this);
+                }
         // Application End Event
                 /*
                 Ends the application.

@@ -71,6 +71,14 @@ namespace Chess
                         std::unique_ptr<Event> clone() const override;
                 };
 
+                class ApplicationCreditsEvent : public Event
+                {
+                public: // Methods
+                        ApplicationCreditsEvent();
+                        void execute() override;
+                        std::unique_ptr<Event> clone() const override;
+                };
+
                 class ApplicationEndEvent : public Event
                 {
                 public: // Methods

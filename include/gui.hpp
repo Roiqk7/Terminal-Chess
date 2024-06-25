@@ -22,6 +22,7 @@ namespace Chess
                 void displayIntro();                                            // Display the intro
                 void displayMainMenu();                                         // Display the main menu
                 void displayHelpMenu();                                         // Display the help menu
+                void displayCredits();                                          // Display the credits
                 void displayGameplay();                                         // Display the gameplay
                 void displayEnding();                                           // Display the ending
         // Messages
