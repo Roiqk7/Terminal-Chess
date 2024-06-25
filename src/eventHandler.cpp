@@ -71,29 +71,23 @@ namespace Chess
                 void EventHandler::processEventQueue()
                 {
                         // For each event in the queue
-                        while (!m_eventQueue.empty())
+                        if (!m_eventQueue.empty())
                         {
                                 // Get the event
                                 auto event = std::move(m_eventQueue.front());
 
-                                // Set the current event
-                                m_currentEvent = event->getName();
-
-                                // Log the current event
-                                LOG_INFO("Current event: {}", m_currentEvent);
+                                // Log the event
+                                LOG_TRACE("Event: {} is now being processed.", event->getName());
 
                                 // Pop the event from the queue
                                 m_eventQueue.pop();
 
-                                // Execute the event
-                                event->execute();
-
                                 // Add the event to the recent events
                                 addRecentEvent(std::move(event));
-                        }
 
-                        // Handle the recent events
-                        handleRecentEvents();
+                                // Execute the event
+                                m_recentEvents.back()->execute();
+                        }
                 }
 
                 /*
@@ -101,29 +95,26 @@ namespace Chess
                 */
                 void EventHandler::undo()
                 {
-                        LOG_TRACE("Size of recent events: {}", m_recentEvents.size());
+                        // Log that undo is being called
+                        LOG_TRACE("Undoing the last event.");
 
-                        // Log the recent events
-                        LOG_TRACE("Recent events:");
-                        for (auto& event : m_recentEvents)
+                        // Check if there are any events to undo
+                        if (m_recentEvents.size() <= 1)
                         {
-                                LOG_TRACE("Event: {}", event->getName());
+                                // Log that there are no events to undo
+                                LOG_WARN("No events to undo. Restarting the application...");
+
+                                return submit(std::make_unique<ApplicationStartEvent>());
                         }
 
-                        LOG_TRACE("Current event X: {}", m_currentEvent);
+                        // Remove the last event from the recent events
+                        m_recentEvents.pop_back();
 
-                        // Submit the event before the unwanted event
-                        if (m_recentEvents.back()->getName() == m_currentEvent)
-                        {
-                                // -2 because [..., eventWeWant, eventWeDontWant]
-                                return submit(m_recentEvents[m_recentEvents.size() - 2]->clone());
-                        }
-                        else
-                        {
-                                // -1 because [..., eventWeWant]
-                                // Note: The unwanted event has not yet been added to the recent events
-                                return submit(m_recentEvents[m_recentEvents.size() - 1]->clone());
-                        }
+                        // Log the size of the recent events
+                        LOG_TRACE("Recent events size: {}", m_recentEvents.size());
+
+                        // Execute the event
+                        m_recentEvents.back()->execute();
                 }
 
                 /*
@@ -131,6 +122,18 @@ namespace Chess
                 */
                 void EventHandler::handleRecentEvents()
                 {
+                        // Log that the recent events are being handled
+                        LOG_TRACE("Handling recent events:");
+
+                        for (auto& event : m_recentEvents)
+                        {
+                                // Log the event
+                                LOG_TRACE("Event: {}. ", event->getName());
+                        }
+
+                        // Log the size of the recent events
+                        LOG_TRACE("Recent events size: {}", m_recentEvents.size());
+
                         // While the number of recent events is greater than the maximum
                         while (m_recentEvents.size() > m_maxRecentEvents)
                         {
@@ -155,19 +158,21 @@ namespace Chess
                                 // Add the event to the recent events
                                 m_recentEvents.push_back(std::move(event));
                         }
+
+                        // Handle the recent events
+                        handleRecentEvents();
                 }
 
                 /*
                 Constructor
                 */
                 EventHandler::EventHandler()
-                        : run(true), m_currentEvent(),
-                        m_eventQueue(), m_recentEvents()
+                        : run(true),  m_eventQueue(), m_recentEvents()
                 {
                         // Log the creation of the event handler
                         LOG_INFO("Event Handler created.");
 
-                        // Add the null event to the recent events
+                        // Add the null event to the recent events to properly initialize the event handlers
                         addRecentEvent(std::make_unique<NullEvent>());
 
                         // Submit the application start event to start the application
