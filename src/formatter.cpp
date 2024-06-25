@@ -64,7 +64,7 @@ namespace Chess
                                         if (element.required)
                                         {
                                                 // Log the error
-                                                LOG_ERROR("Element {} is required in scene {} but it's width is greater than GUI_WIDTH", element.name, scene.name);
+                                                LOG_ERROR("Element {} is required in scene {} and it's width is greater than GUI_WIDTH", element.name, scene.name);
 
                                                 // Log potential solution
                                                 LOG_INFO("Calling getDimensions() to revalidate the GUI dimensions...");
@@ -76,7 +76,7 @@ namespace Chess
                                                 if (element.width > Globals::GUI_WIDTH)
                                                 {
                                                         // Log the error
-                                                        LOG_CRITICAL("Element {} is still required in scene {} but its width is still greater than GUI_WIDTH. Application will terminate.", element.name, scene.name);
+                                                        LOG_CRITICAL("Element {} is still required in scene {} and its width is still greater than GUI_WIDTH. Application will terminate.", element.name, scene.name);
 
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
@@ -88,7 +88,7 @@ namespace Chess
                                         else
                                         {
                                                 // Log the warning
-                                                LOG_WARN("Element {} is not required in scene {} but its width is greater than GUI_WIDTH.", element.name, scene.name);
+                                                LOG_WARN("Element {} is not required in scene {} and its width is greater than GUI_WIDTH.", element.name, scene.name);
 
                                                 // Log info
                                                 LOG_INFO("Element {} will be removed from scene {}.", element.name, scene.name);
@@ -104,7 +104,7 @@ namespace Chess
                                         if (element.required)
                                         {
                                                 // Log the error
-                                                LOG_ERROR("Element {} is required in scene {} but its height is greater than GUI_HEIGHT", element.name, scene.name);
+                                                LOG_ERROR("Element {} is required in scene {} and its height is greater than GUI_HEIGHT", element.name, scene.name);
 
                                                 // Log potential solution
                                                 LOG_INFO("Calling getDimensions() to revalidate the GUI dimensions...");
@@ -116,11 +116,11 @@ namespace Chess
                                                 if (element.height > Globals::GUI_HEIGHT || Globals::GUI_HEIGHT < scene.height + 1)
                                                 {
                                                         // Log the error
-                                                        LOG_CRITICAL("Element {} is still required in scene {} but its height is still greater than GUI_HEIGHT. Application will terminate.", element.name, scene.name);
+                                                        LOG_CRITICAL("Element {} is still required in scene {} and its height is still greater than GUI_HEIGHT. Application will terminate.", element.name, scene.name);
 
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
-                                                                + scene.name + " but its height is greater than the terminal height. Application will terminate.",
+                                                                + scene.name + " and its height is greater than the terminal height. Application will terminate.",
                                                                 false, true);
                                                 }
                                         }
