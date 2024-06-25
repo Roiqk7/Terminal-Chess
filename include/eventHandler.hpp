@@ -31,7 +31,9 @@ namespace Chess
                 // Event Handling
                         void submit(std::shared_ptr<Event> event);
                         void processEvents();
+                        void undo();
                 private: // Variables
+                        std::unique_ptr<Event> m_currentEvent;
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
                         std::stack<std::unique_ptr<Event>> m_eventStack;
                 protected: // Constructors
