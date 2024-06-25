@@ -1,6 +1,5 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Fix formatter base case when there is just 1 element in the scene
 - Add exception events
 - Make sure there is no vulnerability/all the memory is safe.
 - Improve help menu. Currently it is not really helpful.
