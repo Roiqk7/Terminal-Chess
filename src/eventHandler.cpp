@@ -95,7 +95,7 @@ namespace Chess
                 */
                 void EventHandler::undo()
                 {
-                        LOG_INFO("Size of recent events: {}", m_recentEvents.size());
+                        LOG_TRACE("Size of recent events: {}", m_recentEvents.size());
 
                         // If there are no recent events
                         if (m_recentEvents.size() < 1)
