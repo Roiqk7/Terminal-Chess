@@ -21,14 +21,14 @@ install_homebrew()
 # Function to install dependencies using Homebrew
 install_dependencies()
 {
+        echo "Installing dependencies using Homebrew..."
         # Check if the script was called with the 'dev' argument
-        if [ "$1" == "dev" ]; then
+        if [ "${1}" == "dev" ]; then
                 echo "Setting up the project in development mode..."
                 brew install spdlog
         fi
 
         # Install dependencies using Homebrew
-        echo "Installing dependencies using Homebrew..."
         brew install cmake
 }
 
@@ -41,7 +41,7 @@ fi
 # Check if the current directory is not already 'lib'
 if [[ $(basename "$PWD") != "lib" ]]; then
         echo "Moving to the lib directory..."
-        cd lib
+        cd lib || exit
 fi
 
 # Clone chess console library
@@ -56,12 +56,12 @@ cd "$original_dir"
 OS=$(uname -s)
 
 # Check if the operating system is MacOS
-if [ "$OS" = "Darwin" ]; then
+if [ "${OS}" = "Darwin" ]; then
         # Install Homebrew if it's not installed
         install_homebrew
 
         # Install dependencies
-        install_dependencies
+        install_dependencies "$1"
 else
         echo "[Error] This script is intended for MacOS users. For Linux or other Unix-like systems, please install the dependencies using your package manager."
 fi
