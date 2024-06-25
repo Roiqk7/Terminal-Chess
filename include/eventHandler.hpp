@@ -9,8 +9,10 @@ Notes: x
 #ifndef EVENT_HANDLER_HPP
 #define EVENT_HANDLER_HPP
 
+#include <condition_variable>
 #include <deque>
 #include <memory>
+#include <mutex>
 #include <queue>
 #include "event.hpp"
 #include "globals.hpp"
@@ -31,10 +33,15 @@ namespace Chess
                         EventHandler(const EventHandler&) = delete;
                         EventHandler& operator=(const EventHandler&) = delete;
                 // Event Handling
+                        void waitEvent();
                         void submit(std::unique_ptr<Event> event);
-                        void processEvents();
+                        void processEventQueue();
                         void undo();
                 private: // Variables
+                // Event System
+                        std::mutex m_mutex;
+                        std::condition_variable m_condition;
+                // Event Handling
                         const size_t m_maxRecentEvents = 10;
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
                         std::deque<std::unique_ptr<Event>> m_recentEvents;

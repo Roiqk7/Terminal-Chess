@@ -6,7 +6,10 @@ Description: This file implements the Event Handler class.
 Notes: Based on the Command Pattern. More in docs/resources.md
 */
 
+#include <condition_variable>
+#include <deque>
 #include <memory>
+#include <mutex>
 #include <queue>
 #include <stack>
 #include <string>
@@ -39,6 +42,19 @@ namespace Chess
                 }
 
                 /*
+                Wait for an event
+                */
+                void EventHandler::waitEvent()
+                {
+                        // Create a unique lock
+                        std::unique_lock<std::mutex> lock(m_mutex);
+
+                        // Wait for the condition
+                        m_condition.wait(lock, [this]
+                                { return !m_eventQueue.empty() || !run; });
+                }
+
+                /*
                 Submit an event to the invoker
 
                 @param event The event to submit
@@ -52,7 +68,7 @@ namespace Chess
                 /*
                 Process the events in the queue
                 */
-                void EventHandler::processEvents()
+                void EventHandler::processEventQueue()
                 {
                         // DELETE
                         if (m_eventQueue.empty())
