@@ -39,6 +39,14 @@ namespace Chess
                         std::string m_message;
                 };
 
+                class NullEvent : public Event
+                {
+                public: // Methods
+                        NullEvent();
+                        void execute() override;
+                        std::unique_ptr<Event> clone() const override;
+                };
+
                 class ApplicationStartEvent : public Event
                 {
                 public: // Methods
