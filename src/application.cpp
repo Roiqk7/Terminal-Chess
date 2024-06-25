@@ -65,7 +65,7 @@ namespace Chess
                         }
 
                         // Handle input
-                        return InputHandler::handleUniversalInput(input,
+                        return InputHandler::handleInput(input,
                                 std::make_unique<EventSystem::ApplicationMainMenuEvent>());
                 }
 
@@ -83,7 +83,7 @@ namespace Chess
                                 "Enter your choice:");
 
                         // Handle universal input
-                        return InputHandler::handleUniversalInput(input,
+                        return InputHandler::handleInput(input,
                                 std::make_unique<EventSystem::ApplicationHelpMenuEvent>());
                 }
 

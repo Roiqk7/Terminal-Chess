@@ -87,12 +87,12 @@ namespace Chess
                 }
 
                 /*
-                Handle universal input.
+                Handle user input.
 
                 @param input: The user's input
                 @param event: The event which asked for the input
                 */
-                void handleUniversalInput(char input,
+                void handleInput(char input,
                         std::unique_ptr<EventSystem::Event> event)
                 {
                         // Process user input
