@@ -29,13 +29,13 @@ namespace Chess
                         EventHandler(const EventHandler&) = delete;
                         EventHandler& operator=(const EventHandler&) = delete;
                 // Event Handling
-                        void submit(std::unique_ptr<Event> event);
+                        void submit(std::shared_ptr<Event> event);
                         void processEvents();
                         void undo();
                 private: // Variables
                         const size_t m_maxRecentEvents = 10;
-                        std::queue<std::unique_ptr<Event>> m_eventQueue;
-                        std::deque<std::unique_ptr<Event>> m_recentEvents;
+                        std::queue<std::shared_ptr<Event>> m_eventQueue;
+                        std::deque<std::shared_ptr<Event>> m_recentEvents;
                 private: // Methods
                         void handleRecentEvents();
                 protected: // Constructors

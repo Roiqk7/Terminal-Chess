@@ -27,10 +27,10 @@ namespace Chess
                         std::unique_ptr<EventExecuter> m_executor;
                 };
 
-                class WelcomeEvent : public Event
+                class ApplicationStartEvent : public Event
                 {
                 public: // Methods
-                        WelcomeEvent(std::unique_ptr<EventExecuter> executor) {}
+                        ApplicationStartEvent(std::unique_ptr<EventExecuter> executor);
                         void execute() override;
                 };
         }
