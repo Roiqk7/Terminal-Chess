@@ -76,6 +76,9 @@ namespace Chess
                                 // Get the event
                                 auto event = std::move(m_eventQueue.front());
 
+                                // Log the event
+                                LOG_TRACE("Event submitted: {}", event->getName());
+
                                 // Pop the event from the queue
                                 m_eventQueue.pop();
 
@@ -110,7 +113,7 @@ namespace Chess
                         // Submit the event before the undo
                         // -1 because [..., eventWeWant, eventWeDontWant]
                         // Note: Undo event itself has not been added to recent events yet
-                        submit(std::move(m_recentEvents[m_recentEvents.size() - 1]));
+                        submit(m_recentEvents[m_recentEvents.size() - 2]->clone());
                 }
 
                 /*
@@ -136,6 +139,9 @@ namespace Chess
                         // If the recent events are empty or the event is different from the last one
                         if (m_recentEvents.empty() || *m_recentEvents.back() != *event)
                         {
+                                // Log the event
+                                LOG_TRACE("Event added to recent events: {}", event->getName());
+
                                 // Add the event to the recent events
                                 m_recentEvents.push_back(std::move(event));
                         }

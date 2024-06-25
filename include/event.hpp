@@ -22,8 +22,9 @@ namespace Chess
                 public:
                         virtual ~Event() = default;
                         virtual void execute() = 0;
+                        virtual std::unique_ptr<Event> clone() const = 0;
                         friend bool operator!=(const Event& lhs, const Event& rhs);
-                        operator std::string() const;
+                        std::string getName() const;
                 protected:
                         std::string m_name;
                 };
@@ -33,6 +34,7 @@ namespace Chess
                 public: // Methods
                         ApplicationStartEvent();
                         void execute() override;
+                        std::unique_ptr<Event> clone() const override;
                 };
 
                 class ApplicationMainMenuEvent : public Event
@@ -40,6 +42,7 @@ namespace Chess
                 public: // Methods
                         ApplicationMainMenuEvent();
                         void execute() override;
+                        std::unique_ptr<Event> clone() const override;
                 };
 
                 class ApplicationHelpMenuEvent : public Event
@@ -47,6 +50,7 @@ namespace Chess
                 public: // Methods
                         ApplicationHelpMenuEvent();
                         void execute() override;
+                        std::unique_ptr<Event> clone() const override;
                 };
 
                 class ApplicationEndEvent : public Event
@@ -54,6 +58,7 @@ namespace Chess
                 public: // Methods
                         ApplicationEndEvent();
                         void execute() override;
+                        std::unique_ptr<Event> clone() const override;
                 };
 
                 class ApplicationExitEvent : public Event
@@ -61,6 +66,7 @@ namespace Chess
                 public: // Methods
                         ApplicationExitEvent();
                         void execute() override;
+                        std::unique_ptr<Event> clone() const override;
                 };
         }
 }

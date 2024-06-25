@@ -28,13 +28,14 @@ namespace Chess
                 }
 
                 /*
-                Converts the event to a string.
+                Gets the name of the event.
+
+                @return The name of the event
                 */
-                Event::operator std::string() const
+                std::string Event::getName() const
                 {
                         return m_name;
                 }
-
         // Application Start Event
                 /*
                 Starts the application.
@@ -56,6 +57,16 @@ namespace Chess
                         // Start the application
                         application::startApplication();
                 }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ApplicationStartEvent::clone() const
+                {
+                        return std::make_unique<ApplicationStartEvent>(*this);
+                }
         // Application Main Menu Event
                 /*
                 Transition to the main menu.
@@ -76,6 +87,16 @@ namespace Chess
                 {
                         // Transition to the main menu
                         application::mainMenu();
+                }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ApplicationMainMenuEvent::clone() const
+                {
+                        return std::make_unique<ApplicationMainMenuEvent>(*this);
                 }
         // Application Help Menu Event
                 /*
@@ -99,6 +120,15 @@ namespace Chess
                         application::helpMenu();
                 }
 
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ApplicationHelpMenuEvent::clone() const
+                {
+                        return std::make_unique<ApplicationHelpMenuEvent>(*this);
+                }
         // Application End Event
                 /*
                 Ends the application.
@@ -119,6 +149,16 @@ namespace Chess
                 {
                         // End the application
                         application::endApplication();
+                }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ApplicationEndEvent::clone() const
+                {
+                        return std::make_unique<ApplicationEndEvent>(*this);
                 }
         // Application Exit Event
                 /*
@@ -142,5 +182,14 @@ namespace Chess
                         application::exitApplication();
                 }
 
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ApplicationExitEvent::clone() const
+                {
+                        return std::make_unique<ApplicationExitEvent>(*this);
+                }
         }
 }
