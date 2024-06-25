@@ -86,6 +86,20 @@ namespace Chess
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
 
+                        // Handle user input
+                        switch (input)
+                        {
+                                // We do this to make sure 'q' leaves the application
+                                case 'q':
+                                        // Start the game
+                                        return EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<EventSystem::ApplicationMainMenuEvent>());
+
+                                default:
+                                        // Handle "other" input
+                                        break;
+                        }
+
                         // Handle input
                         return InputHandler::handleInput(input,
                                 std::make_unique<EventSystem::ApplicationHelpMenuEvent>());
@@ -103,6 +117,20 @@ namespace Chess
                         char input;
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
+
+                        // Handle user input
+                        switch (input)
+                        {
+                                // We do this to make sure 'q' leaves the application
+                                case 'q':
+                                        // Start the game
+                                        return EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<EventSystem::ApplicationMainMenuEvent>());
+
+                                default:
+                                        // Handle "other" input
+                                        break;
+                        }
 
                         // Handle input
                         return InputHandler::handleInput(input,
