@@ -11,8 +11,8 @@ Notes: x
 
 #include <memory>
 #include <string>
-#include "globals.hpp"
 #include "eventExecuter.hpp"
+#include "globals.hpp"
 
 namespace Chess
 {
