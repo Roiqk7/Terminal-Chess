@@ -99,6 +99,9 @@ namespace Chess
                 /*
                 Undo the last event
                 */
+                /*
+                ERROR: Doesn't work as expected... if the same event floods the recent events,
+                it is impossible to undo it. So we first need a smarter recent events system.
                 void EventHandler::undo()
                 {
                         // If there are no recent events
@@ -115,6 +118,7 @@ namespace Chess
                         // -2 because [..., eventWeWant, eventWeDontWant, undoEvent]
                         submit(std::move(m_recentEvents[m_recentEvents.size() - 2]));
                 }
+                */
 
                 /*
                 Handle the recent events

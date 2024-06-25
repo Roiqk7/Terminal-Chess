@@ -21,6 +21,7 @@ namespace Chess
                 void credits();                                                 // Display the credits
                 // TODO: Add rest
                 void endApplication();                                          // Finish the application
+                void exitApplication();                                         // Exit the application
         }
 }
 

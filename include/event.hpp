@@ -30,6 +30,34 @@ namespace Chess
                         ApplicationStartEvent();
                         void execute() override;
                 };
+
+                class ApplicationMainMenuEvent : public Event
+                {
+                public: // Methods
+                        ApplicationMainMenuEvent();
+                        void execute() override;
+                };
+
+                class ApplicationHelpMenuEvent : public Event
+                {
+                public: // Methods
+                        ApplicationHelpMenuEvent();
+                        void execute() override;
+                };
+
+                class ApplicationEndEvent : public Event
+                {
+                public: // Methods
+                        ApplicationEndEvent();
+                        void execute() override;
+                };
+
+                class ApplicationExitEvent : public Event
+                {
+                public: // Methods
+                        ApplicationExitEvent();
+                        void execute() override;
+                };
         }
 }
 

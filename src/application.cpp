@@ -31,13 +31,14 @@ namespace Chess
 
                         // Display the intro
                         GUI::displayIntro();
+
+                        // Start the event chain reaction
+                        EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<EventSystem::ApplicationMainMenuEvent>());
                 }
 
                 /*
-                This is where the user will interact with the application. The
-                application will jump off to different parts of the code based
-                on the user's input and then return here until the user decides
-                to exit the application.
+                Handles the main menu.
                 */
                 void mainMenu()
                 {
@@ -48,6 +49,58 @@ namespace Chess
                         char input;
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
+
+                        // Process user input
+                        switch (input)
+                        {
+                                case 'h':
+                                        // Display the help menu
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationHelpMenuEvent>());
+                                        break;
+                                case 'q':
+                                        // Quit the application
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationEndEvent>());
+                                        break;
+                                default:
+                                        // Invalid input
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationMainMenuEvent>());
+                        }
+                }
+
+                /*
+                Handles the help menu.
+                */
+                void helpMenu()
+                {
+                        // Display the help menu
+                        GUI::displayHelpMenu();
+
+                        // Get user input
+                        char input;
+                        input = InputHandler::getUserInput(
+                                "Enter your choice:");
+
+                        // Process user input
+                        switch (input)
+                        {
+                                case 'q':
+                                        // Return to the main menu
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationMainMenuEvent>());
+                                        break;
+                                default:
+                                        // Invalid input
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationHelpMenuEvent>());
+                        }
                 }
 
                 /*
@@ -58,8 +111,23 @@ namespace Chess
                         // Display the ending
                         GUI::displayEnding();
 
+                        // Switch the run flag to false
+                        EventSystem::EventHandler::getInstance().run = false;
+
                         // Log application end
                         LOG_INFO("Application ended.");
+                }
+
+                /*
+                Exits the application.
+                */
+                void exitApplication()
+                {
+                        // Log application exit
+                        LOG_INFO("Application exited.");
+
+                        // Exit the application
+                        exit(0);
                 }
         }
 }
