@@ -38,6 +38,37 @@ namespace Chess
                 }
         // Exception Event
                 // TODO: Implement
+        // NullEvent
+                /*
+                Creates a null event.
+                */
+                NullEvent::NullEvent()
+                {
+                        // Set the name of the event
+                        m_name = "Null Event";
+
+                        // Log null event was created
+                        LOG_INFO("{} created.", m_name);
+                }
+
+                /*
+                Executes the event.
+                */
+                void NullEvent::execute()
+                {
+                        // Null event does nothing
+                        return;
+                }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> NullEvent::clone() const
+                {
+                        return std::make_unique<NullEvent>(*this);
+                }
         // Application Start Event
                 /*
                 Starts the application.

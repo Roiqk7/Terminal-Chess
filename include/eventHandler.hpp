@@ -42,6 +42,7 @@ namespace Chess
                         std::mutex m_mutex;
                         std::condition_variable m_condition;
                 // Event Handling
+                        std::string m_currentEvent;
                         const size_t m_maxRecentEvents = 10;
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
                         std::deque<std::unique_ptr<Event>> m_recentEvents;

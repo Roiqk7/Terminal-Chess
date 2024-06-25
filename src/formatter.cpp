@@ -184,14 +184,18 @@ namespace Chess
                         size_t emptyPlaces = scene.elements.size() - 1;
 
                         // Calculate the number of empty lines to add to each place
-                        size_t emptyLinesPerPlace = emptyLines / (emptyPlaces + Globals::Constants::INFINITELY_SMALL);
+                        size_t emptyLinesPerPlace = emptyPlaces != 0
+                                ? emptyLines / emptyPlaces
+                                : emptyLines;
 
                         // Calculate the number of remaining empty lines (those will be added to the first places equally)
-                        size_t remainingEmptyLines = emptyLines % emptyPlaces;
+                        size_t remainingEmptyLines = emptyPlaces != 0
+                                ? emptyLines % emptyPlaces
+                                : 0;
 
                         // Calculate the number of remaining empty lines per place
                         size_t remainingEmptyLinesPerPlace = std::ceil(remainingEmptyLines
-                                / (static_cast<double>(emptyPlaces) + Globals::Constants::INFINITELY_SMALL));
+                                / (emptyPlaces + Globals::Constants::INFINITELY_SMALL));
 
                         // Log the calculations
                         LOG_TRACE("Empty lines: {}", emptyLines);
