@@ -67,6 +67,38 @@ namespace Chess
                 {
                         return std::make_unique<ApplicationStartEvent>(*this);
                 }
+        // Reset GUI Event
+                /*
+                Resets the GUI.
+                */
+                ResetGUIEvent::ResetGUIEvent()
+                {
+                        // Set the name of the event
+                        m_name = "Reset GUI Event";
+
+                        // Log application start event was created
+                        LOG_INFO("{} created.", m_name);
+                }
+
+                /*
+                Executes the event.
+                */
+                void ResetGUIEvent::execute()
+                {
+                        // Reset the GUI
+                        GUI::getDimensions();
+                }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ResetGUIEvent::clone() const
+                {
+                        return std::make_unique<ResetGUIEvent>(*this);
+                }
+
         // Application Main Menu Event
                 /*
                 Transition to the main menu.

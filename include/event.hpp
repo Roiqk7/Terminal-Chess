@@ -37,6 +37,14 @@ namespace Chess
                         std::unique_ptr<Event> clone() const override;
                 };
 
+                class ResetGUIEvent : public Event
+                {
+                public: // Methods
+                        ResetGUIEvent();
+                        void execute() override;
+                        std::unique_ptr<Event> clone() const override;
+                };
+
                 class ApplicationMainMenuEvent : public Event
                 {
                 public: // Methods
