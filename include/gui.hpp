@@ -10,8 +10,6 @@ Notes: x
 #define GUI_HPP
 
 #include <string>
-#include "chessBoard.hpp"
-#include "chessPieces.hpp"
 #include "globals.hpp"
 
 namespace Chess
