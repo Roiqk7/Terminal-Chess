@@ -19,8 +19,6 @@ target_include_directories(TerminalChess PUBLIC "include/")
 # Add source files
 target_sources(TerminalChess PRIVATE
         src/application.cpp
-        src/chessBoard.cpp
-        src/chessPieces.cpp
         src/displayer.cpp
         src/element.cpp
         src/event.cpp
