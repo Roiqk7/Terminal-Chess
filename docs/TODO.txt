@@ -1,15 +1,8 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- New Event System using the Command pattern
-        1. Make Event base class (command object)
-                - And plenty smaller subclasses
-        2. Event Handler class will be a singleton global center point of this system
-                - It will have a submit() method that will take an Event object and
-                put it into a submittedEvents queue
-                - All the submitted events will then be passed to process() method
-                which will call the execute() method of the event.
-                - Once the event is executed, it will be removed from the queue
-                and added to the eventStack. This will allow for undo/redo.
+- Update the recentEvents() method. It should not store the same event type multiple times in a row.
+        - Once this is enabled you can safely used undo().
+- Add universal keys for 'q', 'h' and 'x' to be available in all scenes.
 
 
 
