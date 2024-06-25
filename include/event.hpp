@@ -29,6 +29,16 @@ namespace Chess
                         std::string m_name;
                 };
 
+                class ExceptionEvent : public Event
+                {
+                public: // Methods
+                        ExceptionEvent(const std::string& message);
+                        void execute() override;
+                        std::unique_ptr<Event> clone() const override;
+                private: // Variables
+                        std::string m_message;
+                };
+
                 class ApplicationStartEvent : public Event
                 {
                 public: // Methods

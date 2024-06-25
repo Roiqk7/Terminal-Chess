@@ -36,6 +36,8 @@ namespace Chess
                 {
                         return m_name;
                 }
+        // Exception Event
+                // TODO: Implement
         // Application Start Event
                 /*
                 Starts the application.
