@@ -9,9 +9,9 @@ Notes: x
 #ifndef EVENT_HANDLER_HPP
 #define EVENT_HANDLER_HPP
 
+#include <deque>
 #include <memory>
 #include <queue>
-#include <stack>
 #include "event.hpp"
 #include "globals.hpp"
 
@@ -29,13 +29,15 @@ namespace Chess
                         EventHandler(const EventHandler&) = delete;
                         EventHandler& operator=(const EventHandler&) = delete;
                 // Event Handling
-                        void submit(std::shared_ptr<Event> event);
+                        void submit(std::unique_ptr<Event> event);
                         void processEvents();
                         void undo();
                 private: // Variables
-                        std::unique_ptr<Event> m_currentEvent;
+                        const size_t m_maxRecentEvents = 10;
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
-                        std::stack<std::unique_ptr<Event>> m_eventStack;
+                        std::deque<std::unique_ptr<Event>> m_recentEvents;
+                private: // Methods
+                        void handleRecentEvents();
                 protected: // Constructors
                         EventHandler();
                 };
