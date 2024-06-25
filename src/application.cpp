@@ -50,10 +50,25 @@ namespace Chess
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
 
-                        // Handle universal input
-                        InputHandler::handleUniversalInput(input);
+                        // Handle user input
+                        switch (input)
+                        {
+                                // We do this to make sure 'q' leaves the application
+                                case 'q':
+                                        // Start the game
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<EventSystem::ApplicationEndEvent>());
+                                        return;
 
-                        // TODO: Non universal input
+                                default:
+                                        // Handle universal input
+                                        InputHandler::handleUniversalInput(input);
+                                        return;
+                        }
+
+                        // Invalid input - return to main menu and try again
+                        EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<EventSystem::ApplicationMainMenuEvent>());
                 }
 
                 /*
@@ -81,11 +96,10 @@ namespace Chess
                         // Display the ending
                         GUI::displayEnding();
 
-                        // Switch the run flag to false
-                        EventSystem::EventHandler::getInstance().run = false;
-
-                        // Log application end
-                        LOG_INFO("Application ended.");
+                        // Quit the application
+                        EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<
+                                        EventSystem::ApplicationExitEvent>());
                 }
 
                 /*
@@ -93,11 +107,11 @@ namespace Chess
                 */
                 void exitApplication()
                 {
-                        // Log application exit
-                        LOG_INFO("Application exited.");
+                        // Switch the run flag to false
+                        EventSystem::EventHandler::getInstance().run = false;
 
-                        // Exit the application
-                        exit(0);
+                        // Log application end
+                        LOG_INFO("Application ended.");
                 }
         }
 }
