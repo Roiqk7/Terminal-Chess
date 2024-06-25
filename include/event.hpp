@@ -24,7 +24,7 @@ namespace Chess
                         virtual ~Event() = default;
                         virtual void execute() = 0;
                 protected:
-                        std::shared_ptr<Event> m_self;                          // Pointer to itself
+                        std::weak_ptr<Event> m_self;                          // Pointer to itself
                         std::unique_ptr<EventExecuter> m_executor;              // Pointer to the executor which will execute the event
                 };
 

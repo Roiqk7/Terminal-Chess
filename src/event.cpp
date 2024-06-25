@@ -35,8 +35,20 @@ namespace Chess
                 */
                 void ApplicationStartEvent::execute()
                 {
-                        // Handle the event
-                        m_executor->handleEvent(m_self);
+                        // Create a shared pointer to itself
+                        auto self = m_self.lock();
+
+                        // If the pointer is valid
+                        if (self)
+                        {
+                                // Execute the event
+                                m_executor->handleEvent(self);
+                        }
+                        else
+                        {
+                                // Log the failure to execute the event
+                                LOG_ERROR("Failed to execute ApplicationStartEvent.");
+                        }
                 }
         }
 }
