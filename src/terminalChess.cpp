@@ -9,21 +9,24 @@ Notes: x
 #include "../include/eventHandler.hpp"
 #include "../include/globals.hpp"
 
-using Chess::EventSystem::EventHandler;
+using namespace Chess::EventSystem;
 
 int main()
 {
         // Set the log level
         SET_LOG_LEVEL_TRACE();
 
+        // Create the application
+        auto& application = EventHandler::getInstance();
+
         // Application loop
-        while (EventHandler::getInstance().run)
+        while (application.run)
         {
                 // Wait for an event
-                EventHandler::getInstance().waitEvent();
+                application.waitEvent();
 
                 // Process events
-                EventHandler::getInstance().processEventQueue();
+                application.processEventQueue();
         }
 
         return 0;
