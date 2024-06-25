@@ -24,20 +24,13 @@ namespace Chess
                         virtual ~Event() = default;
                         virtual void execute() = 0;
                 protected:
-                        std::shared_ptr<EventExecuter> m_executor;
+                        std::unique_ptr<EventExecuter> m_executor;
                 };
 
                 class WelcomeEvent : public Event
                 {
                 public: // Methods
-                        WelcomeEvent(std::shared_ptr<EventExecuter> executor) {}
-                        void execute() override;
-                };
-
-                class MainMenuEvent : public Event
-                {
-                public: // Methods
-                        MainMenuEvent(std::shared_ptr<EventExecuter> executor) {}
+                        WelcomeEvent(std::unique_ptr<EventExecuter> executor) {}
                         void execute() override;
                 };
         }
