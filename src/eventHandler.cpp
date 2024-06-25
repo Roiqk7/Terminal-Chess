@@ -111,7 +111,7 @@ namespace Chess
                         }
 
                         // Submit the event before the undo
-                        // -1 because [..., eventWeWant, eventWeDontWant]
+                        // -2 because [..., eventWeWant, eventWeDontWant]
                         // Note: Undo event itself has not been added to recent events yet
                         submit(m_recentEvents[m_recentEvents.size() - 2]->clone());
                 }
