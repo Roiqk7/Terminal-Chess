@@ -113,11 +113,6 @@ namespace Chess
                         LoadGame, GameOver
                 };
 
-                enum class Event                                                // Enum representing an event that can occur in the application
-                {
-                        None = 0, Exit, Select, Cancel, Execute, Transition
-                };
-
                 enum class GameEvent                                            // Enum representing an event that can occur in the game
                 {
                         Move // TODO add rest
