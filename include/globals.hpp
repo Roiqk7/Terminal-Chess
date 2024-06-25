@@ -55,6 +55,8 @@ namespace Chess
         {
                 namespace Constants
                 {
+                // Numbers
+                        const float INFINITELY_SMALL = 0.0001f;                 // Infinitely small number
                 // Gameplay
                         // Chess board
                         const size_t BOARD_ARRAY_SIZE = 64;                     // Number of elements in the board array
