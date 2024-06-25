@@ -27,12 +27,17 @@ namespace Chess
                         std::shared_ptr<EventExecuter> m_executor;
                 };
 
-                // TODO: Create all the necessary concrete event classes
-
                 class WelcomeEvent : public Event
                 {
                 public: // Methods
                         WelcomeEvent(std::shared_ptr<EventExecuter> executor) {}
+                        void execute() override;
+                };
+
+                class MainMenuEvent : public Event
+                {
+                public: // Methods
+                        MainMenuEvent(std::shared_ptr<EventExecuter> executor) {}
                         void execute() override;
                 };
         }

@@ -19,7 +19,9 @@ namespace Chess
         {
                 class EventExecuter
                 {
-                // TODO: Implement the EventExecuter class
+                public: // Methods
+                        virtual ~EventExecuter() = default;
+                        virtual void handleEvent(std::unique_ptr<Event> event) = 0;
                 };
         }
 }

@@ -11,6 +11,7 @@ Notes: Based on the Command Pattern. More in docs/resources.md
 #include <stack>
 #include <string>
 #include "../include/event.hpp"
+#include "../include/eventExecuter.hpp"
 #include "../include/eventHandler.hpp"
 #include "../include/globals.hpp"
 
@@ -102,6 +103,16 @@ namespace Chess
                                 // Pop the oldest event
                                 m_recentEvents.pop_front();
                         }
+                }
+
+                /*
+                Constructor
+                */
+                EventHandler::EventHandler()
+                {
+                        // Starting scene
+                        EventExecuter executer;
+                        std::shared_ptr<EventExecuter> executor = std::make_shared<EventExecuter>(executer);
                 }
         }
 }

@@ -14,6 +14,6 @@ namespace Chess
 {
         namespace EventSystem
         {
-                // TODO:
+
         }
 }
