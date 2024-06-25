@@ -25,7 +25,7 @@ int main()
                 // Wait for an event
                 application.waitEvent();
 
-                // Process events
+                // Process event queue
                 application.processEventQueue();
         }
 
