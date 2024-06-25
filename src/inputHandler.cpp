@@ -114,7 +114,10 @@ namespace Chess
                                                 std::make_unique<
                                                         EventSystem::ResetGUIEvent>());
                                         break; // Deliberately return to the event which asked for the input to reset the GUI
-                                case 'u':
+                                case 'q':
+                                        // Undo the last event
+                                        return EventSystem::EventHandler::getInstance().undo();
+                                case 'u': // Debug
                                         // Undo the last event
                                         return EventSystem::EventHandler::getInstance().undo();
                                 case 'x':
