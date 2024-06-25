@@ -27,14 +27,25 @@ namespace Chess
                         return typeid(lhs) != typeid(rhs);
                 }
 
+                /*
+                Converts the event to a string.
+                */
+                Event::operator std::string() const
+                {
+                        return m_name;
+                }
+
         // Application Start Event
                 /*
                 Starts the application.
                 */
                 ApplicationStartEvent::ApplicationStartEvent()
                 {
+                        // Set the name of the event
+                        m_name = "Application Start Event";
+
                         // Log application start event was created
-                        LOG_INFO("Application start event created.");
+                        LOG_INFO("{} created.", m_name);
                 }
 
                 /*
@@ -51,8 +62,11 @@ namespace Chess
                 */
                 ApplicationMainMenuEvent::ApplicationMainMenuEvent()
                 {
-                        // Log application main menu event was created
-                        LOG_INFO("Application main menu event created.");
+                        // Set the name of the event
+                        m_name = "Application Main Menu Event";
+
+                        // Log application start event was created
+                        LOG_INFO("{} created.", m_name);
                 }
 
                 /*
@@ -69,8 +83,11 @@ namespace Chess
                 */
                 ApplicationHelpMenuEvent::ApplicationHelpMenuEvent()
                 {
-                        // Log application help menu event was created
-                        LOG_INFO("Application help menu event created.");
+                        // Set the name of the event
+                        m_name = "Application Help Menu Event";
+
+                        // Log application start event was created
+                        LOG_INFO("{} created.", m_name);
                 }
 
                 /*
@@ -88,8 +105,11 @@ namespace Chess
                 */
                 ApplicationEndEvent::ApplicationEndEvent()
                 {
-                        // Log application end event was created
-                        LOG_INFO("Application end event created.");
+                        // Set the name of the event
+                        m_name = "Application End Event";
+
+                        // Log application start event was created
+                        LOG_INFO("{} created.", m_name);
                 }
 
                 /*
@@ -106,8 +126,11 @@ namespace Chess
                 */
                 ApplicationExitEvent::ApplicationExitEvent()
                 {
-                        // Log application exit event was created
-                        LOG_INFO("Application exit event created.");
+                        // Set the name of the event
+                        m_name = "Application Exit Event";
+
+                        // Log application start event was created
+                        LOG_INFO("{} created.", m_name);
                 }
 
                 /*

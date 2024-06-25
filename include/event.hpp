@@ -23,6 +23,9 @@ namespace Chess
                         virtual ~Event() = default;
                         virtual void execute() = 0;
                         friend bool operator!=(const Event& lhs, const Event& rhs);
+                        operator std::string() const;
+                protected:
+                        std::string m_name;
                 };
 
                 class ApplicationStartEvent : public Event
