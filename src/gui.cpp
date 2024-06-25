@@ -95,6 +95,8 @@ namespace Chess
 
                         // Wait for a few seconds
                         Tool::wait(2);
+
+                        LOG_INFO("Intro displayed.");
                 }
 
                 /*

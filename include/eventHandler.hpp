@@ -21,6 +21,8 @@ namespace Chess
         {
                 class EventHandler
                 {
+                public: // Variables
+                        bool run;
                 public: // Methods
                 // Destructor
                         ~EventHandler();

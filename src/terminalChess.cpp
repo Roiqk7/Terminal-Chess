@@ -6,7 +6,7 @@ Description: This is the entry point of the program. It contains the main functi
 Notes: x
 */
 
-#include "../include/application.hpp"
+#include "../include/eventHandler.hpp"
 #include "../include/globals.hpp"
 
 int main()
@@ -14,7 +14,12 @@ int main()
         // Set the log level
         SET_LOG_LEVEL_TRACE();
 
-        // TODO Add a start point for the application
+        // Application loop
+        while (Chess::EventSystem::EventHandler::getInstance().run)
+        {
+                // Process events
+                Chess::EventSystem::EventHandler::getInstance().processEvents();
+        }
 
         return 0;
 }

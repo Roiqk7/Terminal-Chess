@@ -45,7 +45,7 @@ namespace Chess
                 */
                 void EventHandler::submit(std::unique_ptr<Event> event)
                 {
-                        m_eventQueue.push(event);
+                        m_eventQueue.push(std::move(event));
                 }
 
 
@@ -54,11 +54,17 @@ namespace Chess
                 */
                 void EventHandler::processEvents()
                 {
+                        // DELETE
+                        if (m_eventQueue.empty())
+                        {
+                                run = false;
+                        }
+
                         // For each event in the queue
                         while (!m_eventQueue.empty())
                         {
                                 // Get the event
-                                auto event = m_eventQueue.front();
+                                auto event = std::move(m_eventQueue.front());
 
                                 // Pop the event from the queue
                                 m_eventQueue.pop();
@@ -67,7 +73,7 @@ namespace Chess
                                 event->execute();
 
                                 // Add the event to the recent events
-                                m_recentEvents.push_back(event);
+                                m_recentEvents.push_back(std::move(event));
                         }
 
                         // Handle the recent events
@@ -111,10 +117,13 @@ namespace Chess
                 Constructor
                 */
                 EventHandler::EventHandler()
-                        : m_eventQueue(), m_recentEvents()
+                        : run(true), m_eventQueue(), m_recentEvents()
                 {
                         // Log the creation of the event handler
                         LOG_INFO("Event Handler created.");
+
+                        // Submit the application start event
+                        submit(std::make_unique<ApplicationStartEvent>());
                 }
         }
 }

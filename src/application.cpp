@@ -48,13 +48,6 @@ namespace Chess
                         char input;
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
-
-                        // Validate user input
-                        if (!InputHandler::validateUserInput(input,
-                                Globals::GameState::MainMenu))
-                        {
-                                // continue;
-                        }
                 }
 
                 /*

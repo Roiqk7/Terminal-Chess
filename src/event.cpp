@@ -8,8 +8,10 @@ Notes: x
 
 #include <memory>
 #include <string>
+#include "../include/application.hpp"
 #include "../include/event.hpp"
 #include "../include/globals.hpp"
+#include "../include/gui.hpp"
 
 namespace Chess
 {
@@ -21,7 +23,7 @@ namespace Chess
                 ApplicationStartEvent::ApplicationStartEvent()
                 {
                         // Log application start
-                        LOG_INFO("Application started.");
+                        LOG_INFO("Application start event created.");
                 }
 
                 /*
@@ -29,7 +31,8 @@ namespace Chess
                 */
                 void ApplicationStartEvent::execute()
                 {
-
+                        // Start the application
+                        application::startApplication();
                 }
         }
 }
