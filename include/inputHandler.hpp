@@ -9,7 +9,9 @@ Notes: x
 #ifndef INPUT_HANDLER_HPP
 #define INPUT_HANDLER_HPP
 
+#include <memory>
 #include <string>
+#include "event.hpp"
 #include "eventHandler.hpp"
 #include "globals.hpp"
 
@@ -19,7 +21,8 @@ namespace Chess
         {
                 char getUserInput(const std::string& prompt);                   // Get user input from the console
                 char getCharFromUserInput(const std::string& input);            // Get a char from user input
-                void handleUniversalInput(char input);                          // Handle universal input
+                void handleUniversalInput(char input,
+                        std::unique_ptr<EventSystem::Event> event);             // Handle universal input
         }
 }
 

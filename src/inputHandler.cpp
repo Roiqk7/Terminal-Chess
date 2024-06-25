@@ -90,33 +90,35 @@ namespace Chess
                 Handle universal input.
 
                 @param input: The user's input
+                @param event: The event which asked for the input
                 */
-                void handleUniversalInput(char input)
+                void handleUniversalInput(char input,
+                        std::unique_ptr<EventSystem::Event> event)
                 {
                         // Process user input
                         switch (input)
                         {
                                 case 'h':
                                         // Display the help menu
-                                        EventSystem::EventHandler::getInstance().submit(
+                                        return EventSystem::EventHandler::getInstance().submit(
                                                 std::make_unique<
                                                         EventSystem::ApplicationHelpMenuEvent>());
-                                        break;
                                 case 'q':
                                         // Undo the last event
-                                        EventSystem::EventHandler::getInstance().undo();
-                                        break;
-
+                                        return EventSystem::EventHandler::getInstance().undo();
                                 case 'x':
                                         // Quit the application
-                                        EventSystem::EventHandler::getInstance().submit(
+                                        return EventSystem::EventHandler::getInstance().submit(
                                                 std::make_unique<
                                                         EventSystem::ApplicationExitEvent>());
-                                        break;
                                 default:
                                         // Not an universal input
                                         break;
                         }
+
+                        // Return to the event which asked for the input
+                        return EventSystem::EventHandler::getInstance().submit(
+                                std::move(event));
                 }
         }
 }
