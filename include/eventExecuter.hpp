@@ -23,6 +23,24 @@ namespace Chess
                         virtual ~EventExecuter() = default;
                         virtual void handleEvent(std::unique_ptr<Event> event) = 0;
                 };
+
+                class ApplicationEventExecuter : public EventExecuter
+                {
+                public: // Methods
+                        void handleEvent(std::unique_ptr<Event> event) override;
+                };
+
+                class GUIEventExecuter : public EventExecuter
+                {
+                public: // Methods
+                        void handleEvent(std::unique_ptr<Event> event) override;
+                };
+
+                class GameEventExecuter : public EventExecuter
+                {
+                public: // Methods
+                        void handleEvent(std::unique_ptr<Event> event) override;
+                };
         }
 }
 
