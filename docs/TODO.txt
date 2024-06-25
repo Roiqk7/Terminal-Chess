@@ -1,8 +1,9 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Update the recentEvents() method. It should not store the same event type multiple times in a row.
-        - Once this is enabled you can safely used undo().
-- Add universal keys for 'q', 'h' and 'x' to be available in all scenes.
+- Make sure there is no vulnerability/all the memory is safe.
+- Improve help menu. Currently it is not really helpful.
+- Add all the scenes except the Chess game.
+        - Make sure you can move around the app and everything is nice.
 
 
 
