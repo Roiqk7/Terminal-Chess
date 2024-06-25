@@ -103,10 +103,8 @@ namespace Chess
                                                         EventSystem::ApplicationHelpMenuEvent>());
                                         break;
                                 case 'q':
-                                        // Quit the application
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<
-                                                        EventSystem::ApplicationEndEvent>());
+                                        // Undo the last event
+                                        EventSystem::EventHandler::getInstance().undo();
                                         break;
 
                                 case 'x':
