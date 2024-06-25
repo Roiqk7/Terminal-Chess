@@ -70,12 +70,6 @@ namespace Chess
                 */
                 void EventHandler::processEventQueue()
                 {
-                        // DELETE
-                        if (m_eventQueue.empty())
-                        {
-                                run = false;
-                        }
-
                         // For each event in the queue
                         while (!m_eventQueue.empty())
                         {
@@ -101,8 +95,10 @@ namespace Chess
                 */
                 void EventHandler::undo()
                 {
+                        LOG_INFO("Size of recent events: {}", m_recentEvents.size());
+
                         // If there are no recent events
-                        if (m_recentEvents.size() < 2)
+                        if (m_recentEvents.size() < 1)
                         {
                                 // Log suspicious behaviour
                                 LOG_WARN("No events to undo");
@@ -112,8 +108,9 @@ namespace Chess
                         }
 
                         // Submit the event before the undo
-                        // -2 because [..., eventWeWant, eventWeDontWant, undoEvent]
-                        submit(std::move(m_recentEvents[m_recentEvents.size() - 2]));
+                        // -1 because [..., eventWeWant, eventWeDontWant]
+                        // Note: Undo event itself has not been added to recent events yet
+                        submit(std::move(m_recentEvents[m_recentEvents.size() - 1]));
                 }
 
                 /*
