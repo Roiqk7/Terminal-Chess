@@ -50,27 +50,10 @@ namespace Chess
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
 
-                        // Process user input
-                        switch (input)
-                        {
-                                case 'h':
-                                        // Display the help menu
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<
-                                                        EventSystem::ApplicationHelpMenuEvent>());
-                                        break;
-                                case 'q':
-                                        // Quit the application
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<
-                                                        EventSystem::ApplicationEndEvent>());
-                                        break;
-                                default:
-                                        // Invalid input
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<
-                                                        EventSystem::ApplicationMainMenuEvent>());
-                        }
+                        // Handle universal input
+                        InputHandler::handleUniversalInput(input);
+
+                        // TODO: Non universal input
                 }
 
                 /*
@@ -86,19 +69,8 @@ namespace Chess
                         input = InputHandler::getUserInput(
                                 "Enter your choice:");
 
-                        // Process user input
-                        switch (input)
-                        {
-                                case 'q':
-                                        // Return to the main menu
-                                        EventSystem::EventHandler::getInstance().undo();
-                                        break;
-                                default:
-                                        // Invalid input
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<
-                                                        EventSystem::ApplicationHelpMenuEvent>());
-                        }
+                        // Handle universal input
+                        InputHandler::handleUniversalInput(input);
                 }
 
                 /*

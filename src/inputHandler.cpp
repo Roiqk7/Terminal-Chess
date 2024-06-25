@@ -12,6 +12,7 @@ Notes: x
 #include <string>
 #include <vector>
 #include "../include/displayer.hpp"
+#include "../include/eventHandler.hpp"
 #include "../include/inputHandler.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
@@ -83,6 +84,41 @@ namespace Chess
                         }
 
                         return input[0];
+                }
+
+                /*
+                Handle universal input.
+
+                @param input: The user's input
+                */
+                void handleUniversalInput(char input)
+                {
+                        // Process user input
+                        switch (input)
+                        {
+                                case 'h':
+                                        // Display the help menu
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationHelpMenuEvent>());
+                                        break;
+                                case 'q':
+                                        // Quit the application
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationEndEvent>());
+                                        break;
+
+                                case 'x':
+                                        // Quit the application
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<
+                                                        EventSystem::ApplicationExitEvent>());
+                                        break;
+                                default:
+                                        // Not an universal input
+                                        break;
+                        }
                 }
         }
 }

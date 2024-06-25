@@ -19,6 +19,7 @@ namespace Chess
         {
                 char getUserInput(const std::string& prompt);                   // Get user input from the console
                 char getCharFromUserInput(const std::string& input);            // Get a char from user input
+                void handleUniversalInput(char input);                          // Handle universal input
         }
 }
 
