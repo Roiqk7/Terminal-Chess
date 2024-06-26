@@ -37,6 +37,8 @@ namespace Chess
                         void submit(std::unique_ptr<Event> event);
                         void processEventQueue();
                         void undo();
+                // Fatal Error
+                        void restart();
                 private: // Variables
                 // Event System
                         std::mutex m_mutex;
@@ -49,6 +51,7 @@ namespace Chess
                         void addRecentEvent(std::unique_ptr<Event> event);
                 private: // Methods
                         void init();
+                        void cleanup();
                         void handleRecentEvents();
                 protected: // Constructors
                         EventHandler();

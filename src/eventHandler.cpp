@@ -118,6 +118,21 @@ namespace Chess
                 }
 
                 /*
+                Restart the event handler (and thus the application)
+                */
+                void EventHandler::restart()
+                {
+                        // Log that the application is being restarted
+                        LOG_WARN("Restarting the application...");
+
+                        // Cleanup the event handler
+                        cleanup();
+
+                        // Initialize the event handler
+                        init();
+                }
+
+                /*
                 Add an event to the recent events
 
                 @param event The event to add
@@ -146,14 +161,29 @@ namespace Chess
                         // Log that the event handler is being initialized
                         LOG_TRACE("Initializing the event handler.");
 
-                        // Clear the recent events
-                        m_recentEvents.clear();
-
                         // Add the null event to the recent events to properly initialize the event handlers
                         addRecentEvent(std::make_unique<NullEvent>());
 
                         // Submit the application start event to start the application
                         submit(std::make_unique<ApplicationStartEvent>());
+                }
+
+                /*
+                Cleanup the event handler
+                */
+                void EventHandler::cleanup()
+                {
+                        // Log that the event handler is being cleaned up
+                        LOG_TRACE("Cleaning up the event handler.");
+
+                        // Clear the recent events
+                        m_recentEvents.clear();
+
+                        // Clear the event queue
+                        while (!m_eventQueue.empty())
+                        {
+                                m_eventQueue.pop();
+                        }
                 }
 
                 /*
@@ -190,6 +220,7 @@ namespace Chess
                         // Log the creation of the event handler
                         LOG_INFO("Event Handler created.");
 
+                        // Initialize the event handler
                         init();
                 }
         }
