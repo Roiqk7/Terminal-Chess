@@ -85,7 +85,7 @@ namespace Chess
                                 false, false));
                         introScene.addElement(Element("Footer",
                                 Globals::Constants::FOOTER_PATH,
-                                false, true));
+                                false, false));
 
                         // Format the intro scene
                         formatScene(introScene);
@@ -119,10 +119,10 @@ namespace Chess
                                 false, false));
                         mainMenuScene.addElement(Element("Main Menu",
                                 Globals::Constants::MAIN_MENU_PATH,
-                                true, false));
+                                true, true));
                         mainMenuScene.addElement(Element("Footer",
                                 Globals::Constants::FOOTER_PATH,
-                                false, false));
+                                false, true));
 
                         // Format the main menu scene
                         formatScene(mainMenuScene);
@@ -151,7 +151,7 @@ namespace Chess
                                 false, false));
                         helpMenuScene.addElement(Element("Help Menu",
                                 Globals::Constants::HELP_MENU_PATH,
-                                true, false));
+                                true, true));
                         helpMenuScene.addElement(Element("Footer",
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
@@ -183,7 +183,7 @@ namespace Chess
                                 false, false));
                         creditsScene.addElement(Element("Credits",
                                 Globals::Constants::CREDITS_PATH,
-                                true, false));
+                                true, true));
                         creditsScene.addElement(Element("Footer",
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
@@ -228,6 +228,42 @@ namespace Chess
 
                         // Clear the screen
                         clearScreen();
+                }
+
+                /*
+                Display an error.
+
+                @param errorMessage: The error message to be displayed.
+                */
+                void displayError(const std::string& errorMessage)
+                {
+                        // Clear the screen
+                        clearScreen();
+
+                        // Create the error scene
+                        Scene errorScene = Scene("Error");
+
+                        // Add the elements to the error scene
+                        errorScene.addElement(Element("Header",
+                                Globals::Constants::HEADER_PATH,
+                                false, false));
+                        errorScene.addElement(Element("Error Banner",
+                                Globals::Constants::ERROR_BANNER_PATH,
+                                false, false));
+                        errorScene.addElement(Element("Error Message",
+                                errorMessage, true, false));
+                        errorScene.addElement(Element("Footer",
+                                Globals::Constants::FOOTER_PATH,
+                                false, false));
+
+                        // Format the error scene
+                        formatScene(errorScene);
+
+                        // Display the error scene
+                        display(errorScene);
+
+                        // Wait for a few seconds
+                        Tool::wait(2);
                 }
 
                 /*

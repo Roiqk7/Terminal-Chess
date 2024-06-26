@@ -25,6 +25,7 @@ namespace Chess
                 void displayCredits();                                          // Display the credits
                 void displayGameplay();                                         // Display the gameplay
                 void displayEnding();                                           // Display the ending
+                void displayError(const std::string& errorMessage);             // Display an error
         // Messages
                 void displayErrorMessage(const std::string& errorMessage);      // Display an error message
         // Utility

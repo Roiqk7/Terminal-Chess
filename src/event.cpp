@@ -37,7 +37,44 @@ namespace Chess
                         return m_name;
                 }
         // Exception Event
-                // TODO: Implement
+                /*
+                Creates an exception event.
+
+                @param message The message of the exception
+                */
+                ExceptionEvent::ExceptionEvent(const std::string& message)
+                {
+                        // Set the name of the event
+                        m_name = "Exception Event";
+
+                        // Set the message of the exception
+                        m_message = message;
+
+                        // Log exception event was created
+                        LOG_INFO("{} created.", m_name);
+                }
+
+                /*
+                Executes the event.
+                */
+                void ExceptionEvent::execute()
+                {
+                        // Log the exception
+                        LOG_ERROR("Exception: {}", m_message);
+
+                        // Display the error
+                        GUI::displayError(m_message);
+                }
+
+                /*
+                Clones the event.
+
+                @return A clone of the event
+                */
+                std::unique_ptr<Event> ExceptionEvent::clone() const
+                {
+                        return std::make_unique<ExceptionEvent>(*this);
+                }
         // NullEvent
                 /*
                 Creates a null event.
