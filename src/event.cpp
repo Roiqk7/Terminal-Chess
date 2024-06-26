@@ -9,6 +9,7 @@ Notes: x
 #include <memory>
 #include <string>
 #include <typeinfo>
+#include <vector>
 #include "../include/application.hpp"
 #include "../include/event.hpp"
 #include "../include/globals.hpp"
@@ -42,7 +43,8 @@ namespace Chess
 
                 @param message The message of the exception
                 */
-                ExceptionEvent::ExceptionEvent(const std::string& message)
+                ExceptionEvent::ExceptionEvent(const std::vector<std::string>& message)
+                        : m_message(message), m_simple(false)
                 {
                         // Set the name of the event
                         m_name = "Exception Event";
@@ -55,15 +57,39 @@ namespace Chess
                 }
 
                 /*
+                Creates an exception event.
+
+                @param message The message of the exception
+                @param simple Whether the exception is simple
+                */
+                ExceptionEvent::ExceptionEvent(const std::vector<std::string>& message,
+                        const bool simple)
+                        : m_message(message), m_simple(simple)
+                {
+                        // Set the name of the event
+                        m_name = "Exception Event";
+
+                        // Log exception event was created
+                        LOG_INFO("{} created.", m_name);
+                }
+
+                /*
                 Executes the event.
                 */
                 void ExceptionEvent::execute()
                 {
-                        // Log the exception
-                        LOG_ERROR("Exception: {}", m_message);
+                        // If the exception is not simple
+                        if (!m_simple)
+                        {
+                                // Display the error
+                                GUI::displayError(m_message);
+                        }
+                        else
+                        {
+                                // Display the simple error
+                                GUI::displaySimpleError(m_message[0]);
+                        }
 
-                        // Display the error
-                        GUI::displayError(m_message);
                 }
 
                 /*

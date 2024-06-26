@@ -235,7 +235,7 @@ namespace Chess
 
                 @param errorMessage: The error message to be displayed.
                 */
-                void displayError(const std::string& errorMessage)
+                void displayError(const std::vector<std::string>& errorMessage)
                 {
                         // Clear the screen
                         clearScreen();
@@ -263,7 +263,24 @@ namespace Chess
                         display(errorScene);
 
                         // Wait for a few seconds
-                        Tool::wait(2);
+                        Tool::wait(5);
+                }
+
+                /*
+                Display a simple error.
+
+                @param errorMessage: The error message to be displayed.
+                */
+                void displaySimpleError(const std::string& errorMessage)
+                {
+                        // Clear the screen
+                        clearScreen();
+
+                        // Display error message
+                        displayString(errorMessage, '\n');
+
+                        // Wait for a few seconds
+                        Tool::wait(5);
                 }
 
                 /*

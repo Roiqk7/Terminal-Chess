@@ -25,9 +25,10 @@ namespace Chess
                 void displayCredits();                                          // Display the credits
                 void displayGameplay();                                         // Display the gameplay
                 void displayEnding();                                           // Display the ending
-                void displayError(const std::string& errorMessage);             // Display an error
-        // Messages
-                void displayErrorMessage(const std::string& errorMessage);      // Display an error message
+                void displayError(
+                        const std::vector<std::string>& errorMessage);         // Display an error
+                void displaySimpleError(
+                        const std::string& errorMessage);                       // Display a simple error
         // Utility
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal

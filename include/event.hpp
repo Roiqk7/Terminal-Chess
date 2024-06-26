@@ -11,6 +11,7 @@ Notes: x
 
 #include <memory>
 #include <string>
+#include <vector>
 #include "globals.hpp"
 
 namespace Chess
@@ -32,11 +33,14 @@ namespace Chess
                 class ExceptionEvent : public Event
                 {
                 public: // Methods
-                        ExceptionEvent(const std::string& message);
+                        ExceptionEvent(const std::vector<std::string>& message);
+                        ExceptionEvent(const std::vector<std::string>& message,
+                                const bool simple);
                         void execute() override;
                         std::unique_ptr<Event> clone() const override;
                 private: // Variables
-                        std::string m_message;
+                        std::vector<std::string> m_message;
+                        bool m_simple;
                 };
 
                 class NullEvent : public Event

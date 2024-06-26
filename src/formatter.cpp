@@ -7,9 +7,12 @@ Notes: x
 */
 
 #include <cmath>
+#include <memory>
 #include <string>
 #include <vector>
 #include "../include/element.hpp"
+#include "../include/event.hpp"
+#include "../include/eventHandler.hpp"
 #include "../include/exception.hpp"
 #include "../include/formatter.hpp"
 #include "../include/globals.hpp"
@@ -31,15 +34,61 @@ namespace Chess
                         // Log the formatting
                         LOG_TRACE("Formatting scene {}", scene.name);
 
-                        // Manage the scene's elements
-                        manageSceneElements(scene);
+                        // Catch formatting exceptions
+                        try
+                        {
+                                // Manage the scene's elements
+                                manageSceneElements(scene);
 
-                        // Format the scene's width and height
-                        handleSceneWidth(scene);
-                        handleSceneHeight(scene);
+                                // Format the scene's width and height
+                                handleSceneWidth(scene);
+                                handleSceneHeight(scene);
 
-                        // Update scene's values
-                        updateSceneValues(scene);
+                                // Update scene's values
+                                updateSceneValues(scene);
+                        }
+                        // Catch the exception
+                        catch (const Exception::TerminalSizeException& e)
+                        {
+                                // Log the exception
+                                LOG_CRITICAL(e.what());
+
+                                // If even the error message is too long to display, we need to display a simpler message
+                                if (scene.name == "Error")
+                                {
+                                        // Display the error
+                                        return EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<EventSystem::ExceptionEvent>(
+                                                        std::vector<std::string>{"Terminal too small. Resize!!!"},
+                                                        true));
+                                }
+                                // Display the error
+                                return EventSystem::EventHandler::getInstance().submit(
+                                        std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
+                                                "Dear user, while formatting the scene " + scene.name
+                                                + " an error occurred. Your terminal size is not sufficient to display the required elements.",
+                                                "Please resize your terminal and restart the application."}));
+                        }
+                        // Catch all other exceptions
+                        catch (const std::exception& e)
+                        {
+                                // Log the exception
+                                LOG_CRITICAL(e.what());
+
+                                // If even the error message is too long to display, skip it
+                                if (scene.name != "Error")
+                                {
+                                        // Display the error
+                                        EventSystem::EventHandler::getInstance().submit(
+                                                std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
+                                                        "Dear user, while formatting the scene " + scene.name
+                                                        + " an unexpected error occurred.",
+                                                        "The application will restart itself."}));
+                                }
+
+                                // Restart the application
+                                return EventSystem::EventHandler::getInstance().restart();
+                        }
                 }
 
                 /*
@@ -50,6 +99,9 @@ namespace Chess
                 // TODO Divide this function into several smaller functions
                 void manageSceneElements(Scene& scene)
                 {
+                        // Get the terminal dimensions
+                        GUI::getDimensions();
+
                         // Get current scene dimensions
                         scene.calculateDimensions();
 
@@ -179,6 +231,8 @@ namespace Chess
                         // Calculate the number of empty lines to add to fit the GUI_HEIGHT
                         size_t emptyLines = Globals::GUI_HEIGHT - scene.height
                                 - 1;                                            // Note: We skip this one line as the last line is reserved for the cursor.
+
+                        // Error check
 
                         // No calculate the number of places where we can add empty lines
                         size_t emptyPlaces = scene.elements.size() - 1;
