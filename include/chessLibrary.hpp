@@ -9,6 +9,8 @@ Notes: x
 #ifndef CHESS_LIBRARY_HPP
 #define CHESS_LIBRARY_HPP
 
+#include "../lib/chess-library/include/chess.hpp"
+
 namespace Chess
 {
         namespace IChessLibrary
