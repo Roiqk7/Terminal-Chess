@@ -116,18 +116,32 @@ namespace Chess
                 void handleTerminalSizeException(const Exception::TerminalSizeException& e,
                         bool criticallySmall)
                 {
+                        // Get the error message
+                        std::string errorMessage = e.what();
+
                         // Log the exception
-                        LOG_CRITICAL(e.what());
+                        if (errorMessage.empty())
+                        {
+                                LOG_CRITICAL("Terminal size exception occurred.");
+                        }
+                        else
+                        {
+                                LOG_CRITICAL(errorMessage);
+                        }
 
                         // If even the error message is too long to display, we need to display a simpler message
                         if (criticallySmall)
                         {
+                                // Log the critically small terminal
+                                LOG_CRITICAL("Terminal is critically small.");
+
                                 // Display the error
                                 return EventSystem::EventHandler::getInstance().submit(
                                         std::make_unique<EventSystem::ExceptionEvent>(
                                                 std::vector<std::string>{"[Error] Terminal too small. Resize!!!"},
                                                 true));
                         }
+
                         // Display the error
                         return EventSystem::EventHandler::getInstance().submit(
                                 std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
@@ -166,7 +180,7 @@ namespace Chess
                                         "An unexpected exception occurred. Application will terminate."}));
 
                         // Exit the application
-                        EventSystem::EventHandler::getInstance().submit(
+                        return EventSystem::EventHandler::getInstance().submit(
                                 std::make_unique<EventSystem::ApplicationExitEvent>());
                 }
         }
