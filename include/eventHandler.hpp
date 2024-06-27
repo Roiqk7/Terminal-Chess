@@ -45,6 +45,7 @@ namespace Chess
                         std::condition_variable m_condition;
                 // Event Handling
                         const size_t m_maxRecentEvents = 10;
+                        std::queue<std::unique_ptr<Event>> m_exceptionQueue;
                         std::queue<std::unique_ptr<Event>> m_eventQueue;
                         std::deque<std::unique_ptr<Event>> m_recentEvents;
                 // Helpers

@@ -13,6 +13,7 @@ Notes: Based on the Command Pattern. More in docs/resources.md
 #include <queue>
 #include <stack>
 #include <string>
+#include <typeinfo>
 #include "../include/event.hpp"
 #include "../include/eventHandler.hpp"
 #include "../include/globals.hpp"
@@ -61,7 +62,15 @@ namespace Chess
                 */
                 void EventHandler::submit(std::unique_ptr<Event> event)
                 {
-                        m_eventQueue.push(std::move(event));
+                        // Check if the event type is ExceptionEvent
+                        if (typeid(*event) == typeid(ExceptionEvent))
+                        {
+                                m_exceptionQueue.push(std::move(event));
+                        }
+                        else
+                        {
+                                m_eventQueue.push(std::move(event));
+                        }
                 }
 
 
@@ -70,7 +79,25 @@ namespace Chess
                 */
                 void EventHandler::processEventQueue()
                 {
-                        // For each event in the queue
+                        // First process the exception queue
+                        if (!m_exceptionQueue.empty())
+                        {
+                                // Get the exception event
+                                auto exceptionEvent = std::move(m_exceptionQueue.front());
+
+                                // Log the exception event
+                                LOG_ERROR("Exception Event: {} is now being processed.", exceptionEvent->getName());
+
+                                // Pop the exception event from the queue
+                                m_exceptionQueue.pop();
+
+                                // Add the exception event to the recent events
+                                addRecentEvent(std::move(exceptionEvent));
+
+                                // Execute the exception event
+                                m_recentEvents.back()->execute();
+                        }
+                        // Process regular events
                         if (!m_eventQueue.empty())
                         {
                                 // Get the event
