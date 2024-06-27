@@ -290,13 +290,20 @@ namespace Chess
                 {
                         // Get the terminal dimensions
                         struct winsize w;
+
                         // Use STDOUT_FILENO for standard output or 0 for standard input
                         if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == 0)
                         {
                                 setDimensions(w.ws_col, w.ws_row);
 
                                 // Log terminal dimensions
-                                LOG_INFO("Terminal dimensions: {}x{}", w.ws_col, w.ws_row);
+                                LOG_INFO("Terminal dimensions: {}x{}", w.ws_col,
+                                        w.ws_row);
+
+                                // Log minimum terminal dimensions
+                                LOG_INFO("Minimum terminal dimensions: {}x{}",
+                                        Globals::Constants::MIN_GUI_WIDTH,
+                                        Globals::Constants::MIN_GUI_HEIGHT);
                         }
 
                         // Check the terminal dimensions
