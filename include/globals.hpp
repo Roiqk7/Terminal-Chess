@@ -73,36 +73,44 @@ namespace Chess
                 // File paths
                 // Assets
                         const std::string ASSETS_PATH = "../assets/";           // Path to the assets folder
-                        const std::string CREDITS_PATH = ASSETS_PATH
-                                + "credits.txt";                                // Path to the credits
                         const std::string CREDITS_BANNER = ASSETS_PATH
                                 + "creditsBanner.txt";                          // Path to the credits banner
+                        const std::string CREDITS_PATH = ASSETS_PATH
+                                + "credits.txt";                                // Path to the credits
+                        const std::string DIFFICULTY_MENU_BANNER_PATH = ASSETS_PATH
+                                + "difficultyMenuBanner.txt";                   // Path to the difficulty menu banner
+                        const std::string DIFFICULTY_MENU_PATH = ASSETS_PATH
+                                + "difficultyMenu.txt";                         // Path to the difficulty menu
                         const std::string ERROR_BANNER_PATH = ASSETS_PATH
                                 + "errorBanner.txt";                            // Path to the error banner
                         const std::string FAREWELL_PATH = ASSETS_PATH
                                 + "farewell.txt";                               // Path to the farewell text
-                        const std::string FOOTER_PATH = ASSETS_PATH
-                                + "footer.txt";                                 // Path to the footer
                         const std::string FOOTER_LEFT_PATH = ASSETS_PATH
                                 + "footerLeft.txt";                             // Path to the left footer
+                        const std::string FOOTER_PATH = ASSETS_PATH
+                                + "footer.txt";                                 // Path to the footer
                         const std::string FOOTER_RIGHT_PATH = ASSETS_PATH
                                 + "footerRight.txt";                            // Path to the right footer
+                        const std::string GAME_MODE_MENU_BANNER_PATH = ASSETS_PATH
+                                + "gameModeMenuBanner.txt";                     // Path to the game mode menu banner
+                        const std::string GAME_MODE_MENU_PATH = ASSETS_PATH
+                                + "gameModeMenu.txt";                           // Path to the game mode menu
                         const std::string GAME_OVER_BANNER_PATH = ASSETS_PATH
                                 + "gameOverBanner.txt";                         // Path to the game over banner
-                        const std::string HEADER_PATH = ASSETS_PATH
-                                + "header.txt";                                 // Path to the header
                         const std::string HEADER_LEFT_PATH = ASSETS_PATH
                                 + "headerLeft.txt";                             // Path to the left header
+                        const std::string HEADER_PATH = ASSETS_PATH
+                                + "header.txt";                                 // Path to the header
                         const std::string HEADER_RIGHT_PATH = ASSETS_PATH
                                 + "headerRight.txt";                            // Path to the right header
-                        const std::string HELP_MENU_PATH = ASSETS_PATH
-                                + "helpMenu.txt";                               // Path to the help menu
                         const std::string HELP_MENU_BANNER_PATH = ASSETS_PATH
                                 + "helpMenuBanner.txt";                         // Path to the help menu banner
-                        const std::string MAIN_MENU_PATH = ASSETS_PATH
-                                + "mainMenu.txt";                               // Path to the main menu
+                        const std::string HELP_MENU_PATH = ASSETS_PATH
+                                + "helpMenu.txt";                               // Path to the help menu
                         const std::string MAIN_MENU_BANNER_PATH = ASSETS_PATH
                                 + "mainMenuBanner.txt";                         // Path to the main menu banner
+                        const std::string MAIN_MENU_PATH = ASSETS_PATH
+                                + "mainMenu.txt";                               // Path to the main menu
                         const std::string USER_INPUT_SEPARATOR_PATH = ASSETS_PATH
                                 + "userInputSeparator.txt";                     // Path to the user input separator
                         const std::string WELCOME_BANNER_PATH = ASSETS_PATH
