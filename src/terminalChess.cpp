@@ -6,28 +6,21 @@ Description: This is the entry point of the program. It contains the main functi
 Notes: x
 */
 
-#include "../include/eventHandler.hpp"
+#include "../include/application.hpp"
 #include "../include/globals.hpp"
 
-using namespace Chess::EventSystem;
+using namespace Chess::application;
 
 int main()
 {
         // Set the log level
         SET_LOG_LEVEL_TRACE();
 
-        // Create the application
-        auto& application = EventHandler::getInstance();
+        // Start the application
+        initApplication();
 
-        // Application loop
-        while (application.run)
-        {
-                // Wait for an event
-                application.waitEvent();
-
-                // Process event queue
-                application.processEventQueue();
-        }
+        // Run the application
+        runApplication();
 
         return 0;
 }
