@@ -87,11 +87,8 @@ namespace Chess
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
 
-                        // Format the intro scene
-                        formatScene(introScene);
-
-                        // Display the intro scene
-                        display(introScene);
+                        // Format and display the intro scene
+                        formatAndDisplayScene(introScene);
 
                         // Wait for a few seconds
                         Tool::wait(2);
@@ -124,11 +121,8 @@ namespace Chess
                                 Globals::Constants::FOOTER_PATH,
                                 false, true));
 
-                        // Format the main menu scene
-                        formatScene(mainMenuScene);
-
-                        // Display the main menu scene
-                        display(mainMenuScene);
+                        // Format and display the main menu scene
+                        formatAndDisplayScene(mainMenuScene);
                 }
 
                 /*
@@ -156,11 +150,8 @@ namespace Chess
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
 
-                        // Format the help menu scene
-                        formatScene(helpMenuScene);
-
-                        // Display the help menu scene
-                        display(helpMenuScene);
+                        // Format and display the help menu scene
+                        formatAndDisplayScene(helpMenuScene);
                 }
 
                 /*
@@ -188,11 +179,8 @@ namespace Chess
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
 
-                        // Format the credits scene
-                        formatScene(creditsScene);
-
-                        // Display the credits scene
-                        display(creditsScene);
+                        // Format and display the credits scene
+                        formatAndDisplayScene(creditsScene);
                 }
 
                 /*
@@ -217,11 +205,8 @@ namespace Chess
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
 
-                        // Format the ending scene
-                        formatScene(endingScene);
-
-                        // Display the ending scene
-                        display(endingScene);
+                        // Format and display the ending scene
+                        formatAndDisplayScene(endingScene);
 
                         // Wait for a few seconds
                         Tool::wait(2);
@@ -256,11 +241,8 @@ namespace Chess
                                 Globals::Constants::FOOTER_PATH,
                                 false, false));
 
-                        // Format the error scene
-                        formatScene(errorScene);
-
-                        // Display the error scene
-                        display(errorScene);
+                        // Format and display the error scene
+                        formatAndDisplayScene(errorScene);
 
                         // Wait for a few seconds
                         Tool::wait(3);
@@ -281,6 +263,42 @@ namespace Chess
 
                         // Wait for a few seconds
                         Tool::wait(3);
+                }
+
+                /*
+                Format and display a scene.
+
+                @param scene: The scene to be formatted and displayed.
+                */
+                void formatAndDisplayScene(Scene& scene)
+                {
+                        // Try to format and display the scene
+                        try
+                        {
+                                // Format the scene
+                                formatScene(scene);
+
+                                // Display the scene
+                                display(scene);
+                        }
+                        // Catch terminal size exceptions
+                        catch (const Exception::TerminalSizeException& e)
+                        {
+                                // Handle the exception
+                                return Exception::handleException(e);
+                        }
+                        // Catch an exception
+                        catch (const std::exception& e)
+                        {
+                                // Handle the exception
+                                return Exception::handleException(e);
+                        }
+                        // Catch all exceptions
+                        catch (...)
+                        {
+                                // Handle the exception
+                                return Exception::handleUnknownException();
+                        }
                 }
 
                 /*

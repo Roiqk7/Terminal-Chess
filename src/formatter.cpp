@@ -105,11 +105,11 @@ namespace Chess
                                                 if (element.width > Globals::GUI_WIDTH)
                                                 {
                                                         // Log the error
-                                                        LOG_CRITICAL("Element {} is still required in scene {} and its width is still greater than GUI_WIDTH. Application will terminate.", element.name, scene.name);
+                                                        LOG_CRITICAL("Element {} is still required in scene {} and its width is still greater than GUI_WIDTH. Application will restart.", element.name, scene.name);
 
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
-                                                                + scene.name + " but its width is greater than the terminal width. Application will terminate.",
+                                                                + scene.name + " but its width is greater than the terminal width. Application will restart.",
                                                                 true, true);
                                                 }
                                         }
@@ -145,11 +145,11 @@ namespace Chess
                                                 if (element.height > Globals::GUI_HEIGHT || Globals::GUI_HEIGHT < scene.height + 1)
                                                 {
                                                         // Log the error
-                                                        LOG_CRITICAL("Element {} is still required in scene {} and its height is still greater than GUI_HEIGHT. Application will terminate.", element.name, scene.name);
+                                                        LOG_CRITICAL("Element {} is still required in scene {} and its height is still greater than GUI_HEIGHT. Application will restart.", element.name, scene.name);
 
                                                         // Throw an exception
                                                         throw Exception::TerminalSizeException("Element " + element.name + " is required in scene "
-                                                                + scene.name + " and its height is greater than the terminal height. Application will terminate.",
+                                                                + scene.name + " and its height is greater than the terminal height. Application will restart.",
                                                                 false, true);
                                                 }
                                         }
@@ -213,11 +213,11 @@ namespace Chess
                         if (scene.height - 1 > Globals::GUI_HEIGHT)
                         {
                                 // Log the error
-                                LOG_CRITICAL("Scene {} height is greater than GUI_HEIGHT. Application will terminate.", scene.name);
+                                LOG_CRITICAL("Scene {} height is greater than GUI_HEIGHT. Application will restart.", scene.name);
 
                                 // Throw an exception
                                 throw Exception::TerminalSizeException("Scene " + scene.name
-                                        + " height is greater than the terminal height. Application will terminate.",
+                                        + " height is greater than the terminal height. Application will restart.",
                                         false, true);
                         }
 
