@@ -15,7 +15,10 @@ namespace Chess
 {
         namespace application
         {
+                void initApplication();                                         // Initialize the application
+                void runApplication();                                          // Run the application
                 void startApplication();                                        // Start the application
+                void restartApplication();                                      // Restart the application
                 void mainMenu();                                                // Handles the main menu loop
                 void helpMenu();                                                // Handles the help menu loop
                 void credits();                                                 // Display the credits

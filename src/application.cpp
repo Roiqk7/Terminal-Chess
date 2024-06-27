@@ -20,13 +20,43 @@ namespace Chess
         namespace application
         {
                 /*
+                Initializes the application.
+                */
+                void initApplication()
+                {
+                        // Create the event handler
+                        Chess::EventSystem::EventHandler::getInstance();
+
+                        // Log application start
+                        LOG_INFO("Application initialized.");
+
+                        // Submit the application start event to start the application
+                        EventSystem::EventHandler::getInstance()
+                                .submit(std::make_unique<
+                                        EventSystem::ApplicationStartEvent>());
+                }
+
+                /*
+                Runs the application.
+                */
+                void runApplication()
+                {
+                        // Application loop
+                        while (EventSystem::EventHandler::getInstance().run)
+                        {
+                                // Wait for an event
+                                EventSystem::EventHandler::getInstance().waitEvent();
+
+                                // Process event queue
+                                EventSystem::EventHandler::getInstance().processEventQueue();
+                        }
+                }
+
+                /*
                 Starts the application.
                 */
                 void startApplication()
                 {
-                        // Log application start
-                        LOG_INFO("Application started.");
-
                         // Catch any exceptions
                         try
                         {
@@ -35,6 +65,14 @@ namespace Chess
 
                                 // Display the intro
                                 GUI::displayIntro();
+
+                                // Log application start
+                                LOG_INFO("Application started.");
+
+                                // Start the event chain
+                                EventSystem::EventHandler::getInstance()
+                                .submit(std::make_unique<
+                                        EventSystem::ApplicationMainMenuEvent>());
                         }
                         // Terminal size exception
                         catch (const Exception::TerminalSizeException &e)
@@ -54,6 +92,15 @@ namespace Chess
                                 // Handle the exception
                                 return Exception::handleUnknownException();
                         }
+                }
+
+                /*
+                Restarts the application.
+                */
+                void restartApplication()
+                {
+                        // Restart the application
+                        return initApplication();
                 }
 
                 /*
