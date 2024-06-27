@@ -50,45 +50,22 @@ namespace Chess
                         // Catch the exception
                         catch (const Exception::TerminalSizeException& e)
                         {
-                                // Log the exception
-                                LOG_CRITICAL(e.what());
-
-                                // If even the error message is too long to display, we need to display a simpler message
-                                if (scene.name == "Error")
-                                {
-                                        // Display the error
-                                        return EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<EventSystem::ExceptionEvent>(
-                                                        std::vector<std::string>{"Terminal too small. Resize!!!"},
-                                                        true));
-                                }
-                                // Display the error
-                                return EventSystem::EventHandler::getInstance().submit(
-                                        std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
-                                                "Dear user, while formatting the scene " + scene.name
-                                                + " an error occurred. Your terminal size is not sufficient to display the required elements.",
-                                                "Please resize your terminal and restart the application."}));
+                                // Handle the exception
+                                return Exception::handleTerminalSizeException(e, scene.name == "Error");
                         }
-                        // Catch all other exceptions
+                        // Catch all the standard exceptions
                         catch (const std::exception& e)
                         {
-                                // Log the exception
-                                LOG_CRITICAL(e.what());
-
-                                // If even the error message is too long to display, skip it
-                                if (scene.name != "Error")
-                                {
-                                        // Display the error
-                                        EventSystem::EventHandler::getInstance().submit(
-                                                std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
-                                                        "Dear user, while formatting the scene " + scene.name
-                                                        + " an unexpected error occurred.",
-                                                        "The application will restart itself."}));
-                                }
-
-                                // Restart the application
-                                return EventSystem::EventHandler::getInstance().restart();
+                                // Handle the exception
+                                return Exception::handleException(e);
                         }
+                        // Catch all the exceptions
+                        catch (...)
+                        {
+                                // Handle unknown exception
+                                return Exception::handleUnknownException();
+                        }
+
                 }
 
                 /*
@@ -233,6 +210,16 @@ namespace Chess
                                 - 1;                                            // Note: We skip this one line as the last line is reserved for the cursor.
 
                         // Error check
+                        if (scene.height - 1 > Globals::GUI_HEIGHT)
+                        {
+                                // Log the error
+                                LOG_CRITICAL("Scene {} height is greater than GUI_HEIGHT. Application will terminate.", scene.name);
+
+                                // Throw an exception
+                                throw Exception::TerminalSizeException("Scene " + scene.name
+                                        + " height is greater than the terminal height. Application will terminate.",
+                                        false, true);
+                        }
 
                         // No calculate the number of places where we can add empty lines
                         size_t emptyPlaces = scene.elements.size() - 1;

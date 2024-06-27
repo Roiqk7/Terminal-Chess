@@ -298,17 +298,19 @@ namespace Chess
                                 // Log terminal dimensions
                                 LOG_INFO("Terminal dimensions: {}x{}", w.ws_col, w.ws_row);
                         }
-                        else
+
+                        // Check the terminal dimensions
+                        if (Globals::GUI_WIDTH < Globals::Constants::MIN_GUI_WIDTH)
                         {
-                                // Default terminal dimensions
-                                size_t width = 64;
-                                size_t height = 32;
-
-                                // Failed to get terminal dimensions, use default values
-                                setDimensions(width, height);
-
-                                // Log warning
-                                LOG_WARN("Failed to get terminal dimensions, using default values: {}x{}", width, height);
+                                // Throw a terminal size exception
+                                throw Exception::TerminalSizeException(
+                                        "Terminal width is too small.", true, true);
+                        }
+                        else if (Globals::GUI_HEIGHT < Globals::Constants::MIN_GUI_HEIGHT)
+                        {
+                                // Throw a terminal size exception
+                                throw Exception::TerminalSizeException(
+                                        "Terminal height is too small.", false, true);
                         }
                 }
 

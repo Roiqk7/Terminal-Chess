@@ -9,6 +9,7 @@ Notes: x
 #include "../include/application.hpp"
 #include "../include/event.hpp"
 #include "../include/eventHandler.hpp"
+#include "../include/exception.hpp"
 #include "../include/globals.hpp"
 #include "../include/gui.hpp"
 #include "../include/inputHandler.hpp"
@@ -26,15 +27,33 @@ namespace Chess
                         // Log application start
                         LOG_INFO("Application started.");
 
-                        // Initialize the GUI
-                        GUI::initGUI();
+                        // Catch any exceptions
+                        try
+                        {
+                                // Initialize the GUI
+                                GUI::initGUI();
 
-                        // Display the intro
-                        GUI::displayIntro();
-
-                        // Start the event chain reaction
-                        return EventSystem::EventHandler::getInstance().submit(
-                                std::make_unique<EventSystem::ApplicationMainMenuEvent>());
+                                // Display the intro
+                                GUI::displayIntro();
+                        }
+                        // Terminal size exception
+                        catch (const Exception::TerminalSizeException &e)
+                        {
+                                // Handle the exception
+                                return Exception::handleTerminalSizeException(e, true);
+                        }
+                        // Other standard exceptions
+                        catch (const std::exception &e)
+                        {
+                                // Handle the exception
+                                return Exception::handleException(e);
+                        }
+                        // Other exceptions
+                        catch (...)
+                        {
+                                // Handle the exception
+                                return Exception::handleUnknownException();
+                        }
                 }
 
                 /*

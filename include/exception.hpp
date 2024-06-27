@@ -1,7 +1,7 @@
 /*
 Date: 21/06/2024
 
-Description: This file contains declarations of exceptions used in the program.
+Description: This file contains declarations of exceptions used in the program and a few functions for handling them.
 
 Notes: x
 */
@@ -59,6 +59,10 @@ namespace Chess
                 };
         // Functions
                 void logException(const std::string& message);
+                void handleTerminalSizeException(const Exception::TerminalSizeException& e,
+                        bool criticallySmall);
+                void handleException(const std::exception& e);
+                void handleUnknownException();
         }
 }
 

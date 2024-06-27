@@ -6,6 +6,10 @@ Description: This file contains implementations of exceptions used in the progra
 Notes: x
 */
 
+#include <exception>
+#include <string>
+#include "../include/event.hpp"
+#include "../include/eventHandler.hpp"
 #include "../include/exception.hpp"
 #include "../include/globals.hpp"
 
@@ -93,7 +97,7 @@ namespace Chess
                         }
                         // Terminal can not be too large. The boolean value serves readability purpose.
                 }
-        // Methods
+        // Functions
 
                 /*
                 Log an exception.
@@ -101,6 +105,69 @@ namespace Chess
                 void logException(const std::string& message)
                 {
                         LOG_ERROR("Exception: {}", message);
+                }
+
+                /*
+                Handle a terminal size exception.
+
+                @param e: The exception to be handled
+                @param message: The message to be logged
+                */
+                void handleTerminalSizeException(const Exception::TerminalSizeException& e,
+                        bool criticallySmall)
+                {
+                        // Log the exception
+                        LOG_CRITICAL(e.what());
+
+                        // If even the error message is too long to display, we need to display a simpler message
+                        if (criticallySmall)
+                        {
+                                // Display the error
+                                return EventSystem::EventHandler::getInstance().submit(
+                                        std::make_unique<EventSystem::ExceptionEvent>(
+                                                std::vector<std::string>{"Terminal too small. Resize!!!"},
+                                                true));
+                        }
+                        // Display the error
+                        return EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
+                                        "Dear user, your terminal size is not sufficient to display the required elements.",
+                                        "Please resize your terminal and restart the application."}));
+                }
+
+                /*
+                Handle an exception.
+
+                @param e: The exception to be handled
+                */
+                void handleException(const std::exception& e)
+                {
+                        // Log the exception
+                        LOG_ERROR(e.what());
+
+                        // Display the error
+                        return EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
+                                        "An error occurred. Please restart the application."}));
+                }
+
+                /*
+                Handle an unknown exception.
+                */
+
+                void handleUnknownException()
+                {
+                        // Log the exception
+                        LOG_CRITICAL("An unknown exception occurred.");
+
+                        // Display the error
+                        EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<EventSystem::ExceptionEvent>(std::vector<std::string>{
+                                        "An unexpected exception occurred. Application will terminate."}));
+
+                        // Exit the application
+                        EventSystem::EventHandler::getInstance().submit(
+                                std::make_unique<EventSystem::ApplicationExitEvent>());
                 }
         }
 }
