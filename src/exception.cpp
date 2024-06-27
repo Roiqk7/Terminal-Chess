@@ -125,7 +125,7 @@ namespace Chess
                                 // Display the error
                                 return EventSystem::EventHandler::getInstance().submit(
                                         std::make_unique<EventSystem::ExceptionEvent>(
-                                                std::vector<std::string>{"Terminal too small. Resize!!!"},
+                                                std::vector<std::string>{"[Error] Terminal too small. Resize!!!"},
                                                 true));
                         }
                         // Display the error
