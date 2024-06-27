@@ -11,6 +11,7 @@ Notes: x
 
 #include <string>
 #include "globals.hpp"
+#include "scene.hpp"
 
 namespace Chess
 {
@@ -30,6 +31,7 @@ namespace Chess
                 void displaySimpleError(
                         const std::string& errorMessage);                       // Display a simple error
         // Utility
+                void formatAndDisplayScene(Scene& scene);                       // Format and display a scene
                 void getDimensions();                                           // Get the dimensions of the terminal
                 void setDimensions(const size_t& width, const size_t& height);  // Set the dimensions of the terminal
                 void clearScreen();                                             // Clear the screen
