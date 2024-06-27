@@ -163,9 +163,6 @@ namespace Chess
 
                         // Add the null event to the recent events to properly initialize the event handlers
                         addRecentEvent(std::make_unique<NullEvent>());
-
-                        // Submit the application start event to start the application
-                        submit(std::make_unique<ApplicationStartEvent>());
                 }
 
                 /*
