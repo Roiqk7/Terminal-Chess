@@ -46,7 +46,7 @@ fi
 
 # Clone chess console library
 echo "Cloning the chess console library..."
-git clone --recursive https://github.com/Roiqk7/Terminal-Chess.git
+git clone --recursive https://github.com/Disservin/chess-library.git
 
 # Move back to the original directory after building
 echo "Moving back to the original directory..."
