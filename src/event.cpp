@@ -89,7 +89,6 @@ namespace Chess
                                 // Display the simple error
                                 GUI::displaySimpleError(m_message[0]);
                         }
-
                 }
 
                 /*
