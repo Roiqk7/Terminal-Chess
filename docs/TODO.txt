@@ -1,6 +1,8 @@
 Goal: Create a simple demo where you can safely move across the app and have the basic GUI elements working.
 
-- Add exception events
+- Improve error handling! Now it is not reliable
+        - For some reason when error occurs in main menu the getInput() gets called which should not happen!
+        - The error screen gets displayed usually too late
 - Make sure there is no vulnerability/all the memory is safe.
 - Improve help menu. Currently it is not really helpful.
 - Add all the scenes except the Chess game.
