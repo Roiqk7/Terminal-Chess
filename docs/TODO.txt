@@ -7,6 +7,8 @@ Goal: Create a simple demo where you can safely move across the app and have the
 - Improve help menu. Currently it is not really helpful.
 - Add all the scenes except the Chess game.
         - Make sure you can move around the app and everything is nice.
+- Add the Chess game.
+        - Try to look for good and tested chess library.
 
 
 
