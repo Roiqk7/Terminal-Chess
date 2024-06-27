@@ -63,7 +63,7 @@ namespace Chess
                 // GUI
                         // GUI dimensions
                         const size_t MIN_GUI_WIDTH = 80;                        // Minimum width of the GUI
-                        const size_t MIN_GUI_HEIGHT = 24;                       // Minimum height of the GUI
+                        const size_t MIN_GUI_HEIGHT = 36;                       // Minimum height of the GUI
                         // ANSI color codes
                         const std::string RESET_COLOR = "\033[0m";              // Reset color
                         const std::string WHITE_PIECE_COLOR = "\033[97m";       // Bright white for pieces
