@@ -45,7 +45,7 @@ if [[ $(basename "$PWD") != "lib" ]]; then
 fi
 
 # Clone chess console library
-echo "Cloning the chess console library..."
+echo "Cloning the chess library..."
 git clone --recursive https://github.com/Disservin/chess-library.git
 
 # Move back to the original directory after building
