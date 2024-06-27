@@ -263,7 +263,7 @@ namespace Chess
                         display(errorScene);
 
                         // Wait for a few seconds
-                        Tool::wait(5);
+                        Tool::wait(3);
                 }
 
                 /*
@@ -280,7 +280,7 @@ namespace Chess
                         displayString(errorMessage, '\n');
 
                         // Wait for a few seconds
-                        Tool::wait(5);
+                        Tool::wait(3);
                 }
 
                 /*
