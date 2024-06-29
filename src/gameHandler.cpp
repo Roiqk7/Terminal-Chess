@@ -65,7 +65,24 @@ namespace Chess
                 */
                 void loadGame(const int saveSlot)
                 {
-                        // TODO: Implement loading a saved game
+                        // Open the file
+                        std::ifstream file("data/saveSlot" + std::to_string(saveSlot) + ".txt");
+
+                        // Read the FEN string from the file
+                        std::string fen;
+                        file >> fen;
+
+                        // Close the file
+                        file.close();
+
+                        // Set the current game to the loaded game
+                        std::ofstream file2("data/currGame.txt");
+
+                        // Write the FEN string to the file
+                        file2 << fen;
+
+                        // Close the file
+                        file2.close();
                 }
         }
 }
