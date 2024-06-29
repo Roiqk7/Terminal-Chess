@@ -6,8 +6,11 @@ Description: This file implements functions which handle individual chess game.
 Notes: By game we mean the entire application, not just the chess game.
 */
 
+#include <fstream>
+#include <string>
 #include "../include/chessLibrary.hpp"
 #include "../include/gameHandler.hpp"
+#include "../include/tool.hpp"
 
 namespace Chess
 {
@@ -45,7 +48,14 @@ namespace Chess
                 */
                 void saveGame(const std::string& fen, const int saveSlot)
                 {
-                        // TODO: Implement saving the game
+                        // Open the file
+                        std::ofstream file("data/saveSlot" + std::to_string(saveSlot) + ".txt");
+
+                        // Write the FEN string to the file
+                        file << fen;
+
+                        // Close the file
+                        file.close();
                 }
 
                 /*
